@@ -17,16 +17,35 @@
     table.style.rules="all";
     document.getElementById("modList").appendChild(table);
     
-    // populate table from JSON
+    // parse mods into dict from JSON
+    let modDict = {};
     for (let modder in data) {
       let mods = data[modder];
       for (let modIdx in mods) {
-        let row = table.insertRow();
-        row.insertCell().innerHTML = modder;
-        row.insertCell().innerHTML = mods[modIdx]["name"];
-        row.insertCell().innerHTML = mods[modIdx]["desc"];
-        row.insertCell().innerHTML = "<a href=\"" + mods[modIdx]["URL"] + "\">GitHub</a>";
+        let modName = mods[modIdx]["name"];
+        if (!modDict.hasOwnProperty(modName)) {
+          // create stub entry
+          modDict[modName] = {desc: "", url: "", tags: []};
+        }
+        
+        modDict[modName].desc = mods[modIdx]["desc"];
+        modDict[modName].url = mods[modIdx]["URL"];
+        modDict[modName].tags.push(modder);
       }
+    }
+    
+    let row = table.insertRow();
+    row.insertCell().innerHTML = "<b>Mod Name</b>";
+    row.insertCell().innerHTML = "<b>Description</b>";
+    row.insertCell().innerHTML = "<b>Tags</b>";
+    row.insertCell().innerHTML = "<b>Link</b>";
+    
+    for (let modName in modDict) {
+      row = table.insertRow();
+      row.insertCell().innerHTML = modName;
+      row.insertCell().innerHTML = modDict[modName]["desc"];
+      row.insertCell().innerHTML = modDict[modName]["tags"].join(", ");
+      row.insertCell().innerHTML = "<a href=\"" + modDict[modName]["url"] + "\">GitHub</a>";
     }
   }
     

@@ -55,6 +55,7 @@
       row = table.insertRow();
       row.insertCell().innerHTML = modName;
       row.insertCell().innerHTML = modDict[modName]["desc"];
+      modDict[modName]["tags"].sort();
       row.insertCell().innerHTML = modDict[modName]["tags"].join(", ");
       row.insertCell().innerHTML = "<a href=\"" + modDict[modName]["url"] + "\">GitHub</a>";
     }

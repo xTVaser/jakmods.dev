@@ -50,7 +50,8 @@
     row.insertCell().innerHTML = "<b>Link</b>";
     
     modNames.sort();  // sort alphabetically
-    for (let modName in modNames) {
+    for (let modIdx in modNames) {
+      let modName = modNames[modIdx];
       row = table.insertRow();
       row.insertCell().innerHTML = modName;
       row.insertCell().innerHTML = modDict[modName]["desc"];

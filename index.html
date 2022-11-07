@@ -26,6 +26,7 @@
     
     // parse mods into dict from JSON
     let modDict = {};
+    let modNames = [];
     for (let modder in data) {
       let mods = data[modder];
       for (let modIdx in mods) {
@@ -33,6 +34,7 @@
         if (!modDict.hasOwnProperty(modName)) {
           // create stub entry
           modDict[modName] = {desc: "", url: "", tags: []};
+          modNames.push(modName);
         }
         
         modDict[modName].desc = mods[modIdx]["desc"];
@@ -47,7 +49,8 @@
     row.insertCell().innerHTML = "<b>Devs/Tags</b>";
     row.insertCell().innerHTML = "<b>Link</b>";
     
-    for (let modName in modDict) {
+    modNames.sort();  // sort alphabetically
+    for (let modName in modNames) {
       row = table.insertRow();
       row.insertCell().innerHTML = modName;
       row.insertCell().innerHTML = modDict[modName]["desc"];

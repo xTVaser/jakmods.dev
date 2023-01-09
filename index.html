@@ -48,7 +48,7 @@
     row.insertCell().innerHTML = "<b>Mod Name</b>";
     row.insertCell().innerHTML = "<b>Description</b>";
     row.insertCell().innerHTML = "<b>Devs/Tags</b>";
-    row.insertCell().innerHTML = "<b>Github</b>";
+    //row.insertCell().innerHTML = "<b>Github</b>";
     row.insertCell().innerHTML = "<b>Video</b>";
     
     modNames.sort();  // sort alphabetically
@@ -59,7 +59,7 @@
       row.insertCell().innerHTML = modDict[modName]["desc"];
       modDict[modName]["tags"].sort();
       row.insertCell().innerHTML = modDict[modName]["tags"].join(", ");
-      row.insertCell().innerHTML = "<a href=\"" + modDict[modName]["url"] + "\">GitHub</a>";
+    //  row.insertCell().innerHTML = "<a href=\"" + modDict[modName]["url"] + "\">GitHub</a>";
       if (modDict[modName]["video"]) {
         row.insertCell().innerHTML = "<a href=\"" + modDict[modName]["video"] + "\">Video</a>";
       } else {
@@ -110,3 +110,5 @@
     <marquee>👋 Hi Vaser 👋</marquee> 
   </body>
 </html>
+
+

@@ -34,11 +34,11 @@
         mod["desc"],
         mod["contributors"].join(", "),
         mod["tags"].sort().join(", "),
-        mod["release_date"]
+        mod["release_date"],
         mod["website_url"], 
         mod["videos_url"],
         mod["photos_url"]
-      ];
+      ]);
     }
     
     // sort by release date desc (recent at top)
@@ -62,17 +62,17 @@
       row.insertCell().innerHTML = mod[3];  // tags
       row.insertCell().innerHTML = mod[4];  // release date
       if (mod[5] != "") {
-        row.insertCell().innerHTML = "<a href=\"" + mod[5] + "\">Website</a>;  // website
+        row.insertCell().innerHTML = "<a href=\"" + mod[5] + "\">Website</a>";  // website
       } else {
         row.insertCell().innerHTML = "N/A";
       }
       if (mod[6] != "") {
-        row.insertCell().innerHTML = "<a href=\"" + mod[6] + "\">Video(s)</a>;  // videos
+        row.insertCell().innerHTML = "<a href=\"" + mod[6] + "\">Video(s)</a>";  // videos
       } else {
         row.insertCell().innerHTML = "N/A";
       }
       if (mod[7] != "") {
-        row.insertCell().innerHTML = "<a href=\"" + mod[7] + "\">Photo(s)</a>;  // photos
+        row.insertCell().innerHTML = "<a href=\"" + mod[7] + "\">Photo(s)</a>";  // photos
       } else {
         row.insertCell().innerHTML = "N/A";
       }

@@ -12,7 +12,7 @@
   <script>  // this will dynamically download list of mods and generate the table
   async function asyncLoadModTable() {
     // download and parse JSON
-    let response = await fetch("https://raw.githubusercontent.com/OpenGOAL-Unofficial-Mods/OpenGoal-ModLauncher-dev/main/resources/ListOfMods.json");
+    let response = await fetch("https://raw.githubusercontent.com/OpenGOAL-Unofficial-Mods/OpenGoal-ModLauncher-dev/main/resources/jak1_mods.json");
     let data = await response.json();
     
     // let rawData = '{"Modding Community": [{"name": "Randomizer","desc": "Warp to a random checkpoint on various triggers (cells, flies, orbs, eco, death).","URL": "https://github.com/OpenGOAL-Unofficial-Mods/opengoal-randomizer-mod-pack/tree/main"}]}';
@@ -25,43 +25,54 @@
     document.getElementById("modList").appendChild(table);
     
     // parse mods into dict from JSON
-    let modDict = {};
-    let modNames = [];
-    for (let modder in data) {
-      let mods = data[modder];
-      for (let modIdx in mods) {
-        let modName = mods[modIdx]["name"];
-        if (!modDict.hasOwnProperty(modName)) {
-          // create stub entry
-          modDict[modName] = {desc: "", url: "", video:"", tags: []};
-          modNames.push(modName);
-        }
-        
-        modDict[modName].desc = mods[modIdx]["desc"];
-        modDict[modName].url = mods[modIdx]["URL"];
-        modDict[modName].video = mods[modIdx]["video"];
-        modDict[modName].tags.push(modder);
-      }
+    let mods = [];
+    for (let mod_id in data) {
+      let mod = data[mod_id];
+      
+      mods.append([
+        mod["name"],
+        mod["desc"],
+        mod["contributors"].join(", "),
+        mod["tags"].sort().join(", "),
+        mod["release_date"]
+        mod["website_url"], 
+        mod["videos_url"],
+        mod["photos_url"]
+      ];
     }
+    
+    // sort by release date desc (recent at top)
+    mods.sort((a, b) => b[4] - a[4])
     
     let row = table.insertRow();
     row.insertCell().innerHTML = "<b>Mod Name</b>";
     row.insertCell().innerHTML = "<b>Description</b>";
-    row.insertCell().innerHTML = "<b>Devs/Tags</b>";
-    //row.insertCell().innerHTML = "<b>Github</b>";
-    row.insertCell().innerHTML = "<b>Video</b>";
+    row.insertCell().innerHTML = "<b>Contributors</b>";
+    row.insertCell().innerHTML = "<b>Tags</b>";
+    row.insertCell().innerHTML = "<b>Release Date</b>";
+    row.insertCell().innerHTML = "<b>Website</b>";
+    row.insertCell().innerHTML = "<b>Video(s)</b>";
+    row.insertCell().innerHTML = "<b>Photos(s)</b>";
     
-    modNames.sort();  // sort alphabetically
-    for (let modIdx in modNames) {
-      let modName = modNames[modIdx];
-      row = table.insertRow();
-      row.insertCell().innerHTML = modName;
-      row.insertCell().innerHTML = modDict[modName]["desc"];
-      modDict[modName]["tags"].sort();
-      row.insertCell().innerHTML = modDict[modName]["tags"].join(", ");
-    //  row.insertCell().innerHTML = "<a href=\"" + modDict[modName]["url"] + "\">GitHub</a>";
-      if (modDict[modName]["video"]) {
-        row.insertCell().innerHTML = "<a href=\"" + modDict[modName]["video"] + "\">Video</a>";
+    for (let mod in mods) {
+      row = table.insertRow(); 
+      row.insertCell().innerHTML = mod[0];  // name
+      row.insertCell().innerHTML = mod[1];  // desc
+      row.insertCell().innerHTML = mod[2];  // contributors
+      row.insertCell().innerHTML = mod[3];  // tags
+      row.insertCell().innerHTML = mod[4];  // release date
+      if (mod[5] != "") {
+        row.insertCell().innerHTML = "<a href=\"" + mod[5] + "\">Website</a>;  // website
+      } else {
+        row.insertCell().innerHTML = "N/A";
+      }
+      if (mod[6] != "") {
+        row.insertCell().innerHTML = "<a href=\"" + mod[6] + "\">Video(s)</a>;  // videos
+      } else {
+        row.insertCell().innerHTML = "N/A";
+      }
+      if (mod[7] != "") {
+        row.insertCell().innerHTML = "<a href=\"" + mod[7] + "\">Photo(s)</a>;  // photos
       } else {
         row.insertCell().innerHTML = "N/A";
       }

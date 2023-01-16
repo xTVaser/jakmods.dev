@@ -42,7 +42,7 @@
     }
     
     // sort by release date desc (recent at top)
-    mods = mods.sort((a, b) => a[4] - b[4]).reverse()
+    mods = mods.sort((a, b) => a[4].localeCompare(b[4])).reverse()
     
     let row = table.insertRow();
     row.insertCell().innerHTML = "<b>Mod Name</b>";

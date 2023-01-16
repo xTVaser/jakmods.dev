@@ -42,7 +42,7 @@
     }
     
     // sort by release date desc (recent at top)
-    mods.sort((a, b) => b[4] - a[4])
+    mods = mods.sort((a, b) => a[4] - b[4]).reverse()
     
     let row = table.insertRow();
     row.insertCell().innerHTML = "<b>Mod Name</b>";
@@ -54,24 +54,25 @@
     row.insertCell().innerHTML = "<b>Video(s)</b>";
     row.insertCell().innerHTML = "<b>Photos(s)</b>";
     
-    for (let mod in mods) {
+    for (let modIdx in mods) {
+      mod = mods[modIdx];
       row = table.insertRow(); 
       row.insertCell().innerHTML = mod[0];  // name
       row.insertCell().innerHTML = mod[1];  // desc
       row.insertCell().innerHTML = mod[2];  // contributors
       row.insertCell().innerHTML = mod[3];  // tags
       row.insertCell().innerHTML = mod[4];  // release date
-      if (mod[5] != "") {
+      if (mod[5] && mod[5] != "") {
         row.insertCell().innerHTML = "<a href=\"" + mod[5] + "\">Website</a>";  // website
       } else {
         row.insertCell().innerHTML = "N/A";
       }
-      if (mod[6] != "") {
+      if (mod[6] && mod[6] != "") {
         row.insertCell().innerHTML = "<a href=\"" + mod[6] + "\">Video(s)</a>";  // videos
       } else {
         row.insertCell().innerHTML = "N/A";
       }
-      if (mod[7] != "") {
+      if (mod[7] && mod[7] != "") {
         row.insertCell().innerHTML = "<a href=\"" + mod[7] + "\">Photo(s)</a>";  // photos
       } else {
         row.insertCell().innerHTML = "N/A";

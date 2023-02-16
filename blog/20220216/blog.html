@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <style>
+    .navbar {
+      overflow: hidden;
+      background-color: #fff;
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+
+    .main {
+      margin-top: 150px;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 5px;
+    }
+
+    .column {
+    float: left;
+    width: 50%;
+    }
+
+    .row:after {
+    content: "";
+    display: table;
+    clear: both;
+    }
+
+    /* offsets anchor tags relative to fixed navbar */
+    :target {
+      display: block;    
+      position: relative;     
+      top: -150px;
+      visibility: hidden;
+    }
+
+  </style>
+  <title>OpenGOAL unofficial Mod Launcher</title>
+  <link rel="icon" href="icon.png" type="image/x-icon">
+  <body>
+    <div class="navbar">
+      <p><h1><center>OpenGOAL unofficial Mod Launcher</center></h1></p>
+      <p><center><a href="../../index.html">Home</a></center></p>
+      <hr>
+    </div>
+    
+    <div class="main">
+      <p><h1>Blindfold Assist Mod - Code Review</h1></p>
+      <p>🙋‍♂️ We're always trying to get more people involved with openGOAL modding, so I wanted to try to document some of the mods we've put together through this blog series. A lot of the mods only require really simple changes, once you know your way around the codebase. Take <a href="https://www.youtube.com/watch?v=zB_co9D68E8">Zed's recent "Fricked Up" mod</a> - the original version had less than 5 lines of code added! (Maybe Zed will do a writeup about that mod another time!)</p>
+      
+      <p><h2>Background</h2></p>
+      <p>Today I'm going to run through the process of building a mod to assist with blindfolded runs. I chose to kick things off with this mod because it too required only simple changes, so reviewing the code should be easy enough. If you're unfamiliar with <a href="https://www.denofgeek.com/games/blindgolded-gaming-speedruns-history-explained/">blindfolded video gaming</a>, one of the key steps is finding setups for progressing through levels that can be consistently repeated. In 3D games, you'll often see strategies like:
+        <ul>
+          <li>aligning the character against walls or other level geometry</li>
+          <li>being able to move in straight lines and/or consistent distances</li>
+          <li>manipulating the camera in consistent patterns</li>
+        </ul>
+      </p>
+      <p>When it comes to Jak, the game's responsive engine provides maybe too much flexibility in controlling Jak's movement and the camera 😅 and it hinders the consistency of blindfolded setups. So for this mod we're actually limiting some functionality - here are the two changes I set out to tackle (thanks Borrdi for the suggestions):
+        <ul>
+          <li>limit analog stick input to 8 directions ↑ ↗ → ↘ ↓ ↙ ← ↖ (every 45 degrees)</li>
+          <li>add a button combo to (attempt to) center the camera behind Jak</li>
+        </ul>
+      </p>
+      <p>I'll go through things in more detail below, but you can <a href="https://github.com/OpenGOAL-Unofficial-Mods/blindfold-assist/commit/1cd217498b5efa501c4980241d253a6b09e8c330">click here to see the full diff</a> of changes for this mod. It's only 69 lines across 3 files, and most of that is duplicated code for the left vs right analog sticks.</p>
+      
+      <p><h2>Limiting analog stick input to 8 directions</h2></p>
+
+      <p><h3>Where/how is controller input defined?</h3></p>
+      <p>
+        On the OpenGOAL side, the controller input is represented by the <a href="https://github.com/open-goal/jak-project/blob/ee3bc182e13a440f90e20a6f7be7d3b294a7e56a/goal_src/jak1/engine/ps2/pad.gc#L49-L100"><code>cpad-info</code> type</a>. In particular, the below fields (some from the parent <code>hw-cpad</code> type) relate to the analog stick inputs:
+        <pre>
+;; data that comes directly from hardware. it's 32 bytes + type tag (ignored in C kernel).
+(deftype hw-cpad (basic)
+  (
+    ...
+    (rightx  uint8     :offset-assert 8) ;; right stick xdir
+    (righty  uint8     :offset-assert 9) ;; right stick ydir
+    (leftx   uint8     :offset-assert 10) ;; left stick xdir
+    (lefty   uint8     :offset-assert 11) ;; left stick ydir
+    ...
+    )
+  )
+
+;; data from hardware + additional info calculated here.
+(deftype cpad-info (hw-cpad)
+  (
+    ...
+    (stick0-dir         float           :offset-assert 72)
+    (stick0-speed       float           :offset-assert 76)
+    ...
+    )
+  )
+        </pre>
+        You can sort of think of <code>rightx</code> and <code>righty</code> as the X and Y "coordinates" for the position of the right analog stick, read directly from the hardware. Since they are <code>uint8</code>s they range in value from 0 (left/up) to 255 (right/down) - so both would be 128 while neutral (assuming no stick drift). The same applies for <code>leftx</code> and <code>lefty</code> for the left analog stick, however there is an extra step where <code>stick0-dir</code> and <code>stick0-speed</code> are computed from the values of <code>leftx</code> and <code>lefty</code>. This happens once per frame within <code>service-cpads</code> <a href="https://github.com/open-goal/jak-project/blob/ee3bc182e13a440f90e20a6f7be7d3b294a7e56a/goal_src/jak1/engine/ps2/pad.gc#L344-L349">here</a>.
+      </p>
+      <p>
+        But let's take a step back - what if you didn't know where the controller inputs were handled? One way would be to look at the code for moving Jak (known as <code>target</code> in the code) and work backwards to find the controller input that affects Jak's movement. With some digging and some luck, you'll find yourself in <code>logic-target.gc</code>, and towards the end of the file are <a href="https://github.com/open-goal/jak-project/blob/ee3bc182e13a440f90e20a6f7be7d3b294a7e56a/goal_src/jak1/engine/target/logic-target.gc#L1522-L1895">a few functions</a> that update Jak's position differently, depending on if he's swimming, sliding, etc. In several of these there's a <code>read-pad</code> call, which populates a vector that is then used in the logic for updating Jak's position. <a href="https://github.com/open-goal/jak-project/blob/ee3bc182e13a440f90e20a6f7be7d3b294a7e56a/goal_src/jak1/engine/target/logic-target.gc#L488-L501">Looking at <code>read-pad</code> itself</a>, we can see that the vector is populated by taking the sine/cosine of <code>(-> self control unknown-cpad-info00 stick0-dir)</code>. And if we <a href="https://github.com/open-goal/jak-project/blob/ee3bc182e13a440f90e20a6f7be7d3b294a7e56a/goal_src/jak1/engine/collide/collide-target-h.gc#L51">hunt down the <code>unknown-cpad-info00</code> field</a>, we find it's a <code>cpad-info</code>!
+      </p>
+        
+      <p><h3>Math time</h3></p>
+        <p>
+          Ok so we know about <code>cpad-info</code>, now what? Reading through <code>service-cpads</code>, I see that there is already a <a href="https://github.com/open-goal/jak-project/blob/ee3bc182e13a440f90e20a6f7be7d3b294a7e56a/goal_src/jak1/engine/ps2/pad.gc#L337-L342">tweak to the analog stick inputs to account for mirror mode</a>. Further, this happens after the <a href="https://github.com/open-goal/jak-project/blob/ee3bc182e13a440f90e20a6f7be7d3b294a7e56a/goal_src/jak1/engine/ps2/pad.gc#L283-L284">call to read inputs from hardware</a> and before <code>stick0-dir</code> and <code>stick0-speed</code> are computed, so it feels like a logical place to <a href="https://github.com/OpenGOAL-Unofficial-Mods/blindfold-assist/blob/1cd217498b5efa501c4980241d253a6b09e8c330/data/goal_src/jak1/engine/ps2/pad.gc#L344-L406">further adjust the inputs</a>.
+        </p>
+        <p>
+          This next part gets a little math-heavy, but the basic idea for limiting to 8 directions is to compute the angle from the X and Y coordinates, and use that to figure out which of the 8 angles is closest. First I subtract 128 from both X and Y values to shift the range from [0,255] to [-128, 127]. From here I compute the slope, and take the arctan of the absolute value of the slope to get the angle from x-axis.
+          <div class="row">
+            <div class="column">
+              <pre>
+(let* ((leftx (- (the int (-> pad leftx)) 128))
+       (lefty (- (the int (-> pad lefty)) 128))
+       (leftslope (/ (the float lefty) (the float leftx)))
+       (leftrad (atan-rad (abs leftslope)))
+       )
+              </pre>
+            </div>
+            <div class="column">
+              <img src="trig.png" width="500px"/>
+            </div>
+          </div>
+        </p>
+        <p>
+          Since we took the absolute value of the slope, <code>leftrad</code> will always be between 0 and π/2. Therefore we can just check if it's closer to 0 (the X-axis, left/right), to π/4 (45 degrees, diagonal), or to π/2 (the Y-axis, up/down), and multiply by -1 afterwards where needed. If we're closest to the X-axis, we can just set the Y coordinate to 0, and leave the X coordinate alone. Vice-versa if we're closest to the Y-axis. If we're closest to the diagonal, we can set the X/Y coordinates both to the average of their absolute values - guaranteeing a 45-degree angle. We of course make sure we're using the [0,255] range for the final results.
+          <div class="row">
+            <div class="column">
+              <pre>
+(cond 
+  ((< leftrad (/ PI 8))
+    ;; closest to x axis, set y to "zero" (pink)
+    (set! (-> pad lefty) (the-as uint 128))
+    )
+  ((< leftrad (/ (* 3 PI) 8))
+    ;; closest to 45 degrees, set both to average (yellow)
+    (let ((mid (/ (+ (abs leftx) (abs lefty)) 2)))
+      (if (< leftx 0)
+        (set! leftx (* -1 mid))
+        (set! leftx mid)
+        )
+      (if (< lefty 0)
+        (set! lefty (* -1 mid))
+        (set! lefty mid)
+        )
+      (set! (-> pad leftx) (the-as uint (+ 128 leftx)))
+      (set! (-> pad lefty) (the-as uint (+ 128 lefty)))
+      )
+    )
+  (else
+    ;; closest to y axis, set x to "zero" (blue)
+    (set! (-> pad leftx) (the-as uint 128))
+    )
+  )
+              </pre>
+            </div>
+            <div class="column">
+              <img src="trig2.png" width="500px"/>
+            </div>
+          </div>
+        </p>
+        <p>
+          And that's it! We repeat this code for the right stick, and everything downstream now uses our modified analog stick inputs!
+        </p>
+
+        <p><h2>Button combo to center camera behind Jak</h2></p>
+        <p><h3>Where/how is the camera defined?</h3></p>
+        <p>
+          TODO: talk about debug menu, camera modes
+        </p>
+
+      <hr>
+      <p>-barg034 😈</p>
+      <p>2022-02-16</p>
+    </div>
+  </body>
+</html>
+
+

@@ -52,7 +52,7 @@
     
     <div class="main">
       <p><center><h1>Blindfold Assist Mod - Code Review</h1></center></p>
-      <p><center><img style="vertical-align:middle" src="https://avatars.githubusercontent.com/u/2515356" width="30px"/> barg034 2022-02-16</center></p>
+      <p><center><img style="vertical-align:middle" src="https://avatars.githubusercontent.com/u/2515356" width="45px"/> barg034 2022-02-16</center></p>
       <hr>
       
       <p>🙋‍♂️ We're always trying to get more people involved with openGOAL modding, so I wanted to try to document some of the mods we've put together through this blog series. A lot of the mods only require really simple changes, once you know your way around the codebase. Take <a href="https://www.youtube.com/watch?v=zB_co9D68E8">Zed's recent "Fricked Up" mod</a> - the original version had less than 5 lines of code added! (Maybe Zed will do a writeup about that mod another time!)</p>
@@ -199,7 +199,7 @@
           <pre>(send-event *camera* 'change-state cam-bike 0)</pre>
         </p>
         <p>
-          Oh but wait - now we're stuck in Bike camera mode, when really we just wanted to rotate the camera while staying in the "normal" camera mode. Lucky for us, the game stores the current "normal" camera mode in <code>*camera-base-mode*</code>, so it's easy to flip back to using a similar event:
+          Oh but wait - now we're stuck in Bike camera mode, when really we just wanted to rotate the camera while staying in the "normal" camera mode. Lucky for us, the game stores the current "normal" camera mode in <code>*camera-base-mode*</code>, so it's easy to flip back using a similar event:
           <pre>(send-event *camera* 'change-state *camera-base-mode* 0)</pre>
         </p>
         
@@ -214,13 +214,16 @@
           For centering the camera behind Jak, we will also need to run some code every frame in order to check if the user has pressed our desired button combo. Lucky for you, we've already created a helper function <code>runs-every-frame</code> <a href="https://github.com/OpenGOAL-Unofficial-Mods/opengoal-mod-base/blob/336eb824403c0c38d1445e5156fc510f692ca4c2/data/goal_src/jak1/engine/mods/put-custom-code-here.gc#L24-L28">in the opengoal-mod-base</a> that gets executed on every frame of the <a href="https://github.com/OpenGOAL-Unofficial-Mods/opengoal-mod-base/blob/336eb824403c0c38d1445e5156fc510f692ca4c2/data/goal_src/jak1/engine/game/main.gc#L633">main display loop</a>!
         </p>
         <p>
-          The easiest way to check if a specific button was pressed or held on the current frame is to use <code>cpad-pressed?</code> or <code>cpad-hold?</code>, respectively. The first parameter it takes is the controller number (0 being the first controller), and the second parameter is the button we want to check. I decided to use R2 as the button for centering the camera behind Jak, and I also wanted to ensure Jak was actually spawned. If both of these conditions are met, I change the camera mode to Bike, otherwise I revert back to <code>*camera-base-mode*</code>:
+          The easiest way to check if a specific button was pressed or held on the current frame is to use <code>cpad-pressed?</code> or <code>cpad-hold?</code>, respectively. The first parameter it takes is the controller number (0 being the first controller), and the second parameter is the button we want to check. I decided to use R2 as the button for centering the camera behind Jak, and I also wanted to ensure Jak was actually spawned. If both of these conditions are met, I change the camera mode to Bike, otherwise I revert back to the default camera:
           <pre>
 (if (and *target* (cpad-hold? 0 r2))
   (send-event *camera* 'change-state cam-bike 0) ;; set camera to behind jak
   (send-event *camera* 'change-state *camera-base-mode* 0)
   )
           </pre>
+        </p>
+        <p>
+          The last change I made was just to disable R2 from bringing up the HUD (since we still have L2 for that). There are only a handful of places where the game checks for L2 and R2 being held, so it's pretty easy to find the <a href="https://github.com/OpenGOAL-Unofficial-Mods/blindfold-assist/blob/1cd217498b5efa501c4980241d253a6b09e8c330/data/goal_src/jak1/engine/ui/hud.gc#L62-L63">code that brings up the HUD</a>. I simply commented out the R2 half of the condition.
         </p>
     </div>
   </body>

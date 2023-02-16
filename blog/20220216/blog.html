@@ -58,21 +58,30 @@
       <p>🙋‍♂️ We're always trying to get more people involved with openGOAL modding, so I wanted to try to document some of the mods we've put together through this blog series. A lot of the mods only require really simple changes, once you know your way around the codebase. Take <a href="https://www.youtube.com/watch?v=zB_co9D68E8">Zed's recent "Fricked Up" mod</a> - the original version had less than 5 lines of code added! (Maybe Zed will do a writeup about that mod another time!)</p>
       
       <p><h2>Background</h2></p>
-      <p>Today I'm going to run through the process of building a mod to assist with blindfolded runs. I chose to kick things off with this mod because it too required only simple changes, so reviewing the code should be easy enough. If you're unfamiliar with <a href="https://www.denofgeek.com/games/blindgolded-gaming-speedruns-history-explained/">blindfolded video gaming</a>, one of the key steps is finding setups for progressing through levels that can be consistently repeated. In 3D games, you'll often see strategies like:
-        <ul>
-          <li>aligning the character against walls or other level geometry</li>
-          <li>being able to move in straight lines and/or consistent distances</li>
-          <li>manipulating the camera in consistent patterns</li>
-        </ul>
-      </p>
-      <p>When it comes to Jak, the game's responsive engine provides maybe too much flexibility in controlling Jak's movement and the camera 😅 and it hinders the consistency of blindfolded setups. So for this mod we're actually limiting some functionality - here are the two changes I set out to tackle (thanks Borrdi for the suggestions):
-        <ul>
-          <li>limit analog stick input to 8 directions ↑ ↗ → ↘ ↓ ↙ ← ↖ (every 45 degrees)</li>
-          <li>add a button combo to (attempt to) center the camera behind Jak</li>
-        </ul>
-      </p>
-      <p>I'll go through things in more detail below, but you can <a href="https://github.com/OpenGOAL-Unofficial-Mods/blindfold-assist/commit/1cd217498b5efa501c4980241d253a6b09e8c330">click here to see the full diff</a> of changes for this mod. It's only 69 lines across 3 files, and most of that is duplicated code for the left vs right analog sticks.</p>
-      
+      <div class="row">
+        <div class="column">
+          <p>Today I'm going to run through the process of building a mod to assist with blindfolded runs. I chose to kick things off with this mod because it too required only simple changes, so reviewing the code should be easy enough. If you're unfamiliar with <a href="https://www.denofgeek.com/games/blindgolded-gaming-speedruns-history-explained/">blindfolded video gaming</a>, one of the key steps is finding setups for progressing through levels that can be consistently repeated. In 3D games, you'll often see strategies like:
+            <ul>
+              <li>aligning the character against walls or other level geometry</li>
+              <li>being able to move in straight lines and/or consistent distances</li>
+              <li>manipulating the camera in consistent patterns</li>
+            </ul>
+          </p>
+          <p>When it comes to Jak, the game's responsive engine provides maybe too much flexibility in controlling Jak's movement and the camera 😅 and it hinders the consistency of blindfolded setups. So for this mod we're actually limiting some functionality - here are the two changes I set out to tackle (thanks Borrdi for the suggestions):
+            <ul>
+              <li>limit analog stick input to 8 directions ↑ ↗ → ↘ ↓ ↙ ← ↖ (every 45 degrees)</li>
+              <li>add a button combo to (attempt to) center the camera behind Jak</li>
+            </ul>
+          </p>
+          <p>I'll go through things in more detail below, but you can <a href="https://github.com/OpenGOAL-Unofficial-Mods/blindfold-assist/commit/1cd217498b5efa501c4980241d253a6b09e8c330">click here to see the full diff</a> of changes for this mod. It's only 69 lines across 3 files, and most of that is duplicated code for the left vs right analog sticks.</p>
+        </div>
+        <div class="column">
+          <video width="320">
+            <source src="https://cdn.discordapp.com/attachments/360577573350146048/1066916204381487266/8mb.video-mMv-kLK9BT4q.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
       <p><h2>Limiting analog stick input to 8 directions</h2></p>
 
       <p><h3>Where/how is controller input defined?</h3></p>

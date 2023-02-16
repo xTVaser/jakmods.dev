@@ -192,19 +192,19 @@
         <p><h2>Button combo to center camera behind Jak</h2></p>
         <p><h3>Where/how is the camera defined?</h3></p>
         <p>
-          On the OpenGOAL side, the camera is represented by a few different types, but perhaps the most important one is the <a href="https://github.com/OpenGOAL-Unofficial-Mods/opengoal-mod-base/blob/a775793814ad424bf9ba919aa5f5c39834a3101f/data/goal_src/jak1/engine/camera/camera-h.gc#L445-L508"><code>camera-master</code> type</a>, which is held in the global variables <code>*camera*</code>. 
-        </p>
-
-        <p><h3>Manipulating the camera</h3></p>
-        <p>
-          If you're reading this, I assume you've played your fair share of Jak & Daxter, so you are likely aware that Naughty Dog's camera system is quite sophisticated (even if it does get stuck occasionally). When I first started looking into this I was a little overwhelmed - even though we've identified the <code>camera-master</code> process, how do we get it to do what we want? There are so many fields to make sense of and conditions to think about (e.g. what if there's a wall right behind Jak?), it's hard to know where to start!
+          On the OpenGOAL side, the camera is represented by a few different types, but perhaps the most important one is the <a href="https://github.com/OpenGOAL-Unofficial-Mods/opengoal-mod-base/blob/a775793814ad424bf9ba919aa5f5c39834a3101f/data/goal_src/jak1/engine/camera/camera-h.gc#L445-L508"><code>camera-master</code> type</a>, and the commonly-used global variable <code>*camera*</code> of that type. 
         </p>
         <p>
-          Lucky for us, the developers left a debug menu directly in the game, which offers a lot of functionality for toying around with the camera. If you reboot OpenGOAL in debug mode (press Alt to show the top menu, and select Debug Mode > Reboot Now) and press R3 you'll be greeted with the debug menu. If you haven't seen this before, I highly encourage you to spend some time messing around with the various options.
+          Assuming you've played your fair share of Jak & Daxter, you are likely aware that Naughty Dog's camera system is quite sophisticated (even if it does get stuck occasionally). When I first started looking into this I was a little overwhelmed - even though we've identified the <code>camera-master</code> process, how do we get it to do what we want? There are so many fields to make sense of and conditions to think about (e.g. what if there's a wall right behind Jak?), it's hard to know where to start!
+        </p>
+        <p>
+          Lucky for us, the developers left a debug menu directly in the game, which offers a lot of functionality for toying around with the camera. If you reboot OpenGOAL in debug mode (press Alt to show the top menu, and select Debug Mode > Reboot Now), you can press R3 and you'll be greeted with the debug menu. If you haven't seen this before, I highly encourage you to spend some time messing around with the various options.
         </p>
         <p>
           If you head into the Camera menu, you'll find a Mode submenu. Here you can see the current camera mode, and switch between other various camera modes. Most of the time while playing as Jak, the game uses the Stick camera mode. Throughout the game different camera modes are used in cutscenes, minigames, while on the zoomer, or even just while in specific areas where ND felt it was necessary to force a certain perspective (e.g. you can easily notice this at the top of FJ Tower).
         </p>
+
+        <p><h3>Manipulating the camera</h3></p>
         <p>
           Well, after playing around with these camera modes, I noticed that switching to the Bike mode (used for the Zoomer) will rotate the camera around behind Jak, so that it faces the same direction he's facing - pretty much exactly what I was hoping to do in this mod! There are some limitations to this, such as when Jak is backed up against a wall, but there's no real way around that without potentially clipping the camera into Jak or the wall. I decided this was sufficient for the purposes of this mod, and piggy-backed on this Bike camera mode rather than trying to reinvent my own logic for centering the camera behind Jak.
         </p>

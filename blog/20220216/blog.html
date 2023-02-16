@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <style>
+    .navbar {
+      overflow: hidden;
+      background-color: #fff;
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+
+    .main {
+      margin-top: 150px;
+      column-gap: 40px;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 5px;
+    }
+
+    .column {
+      float: left;
+      width: 50%;
+    }
+
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    /* offsets anchor tags relative to fixed navbar */
+    :target {
+      display: block;    
+      position: relative;     
+      top: -150px;
+      visibility: hidden;
+    }
+
+  </style>
+  <title>OpenGOAL unofficial Mod Launcher</title>
+  <link rel="icon" href="icon.png" type="image/x-icon">
+  <body>
+    <div class="navbar">
+      <p><h1><center>OpenGOAL unofficial Mod Launcher</center></h1></p>
+      <p><center><a href="../../index.html">Home</a></center></p>
+      <hr>
+    </div>
+    
+    <div class="main">
+      <p><center><h1>Blindfold Assist Mod - Code Review</h1></center></p>
+      <p><center>2022-02-16 <img style="vertical-align:middle" src="https://avatars.githubusercontent.com/u/2515356" width="40px"/> barg034</center></p>
+      <hr>
+      
+      <p>🙋‍♂️ We're always trying to get more people involved with openGOAL modding, so I wanted to try to document some of the mods we've put together through this blog series. A lot of the mods only require really simple changes, once you know your way around the codebase. Take <a href="https://www.youtube.com/watch?v=zB_co9D68E8">Zed's recent "Fricked Up" mod</a> - the original version had less than 5 lines of code added! (Maybe Zed will do a writeup about that mod another time!)</p>
+      
+      <p><h2>Background</h2></p>
+      <div class="row">
+        <div class="column">
+          <p>
+            Today I'm going to run through the process of building a mod to assist with blindfolded runs. I chose to kick things off with this mod because it too required only simple changes, so reviewing the code should be easy enough. If you want to try out this mod yourself, it's waiting for you in the mod launcher 😁.
+          </p>
+          <p>
+            If you're unfamiliar with <a href="https://www.denofgeek.com/games/blindgolded-gaming-speedruns-history-explained/">blindfolded video gaming</a>, one of the key steps is finding setups for progressing through levels that can be consistently repeated. In 3D games, you'll often see strategies like:
+            <ul>
+              <li>aligning the character against walls or other level geometry</li>
+              <li>being able to move in straight lines and/or consistent distances</li>
+              <li>manipulating the camera in consistent patterns</li>
+            </ul>
+          </p>
+          <p>When it comes to Jak, the game's responsive engine provides maybe too much flexibility in controlling Jak's movement and the camera 😅 and it hinders the consistency of blindfolded setups. So for this mod we're actually limiting some functionality - here are the two changes I set out to tackle (thanks Borrdi for the suggestions):
+            <ul>
+              <li>limit analog stick input to 8 directions ↑ ↗ → ↘ ↓ ↙ ← ↖ (every 45 degrees)</li>
+              <li>add a button combo to (attempt to) center the camera behind Jak</li>
+            </ul>
+          </p>
+          <p>I'll go through things in more detail below, but you can <a href="https://github.com/OpenGOAL-Unofficial-Mods/blindfold-assist/commit/1cd217498b5efa501c4980241d253a6b09e8c330">click here to see the full diff</a> of changes for this mod. It's only 69 lines across 3 files, and most of that is duplicated code for the left vs right analog sticks.</p>
+        </div>
+        <div class="column">
+          <center>
+          <video style="max-height:350px;width:auto;" width=90% controls>
+            <source src="https://cdn.discordapp.com/attachments/360577573350146048/1066916204381487266/8mb.video-mMv-kLK9BT4q.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+          </video>
+          </center>
+        </div>
+      </div>
+      <p><h2>Limiting analog stick input to 8 directions</h2></p>
+
+      <p><h3>Where/how is controller input defined?</h3></p>
+      <p>
+        On the OpenGOAL side, the controller input is represented by the <a href="https://github.com/open-goal/jak-project/blob/ee3bc182e13a440f90e20a6f7be7d3b294a7e56a/goal_src/jak1/engine/ps2/pad.gc#L49-L100"><code>cpad-info</code> type</a>. In particular, the below fields (some from the parent <code>hw-cpad</code> type) relate to the analog stick inputs:
+        <pre>
+;; data that comes directly from hardware. it's 32 bytes + type tag (ignored in C kernel).
+(deftype hw-cpad (basic)
+  (
+    ...
+    (rightx  uint8     :offset-assert 8) ;; right stick xdir
+    (righty  uint8     :offset-assert 9) ;; right stick ydir
+    (leftx   uint8     :offset-assert 10) ;; left stick xdir
+    (lefty   uint8     :offset-assert 11) ;; left stick ydir
+    ...
+    )
+  )
+
+;; data from hardware + additional info calculated here.
+(deftype cpad-info (hw-cpad)
+  (
+    ...
+    (stick0-dir         float           :offset-assert 72)
+    (stick0-speed       float           :offset-assert 76)
+    ...
+    )
+  )
+        </pre>
+        You can sort of think of <code>rightx</code> and <code>righty</code> as the X and Y "coordinates" for the position of the right analog stick, read directly from the hardware. Since they are <code>uint8</code>s they range in value from 0 (left/up) to 255 (right/down) - so both would be 128 while neutral (assuming no stick drift). The same applies for <code>leftx</code> and <code>lefty</code> for the left analog stick, however there is an extra step where <code>stick0-dir</code> and <code>stick0-speed</code> are computed from the values of <code>leftx</code> and <code>lefty</code>. This happens once per frame within <code>service-cpads</code> <a href="https://github.com/open-goal/jak-project/blob/ee3bc182e13a440f90e20a6f7be7d3b294a7e56a/goal_src/jak1/engine/ps2/pad.gc#L344-L349">here</a>.
+      </p>
+      <p>
+        But let's take a step back - what if you didn't know where the controller inputs were handled? One way would be to look at the code for moving Jak (who is known as <code>target</code> in the code) and work backwards to find the controller input that affects Jak's movement. With some digging and some luck, you'll find yourself in <code>logic-target.gc</code>, and towards the end of the file are <a href="https://github.com/open-goal/jak-project/blob/ee3bc182e13a440f90e20a6f7be7d3b294a7e56a/goal_src/jak1/engine/target/logic-target.gc#L1522-L1895">a few functions</a> that update Jak's position differently, depending on if he's swimming, sliding, etc. In several of these there's a <code>read-pad</code> call, which populates a vector that is then used in the logic for updating Jak's position. <a href="https://github.com/open-goal/jak-project/blob/ee3bc182e13a440f90e20a6f7be7d3b294a7e56a/goal_src/jak1/engine/target/logic-target.gc#L488-L501">Looking at <code>read-pad</code> itself</a>, we can see that the vector is populated by taking the sine/cosine of <code>(-> self control unknown-cpad-info00 stick0-dir)</code>. And if we <a href="https://github.com/open-goal/jak-project/blob/ee3bc182e13a440f90e20a6f7be7d3b294a7e56a/goal_src/jak1/engine/collide/collide-target-h.gc#L51">hunt down the <code>unknown-cpad-info00</code> field</a>, we find it's a <code>cpad-info</code>!
+      </p>
+        
+      <p><h3>Trigonometry time</h3></p>
+        <p>
+          Ok so we know about <code>cpad-info</code>, now what? Reading through <code>service-cpads</code>, I see that there is already a <a href="https://github.com/open-goal/jak-project/blob/ee3bc182e13a440f90e20a6f7be7d3b294a7e56a/goal_src/jak1/engine/ps2/pad.gc#L337-L342">tweak to the analog stick inputs to account for mirror mode</a>. Further, this happens after the <a href="https://github.com/open-goal/jak-project/blob/ee3bc182e13a440f90e20a6f7be7d3b294a7e56a/goal_src/jak1/engine/ps2/pad.gc#L283-L284">call to read inputs from hardware</a> and before <code>stick0-dir</code> and <code>stick0-speed</code> are computed, so it feels like a logical place to <a href="https://github.com/OpenGOAL-Unofficial-Mods/blindfold-assist/blob/1cd217498b5efa501c4980241d253a6b09e8c330/data/goal_src/jak1/engine/ps2/pad.gc#L344-L406">further adjust the inputs</a>.
+        </p>
+        <p>
+          This next part gets a little math-heavy, but the basic idea for limiting to 8 directions is to compute the angle from the X and Y coordinates, and use that to figure out which of the 8 directions has the closest angle. First I subtract 128 from both X and Y values to shift the range from [0,255] to [-128, 127]. From here I compute the slope, and take the arctan of the absolute value of the slope to get the angle from the X-axis.
+          <div class="row">
+            <div class="column">
+              <pre>
+(let* ((leftx (- (the int (-> pad leftx)) 128))
+       (lefty (- (the int (-> pad lefty)) 128))
+       (leftslope (/ (the float lefty) (the float leftx)))
+       (leftrad (atan-rad (abs leftslope)))
+       )
+              </pre>
+            </div>
+            <div class="column">
+              <center>
+                <img src="trig.png" style="max-height:350px;width:auto;" width=90%/>
+              </center>
+            </div>
+          </div>
+        </p>
+        <p>
+          Since we took the absolute value of the slope, <code>leftrad</code> will always be between 0 and π/2. Therefore we can just check if it's closer to 0 (the X-axis, left/right), to π/4 (45 degrees, diagonal), or to π/2 (the Y-axis, up/down), and multiply by -1 afterwards where needed. If we're closest to the X-axis, we can just set the Y coordinate to 0 to snap to the X-axis, leaving the X coordinate alone. Vice-versa if we're closest to the Y-axis. If we're closest to the diagonal, we can set the X/Y coordinates both to the average of their absolute values - guaranteeing a 45-degree angle. For the final results, we need to make sure we're using the [0,255] range.
+          <div class="row">
+            <div class="column">
+              <pre>
+(cond 
+  ((< leftrad (/ PI 8))
+    ;; closest to x axis, set y to "zero" (pink)
+    (set! (-> pad lefty) (the-as uint 128))
+    )
+  ((< leftrad (/ (* 3 PI) 8))
+    ;; closest to 45 degrees, set both to average (yellow)
+    (let ((mid (/ (+ (abs leftx) (abs lefty)) 2)))
+      (if (< leftx 0)
+        (set! leftx (* -1 mid))
+        (set! leftx mid)
+        )
+      (if (< lefty 0)
+        (set! lefty (* -1 mid))
+        (set! lefty mid)
+        )
+      (set! (-> pad leftx) (the-as uint (+ 128 leftx)))
+      (set! (-> pad lefty) (the-as uint (+ 128 lefty)))
+      )
+    )
+  (else
+    ;; closest to y axis, set x to "zero" (blue)
+    (set! (-> pad leftx) (the-as uint 128))
+    )
+  )
+              </pre>
+            </div>
+            <div class="column">
+              <center>
+                <img src="trig2.png" style="max-height:350px;width:auto;" width=90%/>
+              </center>
+            </div>
+          </div>
+        </p>
+        <p>
+          And that's it! We repeat this code for the right stick, and everything downstream now uses our modified analog stick input values!
+        </p>
+
+        <p><h2>Button combo to center camera behind Jak</h2></p>
+        <p><h3>Where/how is the camera defined?</h3></p>
+        <p>
+          On the OpenGOAL side, the camera is represented by a few different types, but perhaps the most important one is the <a href="https://github.com/OpenGOAL-Unofficial-Mods/opengoal-mod-base/blob/a775793814ad424bf9ba919aa5f5c39834a3101f/data/goal_src/jak1/engine/camera/camera-h.gc#L445-L508"><code>camera-master</code> type</a>, and the commonly-used global variable <code>*camera*</code> of that type. 
+        </p>
+        <p>
+          Assuming you've played your fair share of Jak & Daxter, you are likely aware that Naughty Dog's camera system is quite sophisticated (even if it does get stuck occasionally). When I first started looking into this I was a little overwhelmed - even though we've identified the <code>camera-master</code> process, how do we get it to do what we want? There are so many fields to make sense of and conditions to think about (e.g. what if there's a wall right behind Jak?), it's hard to know where to start!
+        </p>
+        <p>
+          Lucky for us, the developers left a debug menu directly in the game, which offers a lot of functionality for toying around with the camera. If you reboot OpenGOAL in debug mode (press Alt to show the top menu, and select Debug Mode > Reboot Now), you can press R3 and you'll be greeted with the debug menu. If you haven't seen this before, I highly encourage you to spend some time messing around with the various options.
+        </p>
+        <p>
+          If you head into the Camera menu, you'll find a Mode submenu. Here you can see the current camera mode, and switch between other various camera modes. Most of the time while playing as Jak, the game uses the Stick camera mode. Throughout the game different camera modes are used in cutscenes, minigames, while on the zoomer, or even just while in specific areas where ND felt it was necessary to force a certain perspective (e.g. you can easily notice this at the top of FJ Tower).
+        </p>
+
+        <p><h3>Manipulating the camera</h3></p>
+        <p>
+          Well, after playing around with these camera modes, I noticed that switching to the Bike mode (used for the Zoomer) will rotate the camera around behind Jak, so that it faces the same direction he's facing - pretty much exactly what I was hoping to do in this mod! There are some limitations to this, such as when Jak is backed up against a wall, but there's no real way around that without potentially clipping the camera into Jak or the wall. I decided this was sufficient for the purposes of this mod, and piggy-backed on this Bike camera mode rather than trying to reinvent my own logic for centering the camera behind Jak.
+        </p>
+        <p>
+          So how do we actually trigger the Bike camera mode? Let's see what the debug menu does! The debug menu code mostly lives in <code>default-menu.gc</code>, and the <a href="https://github.com/OpenGOAL-Unofficial-Mods/opengoal-mod-base/blob/a775793814ad424bf9ba919aa5f5c39834a3101f/data/goal_src/jak1/engine/debug/default-menu.gc#L815-L817">Bike camera option is configured here</a>. You can see what happens in detail when creating a new <code>debug-menu-item-flag</code> <a href="https://github.com/OpenGOAL-Unofficial-Mods/opengoal-mod-base/blob/a775793814ad424bf9ba919aa5f5c39834a3101f/data/goal_src/jak1/engine/debug/menu.gc#L174-L186">here</a>, but what you really need to know is that selecting it will call <code>dm-cam-mode-func</code> and pass <code>cam-bike</code> as an argument.
+        </p>
+        <p>
+          Looking at <a href="https://github.com/OpenGOAL-Unofficial-Mods/opengoal-mod-base/blob/a775793814ad424bf9ba919aa5f5c39834a3101f/data/goal_src/jak1/engine/debug/default-menu.gc#L22-L30"><code>dm-cam-mode-func</code></a>, we see it sends 2 events to <code>*camera*</code> - <code>'change-state</code> and <code>'query-state</code>. The first event will tell the camera to change the camera mode to whatever is in <code>arg0</code> (<code>cam-bike</code> in our case). The second event is querying the camera to find out what camera mode it ended up in at the end of the frame, and is used for updating the selected mode in the debug menu - although we may have requested that it switch to Bike mode, other triggers in-game could force it back to Stick, Fixed, etc.
+        </p>
+        <p>
+          For this mod, we only really care about being able to send that first event to change the camera mode. If we <code>(lt)</code> and connect our REPL to the running game, we can send the event manually to confirm that it works as intended: 
+          <pre>(send-event *camera* 'change-state cam-bike 0)</pre>
+        </p>
+        <p>
+          Oh but wait - now we're stuck in Bike camera mode, when really we just wanted to rotate the camera while staying in the "normal" camera mode. Lucky for us, the game stores the current "normal" camera mode in <code>*camera-base-mode*</code>, so it's easy to flip back using a similar event:
+          <pre>(send-event *camera* 'change-state *camera-base-mode* 0)</pre>
+        </p>
+        
+        <p><h3>Button combo for rotating camera</h3></p>
+        <p>
+          Alright so we know how to jump between camera modes, which gives us a hacky but workable method of centering the camera behind Jak. Now we need to give players a button combo to do this on-demand.
+        </p>
+        <p>
+          In the previous section we looked at the code where controller inputs are read from hardware every frame in <code>service-cpads</code>, but we sort of glossed over how the <code>logic-target</code> code is called to read and utilize the button inputs for that frame held in <code>cpad-info</code>. The game needs to read inputs every frame or, well, it will drop inputs :) In the case of the <code>logic-target</code> code, the <code>target</code> process runs this code every frame as part of the <code>post</code> hook - see the <a href="https://opengoal.dev/docs/reference/process_and_state/#how-do-i-make-a-process-do-something">OpenGOAL documentation on processes and states</a> for more details on this.
+        </p>
+        <p>
+          For centering the camera behind Jak, we will also need to run some code every frame in order to check if the user has pressed our desired button combo. Lucky for you, we've already created a helper function <code>runs-every-frame</code> <a href="https://github.com/OpenGOAL-Unofficial-Mods/opengoal-mod-base/blob/336eb824403c0c38d1445e5156fc510f692ca4c2/data/goal_src/jak1/engine/mods/put-custom-code-here.gc#L24-L28">in the opengoal-mod-base</a> that gets executed on every frame of the <a href="https://github.com/OpenGOAL-Unofficial-Mods/opengoal-mod-base/blob/336eb824403c0c38d1445e5156fc510f692ca4c2/data/goal_src/jak1/engine/game/main.gc#L633">main display loop</a>!
+        </p>
+        <p>
+          The easiest way to check if a specific button was pressed or held on the current frame is to use <code>cpad-pressed?</code> or <code>cpad-hold?</code>, respectively. The first parameter it takes is the controller number (0 being the first controller), and the second parameter is the button we want to check. I decided to use R2 as the button for centering the camera behind Jak, and I also wanted to ensure Jak was actually spawned. If both of these conditions are met, I change the camera mode to Bike, otherwise I revert back to the default camera:
+          <pre>
+(if (and *target* (cpad-hold? 0 r2))
+  (send-event *camera* 'change-state cam-bike 0) ;; set camera to behind jak
+  (send-event *camera* 'change-state *camera-base-mode* 0)
+  )
+          </pre>
+        </p>
+        <p>
+          The last change I made was just to disable R2 from bringing up the HUD (since we still have L2 for that). There are only a handful of places where the game checks for L2 and R2 being held, so it's pretty easy to find the <a href="https://github.com/OpenGOAL-Unofficial-Mods/blindfold-assist/blob/1cd217498b5efa501c4980241d253a6b09e8c330/data/goal_src/jak1/engine/ui/hud.gc#L62-L63">code that brings up the HUD</a>. I simply commented out the R2 half of the condition.
+        </p>
+    </div>
+  </body>
+</html>
+
+

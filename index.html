@@ -3,11 +3,32 @@
   <head>
   </head>
   <style>
+    .navbar {
+      overflow: hidden;
+      background-color: #fff;
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+
+    .main {
+      margin-top: 150px;
+    }
+
     table, th, td {
         border: 1px solid black;
         border-collapse: collapse;
         padding: 5px;
     }
+
+    /* offsets anchor tags relative to fixed navbar */
+    :target {
+      display: block;    
+      position: relative;     
+      top: -150px;
+      visibility: hidden;
+    }
+
   </style>
   <script>  // this will dynamically download list of mods and generate the table
   async function asyncLoadModTable() {
@@ -84,42 +105,50 @@
     asyncLoadModTable();
   });
   </script>
-  <title>OpenGOAL unofficial mod launcher</title>
+  <title>OpenGOAL unofficial Mod Launcher</title>
   <link rel="icon" href="icon.png" type="image/x-icon">
   <body>
-    <p><h1>OpenGOAL unofficial mod launcher OPEN BETA</h1></p>
-    <p><h2>Download/Installation</h2></p>
-    <p style="font-size:28px;">Please click <a href="download.html">this link</a> to download the openGOAL unoffical Mod launcher and play openGOAL mods!!.</p>
-    <p><b>**NOT SUPPORTED BY OPENGOAL DEVS - ANY ISSUES ASK @Zed#9719 OR EVEN BETTER @barg034#8029**</b></p>
-    <p>All code is ran at your own risk. You can audit it, build your own, and view the json on Github <a href="https://github.com/OpenGOAL-Unofficial-Mods/OpenGoal-ModLauncher-dev">here</a>.</p>  
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/JYVNwv4_0R4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <p></p>
-    <p><h2>Texture Replacements</h2></p>
-    <p>Similar to <a href="https://opengoal.dev/docs/usage/texture_replacement">texture replacements on vanilla openGOAL</a>, you can use custom textures on top of any mod:
-      <ol>
-        <li>Select an installed mod in the launcher</li>
-        <li>Click the "View Folder" button to open the mod install folder</li>
-        <li>Copy your <code>texture_replacements</code> folder and paste it inside of the <code>data</code> folder (this will overwrite any texture replacements from the mod itself)</li>
-        <li>Click the "Reinstall" button to reinstall the mod with your updated textures</li>
-      </ol>
-    </p>
-    <p><h2>Available Mods</h2></p>
-    <p>Please ping @Zed#9719 or @barg034#8029 if you have a mod you'd like to add to the launcher.</p>
-    <p>In addition to the below mods, here are some helpful utilities:
+    <div class="navbar">
+      <p><h1><center>OpenGOAL unofficial Mod Launcher</center></h1></p>
+      <p><center><a href="#download">Download/Installation</a> | <a href="#textures">Texture Replacements</a> | <a href="#mods">Available Mods</a> | <a href="#blog">Blog</a></center></p>
+      <hr>
+    </div>
+    
+    <div class="main">
+      <p><a name="download"/><h2>Download/Installation</h2></p>
+      <p style="font-size:28px;">Please click <a href="download.html">this link</a> to download the openGOAL unoffical Mod launcher and play openGOAL mods!!</p>
+      <p><b>**NOT SUPPORTED BY OPENGOAL DEVS - ANY ISSUES ASK @Zed#9719 OR EVEN BETTER @barg034#8029**</b></p>
+      <p>All code is ran at your own risk. You can audit it, build your own, and view the json on Github <a href="https://github.com/OpenGOAL-Unofficial-Mods/OpenGoal-ModLauncher-dev">here</a>.</p>  
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/JYVNwv4_0R4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <p></p>
+      <hr>
+      
+      <p><a name="textures"/><h2>Texture Replacements</h2></p>
+      <p>Similar to <a href="https://opengoal.dev/docs/usage/texture_replacement">texture replacements on vanilla openGOAL</a>, you can use custom textures on top of any mod:
+        <ol>
+          <li>Select an installed mod in the launcher</li>
+          <li>Click the "View Folder" button to open the mod install folder</li>
+          <li>Copy your <code>texture_replacements</code> folder and paste it inside of the <code>data</code> folder (this will overwrite any texture replacements from the mod itself)</li>
+          <li>Click the "Reinstall" button to reinstall the mod with your updated textures</li>
+        </ol>
+      </p>
+      <hr>
+
+      <p><a name="mods"/><h2>Available Mods</h2></p>
+      <p>Please ping @Zed#9719 or @barg034#8029 if you have a mod you'd like to add to the launcher.</p>
+      <p>In addition to the below mods, here are some helpful utilities:
+        <ul>
+          <li><b>Jak Tracker</b> - Customizable UI that automatically tracks collected cells (inspired by OOT Randomizer trackers). <a href="https://github.com/OpenGOAL-Unofficial-Mods/jak-tracker/releases/download/0.1/JakTracker.zip">Download</a> / <a href="https://github.com/OpenGOAL-Unofficial-Mods/jak-tracker/blob/main/README.md">Instructions</a></li>
+          </ul>
+      </p>
+      <p><div id="modList"></div></p>
+      <hr>
+
+      <p><a name="blog"/><h2>Blog</h2></p>
       <ul>
-        <li><b>Jak Tracker</b> - Customizable UI that automatically tracks collected cells (inspired by OOT Randomizer trackers). <a href="https://github.com/OpenGOAL-Unofficial-Mods/jak-tracker/releases/download/0.1/JakTracker.zip">Download</a> / <a href="https://github.com/OpenGOAL-Unofficial-Mods/jak-tracker/blob/main/README.md">Instructions</a></li>
-        </ul>
-    </p>
-    <p><div id="modList"></div></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <marquee>👋 Hi Vaser 👋</marquee> 
+        <li><b>2022-02-16</b> <a href="blog/20220216/blog.html">Blindfold Assist Mod - Code Review</a></li>
+      </ul>
+    </div>
   </body>
 </html>
 

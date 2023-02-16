@@ -51,7 +51,8 @@
     </div>
     
     <div class="main">
-      <p><h1>Blindfold Assist Mod - Code Review</h1></p>
+      <p><center><h1>Blindfold Assist Mod - Code Review</h1></center></p>
+      <p><center>barg034 😈 2022-02-16</center></p>
       <p>🙋‍♂️ We're always trying to get more people involved with openGOAL modding, so I wanted to try to document some of the mods we've put together through this blog series. A lot of the mods only require really simple changes, once you know your way around the codebase. Take <a href="https://www.youtube.com/watch?v=zB_co9D68E8">Zed's recent "Fricked Up" mod</a> - the original version had less than 5 lines of code added! (Maybe Zed will do a writeup about that mod another time!)</p>
       
       <p><h2>Background</h2></p>
@@ -109,7 +110,7 @@
           Ok so we know about <code>cpad-info</code>, now what? Reading through <code>service-cpads</code>, I see that there is already a <a href="https://github.com/open-goal/jak-project/blob/ee3bc182e13a440f90e20a6f7be7d3b294a7e56a/goal_src/jak1/engine/ps2/pad.gc#L337-L342">tweak to the analog stick inputs to account for mirror mode</a>. Further, this happens after the <a href="https://github.com/open-goal/jak-project/blob/ee3bc182e13a440f90e20a6f7be7d3b294a7e56a/goal_src/jak1/engine/ps2/pad.gc#L283-L284">call to read inputs from hardware</a> and before <code>stick0-dir</code> and <code>stick0-speed</code> are computed, so it feels like a logical place to <a href="https://github.com/OpenGOAL-Unofficial-Mods/blindfold-assist/blob/1cd217498b5efa501c4980241d253a6b09e8c330/data/goal_src/jak1/engine/ps2/pad.gc#L344-L406">further adjust the inputs</a>.
         </p>
         <p>
-          This next part gets a little math-heavy, but the basic idea for limiting to 8 directions is to compute the angle from the X and Y coordinates, and use that to figure out which of the 8 angles is closest. First I subtract 128 from both X and Y values to shift the range from [0,255] to [-128, 127]. From here I compute the slope, and take the arctan of the absolute value of the slope to get the angle from x-axis.
+          This next part gets a little math-heavy, but the basic idea for limiting to 8 directions is to compute the angle from the X and Y coordinates, and use that to figure out which of the 8 directions has the closest angle. First I subtract 128 from both X and Y values to shift the range from [0,255] to [-128, 127]. From here I compute the slope, and take the arctan of the absolute value of the slope to get the angle from the X-axis.
           <div class="row">
             <div class="column">
               <pre>
@@ -126,7 +127,7 @@
           </div>
         </p>
         <p>
-          Since we took the absolute value of the slope, <code>leftrad</code> will always be between 0 and π/2. Therefore we can just check if it's closer to 0 (the X-axis, left/right), to π/4 (45 degrees, diagonal), or to π/2 (the Y-axis, up/down), and multiply by -1 afterwards where needed. If we're closest to the X-axis, we can just set the Y coordinate to 0, and leave the X coordinate alone. Vice-versa if we're closest to the Y-axis. If we're closest to the diagonal, we can set the X/Y coordinates both to the average of their absolute values - guaranteeing a 45-degree angle. We of course make sure we're using the [0,255] range for the final results.
+          Since we took the absolute value of the slope, <code>leftrad</code> will always be between 0 and π/2. Therefore we can just check if it's closer to 0 (the X-axis, left/right), to π/4 (45 degrees, diagonal), or to π/2 (the Y-axis, up/down), and multiply by -1 afterwards where needed. If we're closest to the X-axis, we can just set the Y coordinate to 0 to snap to the X-axis, leaving the X coordinate alone. Vice-versa if we're closest to the Y-axis. If we're closest to the diagonal, we can set the X/Y coordinates both to the average of their absolute values - guaranteeing a 45-degree angle. For the final results, we need to make sure we're using the [0,255] range.
           <div class="row">
             <div class="column">
               <pre>
@@ -163,7 +164,7 @@
           </div>
         </p>
         <p>
-          And that's it! We repeat this code for the right stick, and everything downstream now uses our modified analog stick inputs!
+          And that's it! We repeat this code for the right stick, and everything downstream now uses our modified analog stick input values!
         </p>
 
         <p><h2>Button combo to center camera behind Jak</h2></p>
@@ -171,10 +172,6 @@
         <p>
           TODO: talk about debug menu, camera modes
         </p>
-
-      <hr>
-      <p>-barg034 😈</p>
-      <p>2022-02-16</p>
     </div>
   </body>
 </html>

@@ -230,7 +230,7 @@
           Alright so we know how to jump between camera modes, which gives us a hacky but workable method of centering the camera behind Jak. Now we need to give players a button combo to do this on-demand.
         </p>
         <p>
-          In the previous section we looked at the code where controller inputs are read from hardware every frame in <code>service-cpads</code>, but we sort of glossed over how the <code>logic-target</code> code is called to read and utilize the button inputs for that frame held in <code>cpad-info</code>. The game needs to read inputs every frame or, well, it will drop inputs :) In the case of the <code>logic-target</code> code, the <code>target</code> process runs this code every frame as part of the <code>post</code> hook - see the <a href="https://opengoal.dev/docs/reference/process_and_state/#how-do-i-make-a-process-do-something">OpenGOAL documentation on processes and states</a> for more details on this.
+          In the previous section we looked at the code where controller inputs are read from hardware every frame in <code>service-cpads</code>, but we sort of glossed over how the <code>logic-target</code> code is called to read and utilize the button inputs for that frame held in <code>cpad-info</code>. The game needs to read inputs every frame or, well, it will drop inputs 🙃. In the case of the <code>logic-target</code> code, the <code>target</code> process runs this code every frame as part of the <code>post</code> hook - see the <a href="https://opengoal.dev/docs/reference/process_and_state/#how-do-i-make-a-process-do-something">OpenGOAL documentation on processes and states</a> for more details on this.
         </p>
         <p>
           For centering the camera behind Jak, we will also need to run some code every frame in order to check if the user has pressed our desired button combo. Lucky for you, we've already created a helper function <code>runs-every-frame</code> <a href="https://github.com/OpenGOAL-Unofficial-Mods/opengoal-mod-base/blob/336eb824403c0c38d1445e5156fc510f692ca4c2/data/goal_src/jak1/engine/mods/put-custom-code-here.gc#L24-L28">in the opengoal-mod-base</a> that gets executed on every frame of the <a href="https://github.com/OpenGOAL-Unofficial-Mods/opengoal-mod-base/blob/336eb824403c0c38d1445e5156fc510f692ca4c2/data/goal_src/jak1/engine/game/main.gc#L633">main display loop</a>!
@@ -246,6 +246,21 @@
         </p>
         <p>
           The last change I made was just to disable R2 from bringing up the HUD (since we still have L2 for that). There are only a handful of places where the game checks for L2 and R2 being held, so it's pretty easy to find the <a href="https://github.com/OpenGOAL-Unofficial-Mods/blindfold-assist/blob/1cd217498b5efa501c4980241d253a6b09e8c330/data/goal_src/jak1/engine/ui/hud.gc#L62-L63">code that brings up the HUD</a>. I simply commented out the R2 half of the condition.
+        </p>
+        <hr>
+        <p><h2>Appendix</h2></p>
+        <p>
+          <ul>
+            <li><a href="https://opengoal.dev/docs/developing/repl">Using the OpenGOAL REPL</a></li>
+            <li><a href="https://opengoal.dev/docs/reference/">OpenGOAL Language Reference</a></li>
+            <li><a href="https://opengoal.dev/docs/reference/process_and_state">OpenGOAL Processes and States</a></li>
+            <li>Github</li>
+            <ul>
+              <li><a href="https://github.com/open-goal/jak-project">OpenGOAL (original)</a></li>
+              <li><a href="https://github.com/open-goal/jak-project">OpenGOAL Mod Base</a></li>
+              <li><a href="https://github.com/open-goal/jak-project">OpenGOAL Blindfold Assist Mod</a></li>
+            </ul>
+          </ul>
         </p>
     </div>
   </body>

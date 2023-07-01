@@ -11,7 +11,7 @@
     "tags": [],
     "versions": [
       {
-        "identifier": "v0.0.2-test-bundle-test.11",
+        "version": "v0.0.2-test-bundle-test.11",
         "description": "First workflow build!",
         "games": ["jak1", "jak2"],
         "windows_bundle_url": "https://github.com/dallmeyer/OG-Mod-Base/releases/download/v0.0.2-test-bundle-test.11/windows-v0.0.2-test-bundle-test.11.zip",
@@ -32,13 +32,13 @@
     ],
     "versions": [
       {
-        "identifier": "v0.2",
+        "version": "v0.2",
         "description": "Jak II started",
         "games": ["jak1", "jak2"],
         "windows_bundle_url": "https://github.com/dallmeyer/opengoal-orbhunt/releases/download/v0.2/opengoal-windows-v0.2.zip"
       },
       {
-        "identifier": "v01",
+        "version": "v01",
         "description": "Jak 1 finished, with Baby Mode",
         "games": ["jak1"],
         "windows_bundle_url": "https://github.com/dallmeyer/opengoal-orbhunt/releases/download/v01/opengoal-windows-v0.1.zip"

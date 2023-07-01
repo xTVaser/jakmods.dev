@@ -1,5 +1,6 @@
-{
-  "randomizer": {
+[
+  {
+    "identifier": "randomizer",
     "name": "Mod Base",
     "description": "Base with helper functions and hooks",
     "contributors": [
@@ -18,7 +19,8 @@
       }
     ]
   },
-  "orb_hunt": {
+  {
+    "identifier": "orb_hunt",
     "name": "Orb Hunt",
     "description": "Collectables and other things have been moved around!",
     "contributors": [
@@ -43,4 +45,4 @@
       }
     ]
   }
-}
+]

@@ -15,7 +15,7 @@
         "version": "v0.2",
         "description": "Jak II started",
         "games": ["jak1", "jak2"],
-        "windows_bundle_url": "https://github.com/dallmeyer/opengoal-orbhunt/releases/download/v0.2/opengoal-windows-v0.2.zip"
+        "windowsurl": "https://github.com/dallmeyer/opengoal-orbhunt/releases/download/v0.2/opengoal-windows-v0.2.zip"
       }
     ]
   }

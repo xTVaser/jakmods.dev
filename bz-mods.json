@@ -1,6 +1,6 @@
 [
   {
-    "identifier": "randomizer",
+    "identifier": "mod_base",
     "name": "Mod Base",
     "description": "Base with helper functions and hooks",
     "contributors": [

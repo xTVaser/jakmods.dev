@@ -52,11 +52,6 @@
     let mods = [];
     for (let mod_id in data) {
       let mod = data[mod_id];
-
-      // exclude jak2 stuff for now
-      if (mod.hasOwnProperty("game") && mod["game"] == "jak2") {
-        continue;
-      }
       
       mods.push([
         mod["name"],

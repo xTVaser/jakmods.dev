@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="description" content="How-to tutorial on setting up an OpenGOAL mod to be added to the mod launcher.">
+  </head>
+  <style>
+    .navbar {
+      overflow: hidden;
+      background-color: #fff;
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+
+    .main {
+      margin-top: 150px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 80%;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 5px;
+    }
+
+    /* offsets anchor tags relative to fixed navbar */
+    :target {
+      display: block;    
+      position: relative;     
+      top: -150px;
+      visibility: hidden;
+    }
+  </style>
+  <title>Jak Mods (OpenGOAL mod launcher)</title>
+  <link rel="icon" href="icon.png" type="image/x-icon">
+  <body>
+    <div class="navbar">
+      <p><h1><center>JakMods.dev (OpenGOAL Mod Launcher)</center></h1></p>
+      <p><center><a href="/#download">Download/Installation</a> | <!--<a href="#textures">Texture Replacements</a> | --><a href="/#mods">Available Mods</a> | <a href="faq">FAQ</a> | <a href="https://opengoal.dev/docs/category/modding-examples">Modding Documentation</a> | <a href="https://opengoal.dev/">OpenGOAL official site</a></center></p>
+      <hr>
+    </div>
+    
+    <div class="main">
+      <p><h2>FAQ</h2></p>
+      <p><h3>For general questions about OpenGOAL, please see the official <a href="https://opengoal.dev/docs/faq">OpenGOAL FAQ</a>.</h3></p>
+
+      <p><details>
+        <summary><b>My antivirus software is warning me about the launcher / mods! Is this a virus?</b></summary>
+        <p>No, the <a href="https://github.com/OpenGOAL-Unofficial-Mods/OpenGoal-ModLauncher-dev">mod launcher</a> and the <a href="https://github.com/open-goal/jak-project">jak-project</a> are both open source if you'd like to audit the codebase yourself. The mod launcher is a small Python program bundled into a Windows app for easy use.</p>
+      </details></p>
+
+      <p><details>
+        <summary><b>Is Steamdeck/Linux/Mac supported?</b></summary>
+        <p>No, at the moment the mod launcher is only supported on Windows.</p>
+      </details></p>
+
+      <p><details>
+        <summary><b>Can I use multiple mods together in combination?</b></summary>
+        <p>No, not easily, at least at the moment. Since each mod is a completely standalone copy of the jak-project, there's no easy way to guarantee changes are compatible with each other or an easy way to resolve conflicts.</p>
+        <p>For example, how would you combine the FlutFlut Legacy and the Zoomer Legacy? You can't be simultaneously on FlutFlut and on the Zoomer.</p>
+        <p>With that said, in theory someone could manually combine two or more mods (e.g. by using git to merge their codebases). This would then need to be added to the list as a standalone mod.</p>
+        <p>In the future, there is a possibility OpenGOAL will have a native modding API, and mods might exist more like patches than entire standalone codebases. If we reach that point, it will be much more feasible to seamlessly combine mods.</p>
+      </details></p>
+
+      <p><details>
+        <summary><b>I made a texture pack / custom level / mod, how can I get it listed in the mod launcher?</b></summary>
+        <p>The mod launcher expects to download mods as a Github release bundle of the <a href="https://github.com/open-goal/jak-project"><code>jak-project</code></a>, so in short: you'll need to get your creation hosted on a Github repository and create a release in the expected format.</p>
+        <p>If you're new to Github, sorry we won't walk you through that here - there are plenty of guides online that will do a better job than we can teaching you about git and Github.</p>
+        <p>We recommend making a fork of our <a href="https://github.com/OpenGOAL-Mods/OG-Mod-Base">OG-Mod-Base project</a>, as this comes with an easy workflow for creating release bundles. If you plan to make multiple mods, keep in mind you can only have one fork per personal account - to work around this you can create a Github organization for yourself and create your fork(s) under that.</p>
+        <p><img src="faq/fork.png" width="50%" onclick="this.requestFullscreen()"/></p>
+        <p>From here, you'll want to commit and push your changes to this new repository. For texture packs, this would involve adding the <code>texture_replacements</code> folder and your textures within it. For custom levels, this would (at a minimum) involve adding your level to the <code>custom_levels</code> folder.</p>
+        <p>Once your changes are pushed to Github and you're ready to create a release for people to play, you can head to the Actions tab on your repo, and look for the Cut Mod Release action.</p>
+        <p><img src="faq/actions.png" width="50%" onclick="this.requestFullscreen()"/></p>
+        <p>On the right side you can kick off this workflow, and it will bundle up the necessary files from your repo into a release. You can choose whether this new release you're creating should get a patch/minor/major version bump.</p>
+        <p><img src="faq/run-workflow.png" width="400" onclick="this.requestFullscreen()"/></p>
+        <p>Once this workflow completes, you should see a new release version on the right side of the main page of your repo.</p>
+        <p><img src="faq/releases.png" width="30%" onclick="this.requestFullscreen()"/></p>
+        <p>At this point, your mod should be bundled and ready for us to add! Just reach out to <u>barg034</u> or <u>zedb0t</u> on Discord with the name, description, and thumbnail image - we'll work with you to get it added to the mod list.</p>
+        <p>Whenever you'd like to publish updates to your mod, simply push those changes to your Github repo, and kick off a new Cut Mod Release action. The mod launcher will always try to grab the latest release from your repo.</p>
+        <p>Here's a brief example of the steps we took recently to help Funki Delire create a mod featuring their custom levels:
+          <ul>
+            <li>New <a href="https://github.com/OpenGOAL-Mods/OG-Funki-Showcase">OG-Funki-Showcase repo</a> forked from OG-Mod-Base</li>
+            <li><a href="https://github.com/OpenGOAL-Mods/OG-Funki-Showcase/commit/c25ac72423f61016041d9c53aa36df0240fa9b7a">Committed changes</a> for custom levels and checkpoints</li>
+            <li>Ran the <a href="https://github.com/OpenGOAL-Mods/OG-Funki-Showcase/actions/runs/6809068568">Cut Mod Release</a> action</li>
+            <li>A <a href="https://github.com/OpenGOAL-Mods/OG-Funki-Showcase/releases/tag/v0.0.2">new release</a> was created</li>
+            <li>Mod was <a href="https://github.com/OpenGOAL-Unofficial-Mods/OpenGoal-ModLauncher-dev/commit/3dd5e19bbd65bfa5da2a7bce73219a1b7341b474">added to the launcher list</a></li>
+          </ul>
+        </p>
+      </details></p>
+
+      <p><details>
+        <summary><b>Is it possible to do XYZ in a mod?</b></summary>
+        <p>Generally speaking, since OpenGOAL provides the source code for the game, the theoretical possibilities are endless.</p>
+        <p>What's realistically possible is a limitation of how much time and effort people are willing to put in.</p>
+      </details></p>
+    </div>
+  </body>
+</html>
+
+

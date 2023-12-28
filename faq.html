@@ -51,6 +51,7 @@
       <p><details>
         <summary><b>My antivirus software is warning me about the launcher / mods! Is this a virus?</b></summary>
         <p>No, the <a href="https://github.com/OpenGOAL-Unofficial-Mods/OpenGoal-ModLauncher-dev">mod launcher</a> and the <a href="https://github.com/open-goal/jak-project">jak-project</a> are both open source if you'd like to audit the codebase yourself. The mod launcher is a small Python program bundled into a Windows app for easy use.</p>
+        <p>Each mod is effectively a standalone OpenGOAL installation, and so you may need to allow <code>extractor.exe</code> and/or <code>gk.exe</code> within your antivirus program individually for each mod.</p>
       </details></p>
 
       <p><details>
@@ -60,8 +61,18 @@
       </details></p>
 
       <p><details>
+        <summary><b>Can I change the mod install location?</b></summary>
+        <p>No, at the moment we don't support this.</p>
+      </details></p>
+
+      <p><details>
         <summary><b>Is Steamdeck / Linux / Mac supported?</b></summary>
         <p>No, at the moment the mod launcher is only supported on Windows.</p>
+      </details></p>
+
+      <p><details>
+        <summary><b>Can I apply a texture pack to a mod?</b></summary>
+        <p>Yes - after installing the mod, click the "View Folder" button to open the mod's install location. Create a <code>texture_replacements</code> folder within the <code>data</code> folder (some mods may already have this folder), and then copy the texture pack into the <code>data/texture_replacements</code> folder. Back in the mod launcher, click the "Rebuild" button, and it will rebuild the game using your texture pack.</p>
       </details></p>
 
       <p><details>
@@ -84,7 +95,7 @@
             <li><a href="https://www.youtube.com/playlist?list=PLcFimep6cyLcFse0QQ7h3EB-8MzxJXA6v">Zed's modding guides and devlogs (YouTube playlist)</a></li>
             <li><a href="https://opengoal.dev/docs/developing/texture_packs">Texture Packs how-to</a></li>
             <li><a href="https://opengoal.dev/docs/category/custom-levels">Custom Levels how-to</a></li>
-            <li><a href="https://opengoal.dev/docs/category/modding-examples">Modding example case studies</a></li>
+            <li><a href="https://opengoal.dev/docs/category/modding-examples">Modding example blogs</a></li>
             <li><a href="/tfl2.html">The Forgotten Lands blog</a></li>
           </ul>
         </p>

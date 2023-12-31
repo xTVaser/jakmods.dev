@@ -3,8 +3,69 @@
   <head>
   </head>
   <style>
+
+    /* DARK MODE */
+
+    @media (prefers-color-scheme: dark) {
+      h1, h2, h3, p, div {
+          color: white;
+          opacity: 0.85;
+      }
+      
+      a:link {
+          text-decoration-color: #8cb4ff;
+          color: #8cb4ff;
+      }
+      
+      a:visited {
+          text-decoration-color: #9b80e5;
+          color: #9b80e5;
+      }
+
+      body, div {
+          background-color: #181818;
+      }
+
+      table, th, td {
+        border: 1px solid white;
+        border-collapse: collapse;
+        padding: 5px;
+      }
+
+      .child2 {
+        border-left: 1px solid white;
+      }
+    }
+
+    /* LIGHT MODE */
+
+    @media (prefers-color-scheme: light) {
+      h1, p, div {
+          color: black;
+      }
+
+      body, div {
+          background-color: white;
+      }
+
+      table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 5px;
+      }
+    }
+
+    /* COMMON */
+
+    body {
+      font-family: Roboto,arial,sans-serif;
+    }
+
+    h1, h2 {
+      font-family: Roboto,arial,serif;
+    }
+
     .navbar {
-      background-color: #fff;
       top: 0;
       width: 100%;
     }
@@ -41,7 +102,6 @@
     }
     .child2 {
       display: inline-block;
-      border-left: 1px solid black;
       padding: 1rem 1rem;
       vertical-align: top;
       width: 45%;

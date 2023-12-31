@@ -4,9 +4,66 @@
     <meta name="description" content="Play mods for the Jak video game series through the unofficial OpenGOAL mod launcher - download available here!">
   </head>
   <style>
+
+    /* DARK MODE */
+
+    @media (prefers-color-scheme: dark) {
+      h1, h2, h3, p, div {
+          color: white;
+          opacity: 0.85;
+      }      
+      
+      a:link {
+          text-decoration-color: #8cb4ff;
+          color: #8cb4ff;
+      }
+      
+      a:visited {
+          text-decoration-color: #9b80e5;
+          color: #9b80e5;
+      }
+
+      body, div {
+          background-color: #181818;
+      }
+
+      table, th, td {
+        border: 1px solid white;
+        border-collapse: collapse;
+        padding: 5px;
+      }
+    }
+
+    /* LIGHT MODE */
+
+    @media (prefers-color-scheme: light) {
+      h1, h2, h3, p, div {
+          color: black;
+      }
+
+      body, div {
+          background-color: white;
+      }
+
+      table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 5px;
+      }
+    }
+
+    /* COMMON */
+
+    body {
+      font-family: Roboto,arial,sans-serif;
+    }
+
+    h1, h2 {
+      font-family: Roboto,arial,serif;
+    }
+
     .navbar {
       overflow: hidden;
-      background-color: #fff;
       position: fixed;
       top: 0;
       width: 100%;
@@ -17,12 +74,6 @@
       margin-left: auto;
       margin-right: auto;
       width: 80%;
-    }
-
-    table, th, td {
-        border: 1px solid black;
-        border-collapse: collapse;
-        padding: 5px;
     }
 
     /* offsets anchor tags relative to fixed navbar */
@@ -37,8 +88,6 @@
   <script>  // this will dynamically download list of mods and generate the table
   function initTable(showTags) {
     let table = document.createElement("table");
-    table.style.border="1px solid black";
-    table.style.border="1px solid black";
     table.style.width="100%";
 
     let row = table.insertRow();
@@ -185,7 +234,7 @@
     <div class="main">
       <p><a name="download"/><h2>Download/Installation</h2></p>
       <p><h3>Click <a href="download.html">here</a> to download the unofficial OpenGOAL mod launcher and play OpenGOAL mods! The launcher will automatically update itself when needed.</h3></p>
-      <p><b>PLEASE NOTE</b>: This launcher and the mods are NOT supported by the main OpenGOAL developers! If you have any issues or questions contact <u>barg034</u> or <u>zedb0t</u> on <a href="https://discord.gg/pWFfbBdd">Discord</a>.</p>
+      <p><b>PLEASE NOTE</b>: This launcher and the mods are NOT supported by the main OpenGOAL developers! For more information see the <a href="faq">FAQ</a>, or contact <u>barg034</u> or <u>zedb0t</u> on <a href="https://discord.gg/pWFfbBdd">Discord</a> for any questions.</p>
       <p>All code is ran at your own risk. The mod launcher is a small Python program bundled into a Windows app for easy use. You can audit the code, or build the launcher from source on Github <a href="https://github.com/OpenGOAL-Unofficial-Mods/OpenGoal-ModLauncher-dev">here</a>.</p>
       <iframe width="560" height="315" src="https://www.youtube.com/embed/0eRYnLbVVHs?si=m2f0fB6J9dMqjv7l" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       <p></p>

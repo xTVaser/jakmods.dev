@@ -8,9 +8,9 @@
     /* DARK MODE */
 
     @media (prefers-color-scheme: dark) {
-      h1, h2, h3, p, div {
+      body {
           color: white;
-          opacity: 0.85;
+          opacity: 0.8;
       }      
       
       a:link {
@@ -32,12 +32,17 @@
         border-collapse: collapse;
         padding: 5px;
       }
+
+      .navbar {
+        background-color: #181818;
+        opacity: 1.0;
+      }
     }
 
     /* LIGHT MODE */
 
     @media (prefers-color-scheme: light) {
-      h1, h2, h3, p, div {
+      body {
           color: black;
       }
 
@@ -49,6 +54,10 @@
         border: 1px solid black;
         border-collapse: collapse;
         padding: 5px;
+      }
+      
+      .navbar {
+        background-color: #fff;
       }
     }
 
@@ -73,7 +82,7 @@
       margin-top: 150px;
       margin-left: auto;
       margin-right: auto;
-      width: 80%;
+      width: 70%;
     }
 
     /* offsets anchor tags relative to fixed navbar */
@@ -89,7 +98,7 @@
   <link rel="icon" href="icon.png" type="image/x-icon">
   <body>
     <div class="navbar">
-      <p><h1><center>JakMods.dev (OpenGOAL Mod Launcher)</center></h1></p>
+      <p><h1><center>JakMods.dev (OpenGOAL Mod Launcher) <img src="icon.png" height="25"/></center></h1></p>
       <p><center><a href="/#download">Download/Installation</a> | <!--<a href="#textures">Texture Replacements</a> | --><a href="/#mods">Available Mods</a> | <a href="faq">FAQ</a> | <a href="https://opengoal.dev/">OpenGOAL official site</a></center></p>
       <hr>
     </div>

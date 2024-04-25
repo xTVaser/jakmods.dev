@@ -1,68 +1,72 @@
 ﻿/* DARK MODE */
 
 @media (prefers-color-scheme: dark) {
-    body {
-        color: white;
-    }      
-    
-    a:link {
-        color: #01c4fb;
-    }
-    
-    a:visited {
-        color: #0180e7;
-    }
+  body {
+    color: white;
+    opacity: 0.9;
+  }
+  
+  a:link {
+    color: #01c4fb;
+  }
+  
+  a:visited {
+    color: #0180e7;
+  }
 
-    a:hover {
-        color: #a9e7ff;
-    }
+  a:hover {
+    color: #a9e7ff;
+  }
 
-    body, div {
-        background-color: #121c2c;
-    }
+  body, div {
+    background-color: #121c2c;
+  }
 
-    table, th, td {
+  table, th, td {
     border: 1px solid rgb(98, 156, 204);
     border-collapse: collapse;
     padding: 5px;
-    }
+  }
 
-    .navbar {
-    background-color: #0c1218e3;
-    }
+  .navbar {
+    background-color: #0c1218;
+    border-bottom: solid;
+  }
 }
 
 /* LIGHT MODE */
 
 @media (prefers-color-scheme: light) {
-    a:link {
-        color: #0079ca;
-    }
-    
-    a:visited {
-        color: #005296;
-    }
+  a:link {
+    color: #0079ca;
+  }
+  
+  a:visited {
+    color: #005296;
+  }
 
-    a:hover {
-        color: #002958;
-    }
-    body {
-        color: black;
-    }
+  a:hover {
+    color: #002958;
+  }
 
-    body, div {
-        background-color: white;
-    }
+  body {
+    color: black;
+  }
 
-    table, th, td {
+  body, div {
+    background-color: white;
+  }
+
+  table, th, td {
     border: 1px solid rgb(70, 149, 196);
     border-collapse: collapse;
     padding: 5px;
-    }
+  }
 
-    .navbar {
-    background-color: #c2e2ffc5;
-    }
+  .navbar {
+    background-color: #c2e2ff;
+    border-bottom: solid;
+  }
 }
 
 /* COMMON */ 

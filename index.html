@@ -2,98 +2,8 @@
 <html>
   <head>
     <meta name="description" content="Play mods for the Jak video game series through the unofficial OpenGOAL mod launcher - download available here!">
+    <link rel="stylesheet" href="main_style.css">
   </head>
-  <style>
-
-    /* DARK MODE */
-
-    @media (prefers-color-scheme: dark) {
-      body {
-          color: white;
-          opacity: 0.8;
-      }      
-      
-      a:link {
-          text-decoration-color: #8cb4ff;
-          color: #8cb4ff;
-      }
-      
-      a:visited {
-          text-decoration-color: #9b80e5;
-          color: #9b80e5;
-      }
-
-      body, div {
-          background-color: #181818;
-      }
-
-      table, th, td {
-        border: 1px solid white;
-        border-collapse: collapse;
-        padding: 5px;
-      }
-
-      .navbar {
-        background-color: #181818;
-        opacity: 1.0;
-      }
-    }
-
-    /* LIGHT MODE */
-
-    @media (prefers-color-scheme: light) {
-      body {
-          color: black;
-      }
-
-      body, div {
-          background-color: white;
-      }
-
-      table, th, td {
-        border: 1px solid black;
-        border-collapse: collapse;
-        padding: 5px;
-      }
-
-      .navbar {
-        background-color: #fff;
-      }
-    }
-
-    /* COMMON */ 
-
-    body {
-      font-family: Roboto,arial,sans-serif;
-    }
-
-    h1, h2 {
-      font-family: Roboto,arial,serif;
-    }
-
-    .navbar {
-      overflow: hidden;
-      position: fixed;
-      top: 0;
-      width: 100%;
-    }
-
-    .main {
-      margin-top: 150px;
-      margin-left: auto;
-      margin-right: auto;
-      width: 70%;
-    }
-
-    /* offsets anchor tags relative to fixed navbar */
-    :target {
-      display: block;    
-      position: relative;     
-      top: -150px;
-      visibility: hidden;
-    }
-
-  </style>
   <script>  // this will dynamically download list of mods and generate the table
   function initTable(showTags) {
     let table = document.createElement("table");
@@ -239,7 +149,6 @@
     <div class="navbar">
       <p><h1><center>JakMods.dev (OpenGOAL Mod Launcher) <img src="icon.png" height="25"/></center></h1></p>
       <p><center><a href="/#download">Download/Installation</a> | <!--<a href="#textures">Texture Replacements</a> | --><a href="/#mods">Available Mods</a> | <a href="faq">FAQ</a> | <a href="https://discord.gg/k5PKHta6d8">Discord</a> | <a href="https://opengoal.dev/">OpenGOAL official site</a></center></p>
-      <hr>
     </div>
     
     <div class="main">

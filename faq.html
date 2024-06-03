@@ -46,8 +46,23 @@
           <ol>
             <li>Install the mod like normal, and close it once it launches</li>
             <li>Click the "View Folder" button on the mod launcher to open the mod's install location</li>
-            <li>Create a <code>texture_replacements</code> folder within the <code>data</code> folder (some mods may already have this folder)</li>
-            <li>Copy/paste the contents of the texture pack you want to use into this <code>data/texture_replacements</code> folder</li>
+            <li>Open the <code>data</code> folder, and check if you see a <code>custom_assets</code> folder inside
+              <ul>
+                <li>If you DO see a <code>custom_assets</code> folder, this is a newer mod:
+                  <ol>
+                    <li>Create a <code>texture_replacements</code> folder within the <code>custom_assets</code> folder (some mods may already have this folder)</li>
+                    <li>Create a <code>jak1</code> (or <code>jak2</code>) folder within the <code>texture_replacements</code> folder (some mods may already have this folder)</li>
+                    <li>Copy/paste the contents of the texture pack you want to use into the <code>data/custom_assets/texture_replacements/jak1</code> folder (or the <code>jak2</code> equivalent)</li>
+                  </ol>
+                </li>
+                <li>If you do NOT see <code>custom_assets</code> folder, this is an older mod:
+                  <ol>
+                    <li>Create a <code>texture_replacements</code> folder within the <code>data</code> folder (some mods may already have this folder)</li>
+                    <li>Copy/paste the contents of the texture pack you want to use into the <code>data/texture_replacements</code> folder</li>
+                  </ol>
+                </li>
+              </ul>
+            </li>
             <li>Back in the mod launcher, click the "Re-extract" button, and it will rebuild the game using your texture pack</li>
           </ol>
         </p>

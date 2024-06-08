@@ -1,0 +1,118 @@
+{
+  "schemaVersion": "1.0.0",
+  "sourceName": "JakMods",
+  "mods": {
+    "speedrun-practice": {
+      "displayName": "Speedrun Practice",
+      "description": "A mod that helps you practice speedrunning",
+      "authors": [
+        "barg",
+        "zed"
+      ],
+      "tags": [
+        "utility",
+        "tool"
+      ],
+      "supportedGames": [
+        "jak1",
+        "jak2"
+      ],
+      "websiteUrl": "https://www.github.com/OpenGOAL-Mods/OG-Speedrun-Practice",
+      "versions": [
+        {
+          "version": "0.1.13",
+          "publishedDate": "2024-05-30T21:25:02Z",
+          "settings": {
+            "decompConfigOverride": "",
+            "shareVanillaSaves": false
+          },
+          "assets": {
+            "windows": "https://github.com/OpenGOAL-Mods/OG-Speedrun-Practice/releases/download/v0.1.13/windows-v0.1.13.zip",
+            "linux": null,
+            "macos": null
+          }
+        }
+      ],
+      "perGameConfig": {
+        "jak1": {
+          "cover_art_url": "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage.png",
+          "thumbnail_art_url": "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage.png"
+        },
+        "jak2": {
+          "cover_art_url": "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage2.jpeg",
+          "thumbnail_art_url": "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage2.jpeg"
+        }
+      },
+      "external_link": null
+    },
+    "bugged": {
+      "displayName": "Bugged",
+      "description": "Ono",
+      "authors": [
+        "barg",
+        "zed"
+      ],
+      "tags": [],
+      "supportedGames": [
+        "jak1",
+        "jak2"
+      ],
+      "websiteUrl": "https://www.github.com/OpenGOAL-Mods/OG-Bugged",
+      "versions": [
+        {
+          "version": "0.1.20",
+          "publishedDate": "2024-05-26T19:04:09Z",
+          "settings": {
+            "decompConfigOverride": "",
+            "shareVanillaSaves": false
+          },
+          "assets": {
+            "windows": "https://github.com/OpenGOAL-Mods/OG-Bugged/releases/download/v0.1.20/windows-v0.1.20.zip",
+            "linux": null,
+            "macos": null
+          }
+        }
+      ],
+      "coverArtUrl": null,
+      "thumbnailArtUrl": null,
+      "perGameConfig": null,
+      "external_link": null
+    },
+    "teamruns": {
+      "displayName": "TeamRuns",
+      "description": "Online and couch co-op multiplayer mod",
+      "authors": [
+        "dexz"
+      ],
+      "tags": [
+        "multiplayer"
+      ],
+      "supportedGames": [
+        "jak1"
+      ],
+      "versions": [],
+      "coverArtUrl": null,
+      "thumbnailArtUrl": "https://teamruns.web.app/assets/teamruns-full-logo.png",
+      "perGameConfig": null,
+      "external_link": "https://teamruns.web.app/"
+    }
+  },
+  "texturePacks": {
+    "snowy-legacy": {
+      "displayName": "Snowy Legacy",
+      "description": "Snowy texture pack and snowy weather everywhere.",
+      "authors": [
+        "InnocentMiau"
+      ],
+      "tags": [],
+      "supportedGames": [
+        "jak1"
+      ],
+      "websiteUrl": "https://www.github.com/kekdeveloper/opengoal-mod-snowy-legacy",
+      "versions": [],
+      "thumbnailArtUrl": "https://github.com/kekdeveloper/opengoal-mod-snowy-legacy/blob/main/ModImage.png?raw=true",
+      "perGameConfig": null
+    }
+  },
+  "lastUpdated": "2024-06-08T21:35:18.724Z"
+}

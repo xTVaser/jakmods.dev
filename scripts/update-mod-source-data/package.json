@@ -1,0 +1,21 @@
+{
+  "name": "update-mod-source-data",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "update": "node ./index.js",
+    "lint": "node ./index.js lint"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@octokit/plugin-retry": "^7.1.1",
+    "@octokit/plugin-throttling": "^9.3.0",
+    "@octokit/rest": "^20.1.1",
+    "node-fetch": "^3.3.2",
+    "semver": "^7.6.2",
+    "yaml": "^2.4.3"
+  }
+}

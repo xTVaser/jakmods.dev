@@ -1,0 +1,63 @@
+metadata:
+  name: "JakMods"
+mods:
+  speedrun-practice:
+    repo_owner: "OpenGOAL-Mods"
+    repo_name: "OG-Speedrun-Practice"
+    url: "https://github.com/OpenGOAL-Mods/OG-Speedrun-Practice"
+    # NOTE - only '<' is supported and explicit versions.  The assumption is that '<' is only needed to skip
+    # past releases that don't conform to the new format, then beyond that hopefully every release is valid
+    # with the potential to maybe skip a bad one here and there.
+    ignore_versions:
+      - "<0.1.13"
+    display_name: "Speedrun Practice"
+    description: "A mod that helps you practice speedrunning"
+    authors: ["barg", "zed"]
+    tags: ["utility", "tool"]
+    websiteUrl: "https://github.com/OpenGOAL-Mods/OG-Speedrun-Practice/blob/main/README.md"
+    supported_games: ["jak1", "jak2"]
+    # NOTE - right now only really supporting the art assets
+    # i honestly don't think you'd need it for anything else, maybe ignore_versions? Extend when necessary!
+    per_game_config:
+      jak1:
+        cover_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage.png"
+        thumbnail_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage.png"
+      jak2:
+        cover_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage2.jpeg"
+        thumbnail_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage2.jpeg"
+  bugged:
+    repo_owner: "OpenGOAL-Mods"
+    repo_name: "OG-Bugged"
+    url: "https://github.com/OpenGOAL-Mods/OG-Bugged"
+    ignore_versions:
+      - "<0.1.20"
+    display_name: "Bugged"
+    description: "Ono"
+    authors: ["barg", "zed"]
+    tags: []
+    websiteUrl: null # defaults to 'url'
+    supported_games: ["jak1", "jak2"]
+    cover_art_url: null
+    thumbnail_art_url: null
+  # NOTE - allows for just links to mods as well, for ones that don't really fit into
+  # the standard mod installation experience
+  teamruns:
+    external_link: "https://teamruns.web.app/"
+    display_name: "TeamRuns"
+    description: "Online and couch co-op multiplayer mod"
+    authors: ["dexz"]
+    tags: ["multiplayer"]
+    supported_games: ["jak1"]
+    thumbnail_art_url: "https://teamruns.web.app/assets/teamruns-full-logo.png"
+    cover_art_url: null
+texture_packs:
+  # TODO - this one actually isn't supported end-to-end yet (no releases)
+  snowy-legacy:
+    repo_owner: "kekdeveloper"
+    repo_name: "opengoal-mod-snowy-legacy"
+    display_name: "Snowy Legacy"
+    description: "Snowy texture pack and snowy weather everywhere."
+    authors: ["InnocentMiau"]
+    tags: []
+    supported_games: ["jak1"]
+    thumbnail_art_url: "https://github.com/kekdeveloper/opengoal-mod-snowy-legacy/blob/main/ModImage.png?raw=true"

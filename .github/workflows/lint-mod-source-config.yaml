@@ -1,0 +1,24 @@
+name: 📝 Linter
+
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  frontend:
+    name: Mod Source Config
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install Dependencies and Check Formatting
+        run: |
+          cd ./scripts/update-mod-source-data
+          npm ci
+          npm run lint

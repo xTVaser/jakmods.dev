@@ -1,0 +1,41 @@
+name: Update Mod Source
+
+on:
+  schedule:
+    - cron: "0 16 * * *" # every day @ 12pm EST - https://crontab.guru/#0_16_*_*_*
+  workflow_dispatch: {}
+
+# Allow one concurrent deployment
+concurrency:
+  group: "mod-source-update"
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  update-mod-source:
+    name: "Update Mod Source"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: "main"
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Potentially Update Mod Source
+        run: |
+          cd scripts/update-mod-source-data
+          npm ci
+          npm run update
+
+      - name: Commit Version Bump
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: "source: Updated mod source data"
+          push: true

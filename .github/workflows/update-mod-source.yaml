@@ -40,3 +40,10 @@ jobs:
         with:
           message: "source: Updated mod source data"
           push: true
+
+  deploy_website:
+    name: "Deploy Website Changes"
+    needs:
+      - update-mod-source
+    uses: ./.github/workflows/deploy-gh-pages.yaml
+    secrets: inherit

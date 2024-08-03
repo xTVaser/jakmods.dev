@@ -14,17 +14,17 @@ mods:
     description: "A mod that helps you practice speedrunning"
     authors: ["barg", "zed"]
     tags: ["utility", "tool"]
-    websiteUrl: "https://github.com/OpenGOAL-Mods/OG-Speedrun-Practice/blob/main/README.md"
+    website_url: "https://github.com/OpenGOAL-Mods/OG-Speedrun-Practice/blob/main/README.md"
     supported_games: ["jak1", "jak2"]
     # NOTE - right now only really supporting the art assets
     # i honestly don't think you'd need it for anything else, maybe ignore_versions? Extend when necessary!
     per_game_config:
       jak1:
-        cover_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage.png"
-        thumbnail_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage.png"
+        coverArtUrl: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage.png"
+        thumbnailArtUrl: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage.png"
       jak2:
-        cover_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage2.jpeg"
-        thumbnail_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage2.jpeg"
+        coverArtUrl: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage2.jpeg"
+        thumbnailArtUrl: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage2.jpeg"
   bugged:
     repo_owner: "OpenGOAL-Mods"
     repo_name: "OG-Bugged"
@@ -35,7 +35,7 @@ mods:
     description: "Ono"
     authors: ["barg", "zed"]
     tags: []
-    websiteUrl: null # defaults to 'url'
+    website_url: null # defaults to 'url'
     supported_games: ["jak1", "jak2"]
     cover_art_url: null
     thumbnail_art_url: null

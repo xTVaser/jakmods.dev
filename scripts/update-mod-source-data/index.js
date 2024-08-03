@@ -108,7 +108,7 @@ for (const [modName, modInfo] of Object.entries(configFile["mods"])) {
         coverArtUrl: undefined,
         thumbnailArtUrl: undefined,
         perGameConfig: null,
-        external_link: null
+        externalLink: null
     };
     if (!Object.keys(modInfo).includes("website_url")) {
         // either its an external link and we can ignore it
@@ -133,7 +133,7 @@ for (const [modName, modInfo] of Object.entries(configFile["mods"])) {
         }
         // Check per game config
         for (const supportedGame of modSourceInfo.supportedGames) {
-            if (!Object.keys(modSourceInfo.perGameConfig).includes(supportedGame) || !Object.keys(modSourceInfo.perGameConfig[supportedGame]).includes("cover_art_url")) {
+            if (!Object.keys(modSourceInfo.perGameConfig).includes(supportedGame) || !Object.keys(modSourceInfo.perGameConfig[supportedGame]).includes("coverArtUrl")) {
                 exitWithError(`${modName} does not define 'cover_art_url' and it's missing in 'per_game_config.${supportedGame}'`);
             }
         }
@@ -144,7 +144,7 @@ for (const [modName, modInfo] of Object.entries(configFile["mods"])) {
         }
         // Check per game config
         for (const supportedGame of modSourceInfo.supportedGames) {
-            if (!Object.keys(modSourceInfo.perGameConfig).includes(supportedGame) || !Object.keys(modSourceInfo.perGameConfig[supportedGame]).includes("thumbnail_art_url")) {
+            if (!Object.keys(modSourceInfo.perGameConfig).includes(supportedGame) || !Object.keys(modSourceInfo.perGameConfig[supportedGame]).includes("thumbnailArtUrl")) {
                 exitWithError(`${modName} does not define 'thumbnail_art_url' and it's missing in 'per_game_config.${supportedGame}'`);
             }
         }
@@ -152,7 +152,7 @@ for (const [modName, modInfo] of Object.entries(configFile["mods"])) {
 
     // if the mod is external only, we don't check releases
     if (Object.keys(modInfo).includes("external_link")) {
-        modSourceInfo.external_link = modInfo["external_link"];
+        modSourceInfo.externalLink = modInfo["external_link"];
         modSourceData.mods[modName] = modSourceInfo;
         continue;
     }
@@ -294,7 +294,7 @@ for (const [modName, modInfo] of Object.entries(configFile["texture_packs"])) {
         }
         // Check per game config
         for (const supportedGame of modSourceInfo.supportedGames) {
-            if (!Object.keys(modSourceInfo.perGameConfig).includes(supportedGame) || !Object.keys(modSourceInfo.perGameConfig[supportedGame]).includes("thumbnail_art_url")) {
+            if (!Object.keys(modSourceInfo.perGameConfig).includes(supportedGame) || !Object.keys(modSourceInfo.perGameConfig[supportedGame]).includes("thumbnailArtUrl")) {
                 exitWithError(`${modName} does not define 'thumbnail_art_url' and it's missing in 'per_game_config.${supportedGame}'`);
             }
         }
@@ -365,7 +365,7 @@ if (!lintMode) {
     if (fs.existsSync("../../site/mods.json")) {
         let existingModSourceData = JSON.parse(fs.readFileSync("../../site/mods.json"));
         delete existingModSourceData["lastUpdated"];
-        // if it is, copy it over, 
+        // if it is, copy it over,
         if (JSON.stringify(existingModSourceData) === JSON.stringify(modSourceData)) {
             console.log("mods.json would be unchanged, not updating the file");
         } else { // if not, do nothing!

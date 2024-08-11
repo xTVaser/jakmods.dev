@@ -17,7 +17,7 @@
         "jak1",
         "jak2"
       ],
-      "websiteUrl": "https://www.github.com/OpenGOAL-Mods/OG-Speedrun-Practice",
+      "websiteUrl": "https://github.com/OpenGOAL-Mods/OG-Speedrun-Practice/blob/main/README.md",
       "versions": [
         {
           "version": "0.1.20",
@@ -87,15 +87,15 @@
       ],
       "perGameConfig": {
         "jak1": {
-          "cover_art_url": "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage.png",
-          "thumbnail_art_url": "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage.png"
+          "coverArtUrl": "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage.png",
+          "thumbnailArtUrl": "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage.png"
         },
         "jak2": {
-          "cover_art_url": "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage2.jpeg",
-          "thumbnail_art_url": "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage2.jpeg"
+          "coverArtUrl": "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage2.jpeg",
+          "thumbnailArtUrl": "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage2.jpeg"
         }
       },
-      "external_link": null
+      "externalLink": null
     },
     "bugged": {
       "displayName": "Bugged",
@@ -109,7 +109,7 @@
         "jak1",
         "jak2"
       ],
-      "websiteUrl": "https://www.github.com/OpenGOAL-Mods/OG-Bugged",
+      "websiteUrl": null,
       "versions": [
         {
           "version": "0.1.21",
@@ -141,7 +141,7 @@
       "coverArtUrl": null,
       "thumbnailArtUrl": null,
       "perGameConfig": null,
-      "external_link": null
+      "externalLink": null
     },
     "teamruns": {
       "displayName": "TeamRuns",
@@ -159,7 +159,7 @@
       "coverArtUrl": null,
       "thumbnailArtUrl": "https://teamruns.web.app/assets/teamruns-full-logo.png",
       "perGameConfig": null,
-      "external_link": "https://teamruns.web.app/"
+      "externalLink": "https://teamruns.web.app/"
     }
   },
   "texturePacks": {
@@ -179,5 +179,5 @@
       "perGameConfig": null
     }
   },
-  "lastUpdated": "2024-08-03T19:21:40.940Z"
+  "lastUpdated": "2024-08-05T16:09:59.739Z"
 }

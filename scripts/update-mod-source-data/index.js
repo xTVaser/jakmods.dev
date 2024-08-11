@@ -124,7 +124,17 @@ for (const [modName, modInfo] of Object.entries(configFile["mods"])) {
         modSourceInfo.thumbnailArtUrl = modInfo["thumbnail_art_url"];
     }
     if (Object.keys(modInfo).includes("per_game_config")) {
-        modSourceInfo.perGameConfig = modInfo["per_game_config"];
+        modSourceInfo.perGameConfig = {};
+        // iterate per-game configs
+        for (const [game, perGameConfig] of Object.entries(modInfo["per_game_config"])) {
+          modSourceInfo.perGameConfig[game] = {};
+          if (Object.keys(perGameConfig).includes("cover_art_url")) {
+            modSourceInfo.perGameConfig[game].coverArtUrl = perGameConfig["cover_art_url"];
+          }
+          if (Object.keys(perGameConfig).includes("thumbnail_art_url")) {
+            modSourceInfo.perGameConfig[game].thumbnailArtUrl = perGameConfig["thumbnail_art_url"];
+          }
+        }
     }
     // lint the per-game-config
     if (modSourceInfo.coverArtUrl === undefined) {

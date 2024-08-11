@@ -52,59 +52,62 @@ mods:
         cover_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage3.jpg"
         thumbnail_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage3.jpg"
   
-  checkpoint-randomizer:
-    repo_owner: "OpenGOAL-Mods"
-    repo_name: "OG-Randomizer"
-    url: "https://github.com/OpenGOAL-Mods/OG-Randomizer"
-    # NOTE - only '<' is supported and explicit versions.  The assumption is that '<' is only needed to skip
-    # past releases that don't conform to the new format, then beyond that hopefully every release is valid
-    # with the potential to maybe skip a bad one here and there.
-    ignore_versions:
-      - "<0.1.5"
-    display_name: "Checkpoint Randomizer"
-    description: "Warp to a random checkpoint on various triggers (cells, flies, orbs, eco, death)."
-    authors: ["zed", "MikeGamePro", "barg"]
-    tags: ["speedrunning", "challenge", "gameplay-mod", "rng"]
-    # website_url: "https://github.com/dallmeyer/OG-OrbHunt/blob/main/README.md"
-    supported_games: ["jak1"]
-    cover_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Randomizer/main/ModImage.png"
-    thumbnail_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Randomizer/main/ModImage.png"
+  # TODO: modern mod base
+  # checkpoint-randomizer:
+  #   repo_owner: "OpenGOAL-Mods"
+  #   repo_name: "OG-Randomizer"
+  #   url: "https://github.com/OpenGOAL-Mods/OG-Randomizer"
+  #   # NOTE - only '<' is supported and explicit versions.  The assumption is that '<' is only needed to skip
+  #   # past releases that don't conform to the new format, then beyond that hopefully every release is valid
+  #   # with the potential to maybe skip a bad one here and there.
+  #   ignore_versions:
+  #     - "<0.1.5"
+  #   display_name: "Checkpoint Randomizer"
+  #   description: "Warp to a random checkpoint on various triggers (cells, flies, orbs, eco, death)."
+  #   authors: ["zed", "MikeGamePro", "barg"]
+  #   tags: ["speedrunning", "challenge", "gameplay-mod", "rng"]
+  #   # website_url: "https://github.com/dallmeyer/OG-OrbHunt/blob/main/README.md"
+  #   supported_games: ["jak1"]
+  #   cover_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Randomizer/main/ModImage.png"
+  #   thumbnail_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Randomizer/main/ModImage.png"
 
-  random-cell-order:
-    repo_owner: "OpenGOAL-Mods"
-    repo_name: "OG-RCO"
-    url: "https://github.com/OpenGOAL-Mods/OG-RCO"
-    # NOTE - only '<' is supported and explicit versions.  The assumption is that '<' is only needed to skip
-    # past releases that don't conform to the new format, then beyond that hopefully every release is valid
-    # with the potential to maybe skip a bad one here and there.
-    ignore_versions:
-      - "<1.0.5"
-    display_name: "Random Cell Order"
-    description: "Warp to a random checkpoint on various triggers (cells, flies, orbs, eco, death)."
-    authors: ["barg", "SixRock", "Dexz"]
-    tags: ["speedrunning", "challenge", "gameplay-mod", "rng"]
-    website_url: "https://github.com/OpenGOAL-Mods/OG-RCO/blob/main/README.md"
-    supported_games: ["jak1"]
-    cover_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-RCO/main/ModImage.png"
-    thumbnail_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-RCO/main/ModImage.png"
+  # TODO: modern mod base
+  # random-cell-order:
+  #   repo_owner: "OpenGOAL-Mods"
+  #   repo_name: "OG-RCO"
+  #   url: "https://github.com/OpenGOAL-Mods/OG-RCO"
+  #   # NOTE - only '<' is supported and explicit versions.  The assumption is that '<' is only needed to skip
+  #   # past releases that don't conform to the new format, then beyond that hopefully every release is valid
+  #   # with the potential to maybe skip a bad one here and there.
+  #   ignore_versions:
+  #     - "<1.0.5"
+  #   display_name: "Random Cell Order"
+  #   description: "Warp to a random checkpoint on various triggers (cells, flies, orbs, eco, death)."
+  #   authors: ["barg", "SixRock", "Dexz"]
+  #   tags: ["speedrunning", "challenge", "gameplay-mod", "rng"]
+  #   website_url: "https://github.com/OpenGOAL-Mods/OG-RCO/blob/main/README.md"
+  #   supported_games: ["jak1"]
+  #   cover_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-RCO/main/ModImage.png"
+  #   thumbnail_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-RCO/main/ModImage.png"
 
-  flutflut-legacy:
-    repo_owner: "OpenGOAL-Mods"
-    repo_name: "OG-FlutFlut-Legacy"
-    url: "https://github.com/OpenGOAL-Mods/OG-FlutFlut-Legacy"
-    # NOTE - only '<' is supported and explicit versions.  The assumption is that '<' is only needed to skip
-    # past releases that don't conform to the new format, then beyond that hopefully every release is valid
-    # with the potential to maybe skip a bad one here and there.
-    ignore_versions:
-      - "<0.0.6"
-    display_name: "The FlutFlut Legacy"
-    description: "Play the whole game on FlutFlut."
-    authors: ["zed", "barg"]
-    tags: ["speedrunning", "challenge", "gameplay-mod"]
-    # website_url: "https://github.com/OpenGOAL-Mods/OG-RCO/blob/main/README.md"
-    supported_games: ["jak1"]
-    cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/flutflutlegacy.png"
-    thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/flutflutlegacy.png"
+  # TODO: modern mod base
+  # flutflut-legacy:
+  #   repo_owner: "OpenGOAL-Mods"
+  #   repo_name: "OG-FlutFlut-Legacy"
+  #   url: "https://github.com/OpenGOAL-Mods/OG-FlutFlut-Legacy"
+  #   # NOTE - only '<' is supported and explicit versions.  The assumption is that '<' is only needed to skip
+  #   # past releases that don't conform to the new format, then beyond that hopefully every release is valid
+  #   # with the potential to maybe skip a bad one here and there.
+  #   ignore_versions:
+  #     - "<0.0.6"
+  #   display_name: "The FlutFlut Legacy"
+  #   description: "Play the whole game on FlutFlut."
+  #   authors: ["zed", "barg"]
+  #   tags: ["speedrunning", "challenge", "gameplay-mod"]
+  #   # website_url: "https://github.com/OpenGOAL-Mods/OG-RCO/blob/main/README.md"
+  #   supported_games: ["jak1"]
+  #   cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/flutflutlegacy.png"
+  #   thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/flutflutlegacy.png"
 
   # TODO: migrate to modern mod base
   # zoomer-legacy:
@@ -220,27 +223,28 @@ mods:
     cover_art_url: "https://jakmods.dev/bugged/bugged_logo.png"
     thumbnail_art_url: "https://jakmods.dev/bugged/bugged_logo.png"
     
-  patched:
-    repo_owner: "OpenGOAL-Mods"
-    repo_name: "OG-Patched"
-    url: "https://github.com/OpenGOAL-Mods/OG-Patched"
-    ignore_versions:
-      - "<1.0.5"
-    display_name: "Patched"
-    description: "Jak and Daxter: The Precursor Legacy v1.1 ;)"
-    authors: ["bintendo42", "barg"]
-    tags: ["speedrunning", "challenge", "gameplay-mod"]
-    website_url: "https://github.com/OpenGOAL-Mods/OG-Patched/blob/main/README.md"
-    supported_games: ["jak1"]
-    cover_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Patched/main/ModImage.png"
-    thumbnail_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Patched/main/ModImage.png"
+  # TODO: modern mod base
+  # patched:
+  #   repo_owner: "OpenGOAL-Mods"
+  #   repo_name: "OG-Patched"
+  #   url: "https://github.com/OpenGOAL-Mods/OG-Patched"
+  #   ignore_versions:
+  #     - "<1.0.5"
+  #   display_name: "Patched"
+  #   description: "Jak and Daxter: The Precursor Legacy v1.1 ;)"
+  #   authors: ["bintendo42", "barg"]
+  #   tags: ["speedrunning", "challenge", "gameplay-mod"]
+  #   website_url: "https://github.com/OpenGOAL-Mods/OG-Patched/blob/main/README.md"
+  #   supported_games: ["jak1"]
+  #   cover_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Patched/main/ModImage.png"
+  #   thumbnail_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Patched/main/ModImage.png"
   
+  # TODO: releases for this are built from a branch so don't follow version bumping convention (might also just be outdated)
   # orange-demon:
   #   repo_owner: "Hat-Kid"
   #   repo_name: "jak-project"
   #   url: "https://github.com/Hat-Kid/jak-project"
   #   ignore_versions:
-  #     # TODO: releases for this are built from a branch so don't follow version bumping convention
   #     - "<1.0.5"
   #   display_name: "Orange Demon Challenge"
   #   description: "Play through the entire game while being chased by Daxter!"
@@ -251,20 +255,21 @@ mods:
   #   cover_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Patched/main/ModImage.png"
   #   thumbnail_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Patched/main/ModImage.png"
 
-  ruh-hot-rod:
-    repo_owner: "rileyfort"
-    repo_name: "jak-2-hot-rod"
-    url: "https://github.com/rileyfort/jak-2-hot-rod"
-    ignore_versions:
-      - "<0.0.2"
-    display_name: "Jak II Hot Rod"
-    description: "Changes one of the overworld zoomers to always spawn as a hot rod variant. Max speed has been increased from 40 to 200."
-    authors: ["Ruh"]
-    tags: ["texture-mod", "gameplay-mod"]
-    # website_url: "https://github.com/OpenGOAL-Mods/OG-Patched/blob/main/README.md"
-    supported_games: ["jak2"]
-    cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/hotrod.png"
-    thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/hotrod.png"
+  # TODO: modern mod-base
+  # ruh-hot-rod:
+  #   repo_owner: "rileyfort"
+  #   repo_name: "jak-2-hot-rod"
+  #   url: "https://github.com/rileyfort/jak-2-hot-rod"
+  #   ignore_versions:
+  #     - "<0.0.2"
+  #   display_name: "Jak II Hot Rod"
+  #   description: "Changes one of the overworld zoomers to always spawn as a hot rod variant. Max speed has been increased from 40 to 200."
+  #   authors: ["Ruh"]
+  #   tags: ["texture-mod", "gameplay-mod"]
+  #   # website_url: "https://github.com/OpenGOAL-Mods/OG-Patched/blob/main/README.md"
+  #   supported_games: ["jak2"]
+  #   cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/hotrod.png"
+  #   thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/hotrod.png"
 
   spec-ops:
     repo_owner: "ruhphorte"
@@ -341,20 +346,21 @@ mods:
     cover_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Jak2-AugustBuild/main/ModImage.png"
     thumbnail_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Jak2-AugustBuild/main/ModImage.png"
 
-  heromode-plus:
-    repo_owner: "RealOfficialKraken"
-    repo_name: "OG-HeroMode-Plus"
-    url: "https://github.com/RealOfficialKraken/OG-HeroMode-Plus"
-    ignore_versions:
-      - "<0.0.75"
-    display_name: "HeroMode+ | A Jak II Overhaul"
-    description: "Overhauls Jak II's difficulty, but with a twist! Adds weapon mods, custom modifiers, hero mode changes, and various other things to find! Are you up for the challenge?"
-    authors: ["Kraken"]
-    tags: ["challenge", "gameplay-mod"]
-    # website_url: "https://github.com/OpenGOAL-Mods/OG-Jak2-AugustBuild/blob/main/README.md"
-    supported_games: ["jak2"]
-    cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/hmplus.png"
-    thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/hmplus.png"
+  # TODO: update to modern mod base
+  # heromode-plus:
+  #   repo_owner: "RealOfficialKraken"
+  #   repo_name: "OG-HeroMode-Plus"
+  #   url: "https://github.com/RealOfficialKraken/OG-HeroMode-Plus"
+  #   ignore_versions:
+  #     - "<0.0.75"
+  #   display_name: "HeroMode+ | A Jak II Overhaul"
+  #   description: "Overhauls Jak II's difficulty, but with a twist! Adds weapon mods, custom modifiers, hero mode changes, and various other things to find! Are you up for the challenge?"
+  #   authors: ["Kraken"]
+  #   tags: ["challenge", "gameplay-mod"]
+  #   # website_url: "https://github.com/OpenGOAL-Mods/OG-Jak2-AugustBuild/blob/main/README.md"
+  #   supported_games: ["jak2"]
+  #   cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/hmplus.png"
+  #   thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/hmplus.png"
 
   roguelike-jak2:
     repo_owner: "RealOfficialKraken"
@@ -371,59 +377,62 @@ mods:
     cover_art_url: "https://raw.githubusercontent.com/RealOfficialKraken/roguelikejakii/main/ModImage.png"
     thumbnail_art_url: "https://raw.githubusercontent.com/RealOfficialKraken/roguelikejakii/main/ModImage.png"
 
-  dark-jak-renegade:
-    repo_owner: "OpenGOAL-Mods"
-    repo_name: "OG-Dark-Jak"
-    url: "https://github.com/OpenGOAL-Mods/OG-Dark-Jak"
-    ignore_versions:
-      - "<0.3.6"
-    display_name: "Dark Jak Renegade"
-    description: "Infinite Dark Jak, plus you can rolljump, use guns, vehicles, jetboard, etc. Hold L2 to use Dark Bomb/Dark Blast, or to undo Dark Giant. Reboot in debug mode to unlock everything at the start."
-    authors: ["barg"]
-    tags: ["gameplay-mod"]
-    # website_url: "https://github.com/OpenGOAL-Mods/OG-Jak2-AugustBuild/blob/main/README.md"
-    supported_games: ["jak2"]
-    cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/darkjak.webp"
-    thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/darkjak.webp"
+  # TODO: update to modern mod base
+  # dark-jak-renegade:
+  #   repo_owner: "OpenGOAL-Mods"
+  #   repo_name: "OG-Dark-Jak"
+  #   url: "https://github.com/OpenGOAL-Mods/OG-Dark-Jak"
+  #   ignore_versions:
+  #     - "<0.3.6"
+  #   display_name: "Dark Jak Renegade"
+  #   description: "Infinite Dark Jak, plus you can rolljump, use guns, vehicles, jetboard, etc. Hold L2 to use Dark Bomb/Dark Blast, or to undo Dark Giant. Reboot in debug mode to unlock everything at the start."
+  #   authors: ["barg"]
+  #   tags: ["gameplay-mod"]
+  #   # website_url: "https://github.com/OpenGOAL-Mods/OG-Jak2-AugustBuild/blob/main/README.md"
+  #   supported_games: ["jak2"]
+  #   cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/darkjak.webp"
+  #   thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/darkjak.webp"
 
   #### CUSTOM LEVEL MODS ####
 
-  forgotten-lands:
-    repo_owner: "Kuitar5"
-    repo_name: "the-forgotten-lands"
-    url: "https://github.com/Kuitar5/the-forgotten-lands"
-    ignore_versions:
-      - "<0.2.1"
-    display_name: "The Forgotten Lands"
-    description: "Experience a new story and levels. Start a new game and beat Geyser Rock to access the custom levels."
-    authors: ["Kuitar", "Hat-Kid"]
-    tags: ["custom-level", "gameplay-mod"]
-    website_url: "https://github.com/Kuitar5/the-forgotten-lands/blob/main/README.md#the-forgotten-lands"
-    supported_games: ["jak1"]
-    cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/tfl.webp"
-    thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/tfl.webp"
+  # TODO: modern mod base
+  # forgotten-lands:
+  #   repo_owner: "Kuitar5"
+  #   repo_name: "the-forgotten-lands"
+  #   url: "https://github.com/Kuitar5/the-forgotten-lands"
+  #   ignore_versions:
+  #     - "<0.2.1"
+  #   display_name: "The Forgotten Lands"
+  #   description: "Experience a new story and levels. Start a new game and beat Geyser Rock to access the custom levels."
+  #   authors: ["Kuitar", "Hat-Kid"]
+  #   tags: ["custom-level", "gameplay-mod"]
+  #   website_url: "https://github.com/Kuitar5/the-forgotten-lands/blob/main/README.md#the-forgotten-lands"
+  #   supported_games: ["jak1"]
+  #   cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/tfl.webp"
+  #   thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/tfl.webp"
 
-  up:
-    repo_owner: "dallmeyer"
-    repo_name: "jak-up"
-    url: "https://github.com/dallmeyer/jak-up"
-    ignore_versions:
-      - "<0.1.2"
-    display_name: "Jak Up"
-    description: "Only Up in Jak 1. Hub 1+2 so far. WARNING: the custom levels take up ~700MB, and will take a couple minutes to install."
-    authors: ["barg"]
-    tags: ["custom-level", "gameplay-mod", "challenge", "speedrunning"]
-    # website_url: "https://github.com/Kuitar5/the-forgotten-lands/blob/main/README.md#the-forgotten-lands"
-    supported_games: ["jak1"]
-    cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/jakup.jpeg"
-    thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/jakup.jpeg"
+  # TODO: modern mod base
+  # up:
+  #   repo_owner: "dallmeyer"
+  #   repo_name: "jak-up"
+  #   url: "https://github.com/dallmeyer/jak-up"
+  #   ignore_versions:
+  #     - "<0.1.2"
+  #   display_name: "Jak Up"
+  #   description: "Only Up in Jak 1. Hub 1+2 so far. WARNING: the custom levels take up ~700MB, and will take a couple minutes to install."
+  #   authors: ["barg"]
+  #   tags: ["custom-level", "gameplay-mod", "challenge", "speedrunning"]
+  #   # website_url: "https://github.com/Kuitar5/the-forgotten-lands/blob/main/README.md#the-forgotten-lands"
+  #   supported_games: ["jak1"]
+  #   cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/jakup.jpeg"
+  #   thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/jakup.jpeg"
 
+  # TODO: releases for this are built from a branch so don't follow version bumping convention (might also be oudated?)
   # river-to-water:
   #   repo_owner: "Cuttlefishthesage"
   #   repo_name: "Og-ModBase-Rockpool"
   #   url: "https://github.com/Cuttlefishthesage/OG-Mod-Base"
   #   ignore_versions:
-  #     # TODO: releases for this are built from a branch so don't follow version bumping convention
   #     - "<1.0.2"
   #   display_name: "River to Water"
   #   description: "Custom level River to Water (Afon i ddwr) of a winding mountain path with powercells, scoutflies and orbs guarded by lurkers! Visit via the warpgate once you complete the game or just use debug mode to visit early!"
@@ -449,25 +458,26 @@ mods:
     cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/rockpool.png"
     thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/rockpool.png"
 
-  funki-showcase:
-    repo_owner: "OpenGOAL-Mods"
-    repo_name: "OG-Funki-Showcase"
-    url: "https://github.com/OpenGOAL-Mods/OG-Funki-Showcase"
-    ignore_versions:
-      - "<0.0.4"
-    display_name: "FUNKI DELIRE Custom Levels"
-    description: "There are several maps. Parkour, Minecraft, Keira land, etc... Plenty of fun in the magnificent world of Jak and Daxter! Recommended to change Time of Day to Palette 7 from the debug menu to see the maps clearly (Jak II)."
-    authors: ["FUNKI DELIRE (LEON GAGIN)"]
-    tags: ["custom-level"]
-    # website_url: "https://github.com/OpenGOAL-Mods/OG-Patched/blob/main/README.md"
-    supported_games: ["jak1", "jak2"]
-    per_game_config:
-      jak1:
-        cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/funkiparkour.png"
-        thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/funkiparkour.png"
-      jak2:
-        cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/funkiparkour2.png"
-        thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/funkiparkour.png2"
+  # TODO: modern mod base
+  # funki-showcase:
+  #   repo_owner: "OpenGOAL-Mods"
+  #   repo_name: "OG-Funki-Showcase"
+  #   url: "https://github.com/OpenGOAL-Mods/OG-Funki-Showcase"
+  #   ignore_versions:
+  #     - "<0.0.4"
+  #   display_name: "FUNKI DELIRE Custom Levels"
+  #   description: "There are several maps. Parkour, Minecraft, Keira land, etc... Plenty of fun in the magnificent world of Jak and Daxter! Recommended to change Time of Day to Palette 7 from the debug menu to see the maps clearly (Jak II)."
+  #   authors: ["FUNKI DELIRE (LEON GAGIN)"]
+  #   tags: ["custom-level"]
+  #   # website_url: "https://github.com/OpenGOAL-Mods/OG-Patched/blob/main/README.md"
+  #   supported_games: ["jak1", "jak2"]
+  #   per_game_config:
+  #     jak1:
+  #       cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/funkiparkour.png"
+  #       thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/funkiparkour.png"
+  #     jak2:
+  #       cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/funkiparkour2.png"
+  #       thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/funkiparkour2.png"
 
   #### MODEL REPLACEMENT MODS ####
 

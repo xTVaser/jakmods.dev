@@ -411,7 +411,7 @@ mods:
   #   cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/tfl.webp"
   #   thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/tfl.webp"
 
-  # modern mod base
+  # TODO: modern mod base
   # up:
   #   repo_owner: "dallmeyer"
   #   repo_name: "jak-up"
@@ -427,12 +427,12 @@ mods:
   #   cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/jakup.jpeg"
   #   thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/jakup.jpeg"
 
+  # TODO: releases for this are built from a branch so don't follow version bumping convention (might also be oudated?)
   # river-to-water:
   #   repo_owner: "Cuttlefishthesage"
   #   repo_name: "Og-ModBase-Rockpool"
   #   url: "https://github.com/Cuttlefishthesage/OG-Mod-Base"
   #   ignore_versions:
-  #     # TODO: releases for this are built from a branch so don't follow version bumping convention
   #     - "<1.0.2"
   #   display_name: "River to Water"
   #   description: "Custom level River to Water (Afon i ddwr) of a winding mountain path with powercells, scoutflies and orbs guarded by lurkers! Visit via the warpgate once you complete the game or just use debug mode to visit early!"

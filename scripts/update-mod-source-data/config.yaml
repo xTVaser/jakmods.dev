@@ -88,24 +88,23 @@ mods:
     cover_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-RCO/main/ModImage.png"
     thumbnail_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-RCO/main/ModImage.png"
 
-  # TODO: modern mod base
-  # flutflut-legacy:
-  #   repo_owner: "OpenGOAL-Mods"
-  #   repo_name: "OG-FlutFlut-Legacy"
-  #   url: "https://github.com/OpenGOAL-Mods/OG-FlutFlut-Legacy"
-  #   # NOTE - only '<' is supported and explicit versions.  The assumption is that '<' is only needed to skip
-  #   # past releases that don't conform to the new format, then beyond that hopefully every release is valid
-  #   # with the potential to maybe skip a bad one here and there.
-  #   ignore_versions:
-  #     - "<0.0.6"
-  #   display_name: "The FlutFlut Legacy"
-  #   description: "Play the whole game on FlutFlut."
-  #   authors: ["zed", "barg"]
-  #   tags: ["speedrunning", "challenge", "gameplay-mod"]
-  #   # website_url: "https://github.com/OpenGOAL-Mods/OG-RCO/blob/main/README.md"
-  #   supported_games: ["jak1"]
-  #   cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/flutflutlegacy.png"
-  #   thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/flutflutlegacy.png"
+  flutflut-legacy:
+    repo_owner: "OpenGOAL-Mods"
+    repo_name: "OG-FlutFlut-Legacy"
+    url: "https://github.com/OpenGOAL-Mods/OG-FlutFlut-Legacy"
+    # NOTE - only '<' is supported and explicit versions.  The assumption is that '<' is only needed to skip
+    # past releases that don't conform to the new format, then beyond that hopefully every release is valid
+    # with the potential to maybe skip a bad one here and there.
+    ignore_versions:
+      - "<0.1.0"
+    display_name: "The FlutFlut Legacy"
+    description: "Play the whole game on FlutFlut."
+    authors: ["zed", "barg"]
+    tags: ["speedrunning", "challenge", "gameplay-mod"]
+    # website_url: "https://github.com/OpenGOAL-Mods/OG-RCO/blob/main/README.md"
+    supported_games: ["jak1"]
+    cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/flutflutlegacy.png"
+    thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/flutflutlegacy.png"
 
   # TODO: migrate to modern mod base
   # zoomer-legacy:

@@ -159,7 +159,34 @@
         "jak1"
       ],
       "websiteUrl": "https://github.com/OpenGOAL-Mods/OG-RCO/blob/main/README.md",
-      "versions": [],
+      "versions": [
+        {
+          "version": "0.0.2",
+          "publishedDate": "2024-08-15T06:53:36Z",
+          "settings": {
+            "decompConfigOverride": "",
+            "shareVanillaSaves": false
+          },
+          "assets": {
+            "windows": "https://github.com/OpenGOAL-Mods/OG-RCO/releases/download/v0.0.2/windows-v0.0.2.zip",
+            "linux": null,
+            "macos": null
+          }
+        },
+        {
+          "version": "0.0.1",
+          "publishedDate": "2024-08-15T06:34:55Z",
+          "settings": {
+            "decompConfigOverride": "",
+            "shareVanillaSaves": false
+          },
+          "assets": {
+            "windows": "https://github.com/OpenGOAL-Mods/OG-RCO/releases/download/v0.0.1/windows-v0.0.1.zip",
+            "linux": null,
+            "macos": null
+          }
+        }
+      ],
       "coverArtUrl": "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-RCO/main/ModImage.png",
       "thumbnailArtUrl": "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-RCO/main/ModImage.png",
       "perGameConfig": null,
@@ -613,5 +640,5 @@
       "perGameConfig": null
     }
   },
-  "lastUpdated": "2024-08-15T06:34:53.793Z"
+  "lastUpdated": "2024-08-15T06:54:31.550Z"
 }

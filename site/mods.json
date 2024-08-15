@@ -254,6 +254,42 @@
       "perGameConfig": null,
       "externalLink": null
     },
+    "zoomer-legacy": {
+      "displayName": "The Zoomer Legacy",
+      "description": "Play the whole game on the Zoomer, with various changes to better explore the entire game.",
+      "authors": [
+        "zed",
+        "barg"
+      ],
+      "tags": [
+        "speedrunning",
+        "challenge",
+        "gameplay-mod"
+      ],
+      "supportedGames": [
+        "jak1"
+      ],
+      "websiteUrl": "https://github.com/OpenGOAL-Mods/OG-Zoomer-Legacy/blob/main/README.md",
+      "versions": [
+        {
+          "version": "0.0.1",
+          "publishedDate": "2024-08-15T21:22:56Z",
+          "settings": {
+            "decompConfigOverride": "",
+            "shareVanillaSaves": false
+          },
+          "assets": {
+            "windows": "https://github.com/OpenGOAL-Mods/OG-Zoomer-Legacy/releases/download/v0.0.1/windows-v0.0.1.zip",
+            "linux": null,
+            "macos": null
+          }
+        }
+      ],
+      "coverArtUrl": "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Zoomer-Legacy/main/ModImage.png",
+      "thumbnailArtUrl": "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Zoomer-Legacy/main/ModImage.png",
+      "perGameConfig": null,
+      "externalLink": null
+    },
     "orb-hunt": {
       "displayName": "Orb Hunt",
       "description": "Precursor Orb Scavenger Hunt",
@@ -292,7 +328,7 @@
         },
         "jak2": {
           "coverArtUrl": "https://raw.githubusercontent.com/dallmeyer/OG-OrbHunt/main/ModImage2.png",
-          "thumbnailArtUrl": "https://raw.githubusercontent.com/dallmeyer/OG-OrbHunt/main/ModImage2.png"
+          "thumbnailArtUrl": "https://raw.githubusercontent.com/dallmeyer/OG-OrbHunt/main/orbhunt2-thumbnail.png"
         }
       },
       "externalLink": null
@@ -581,6 +617,19 @@
       "websiteUrl": "https://www.github.com/Cuttlefishthesage/OG-Mod-Base",
       "versions": [
         {
+          "version": "0.0.2",
+          "publishedDate": "2024-08-15T18:21:45Z",
+          "settings": {
+            "decompConfigOverride": "",
+            "shareVanillaSaves": false
+          },
+          "assets": {
+            "windows": "https://github.com/Cuttlefishthesage/OG-Mod-Base/releases/download/v0.0.2/windows-v0.0.2.zip",
+            "linux": null,
+            "macos": null
+          }
+        },
+        {
           "version": "0.0.1",
           "publishedDate": "2024-08-15T17:00:35Z",
           "settings": {
@@ -735,5 +784,5 @@
       "perGameConfig": null
     }
   },
-  "lastUpdated": "2024-08-15T17:05:33.288Z"
+  "lastUpdated": "2024-08-15T21:25:19.486Z"
 }

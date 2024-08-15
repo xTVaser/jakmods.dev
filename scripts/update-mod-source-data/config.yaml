@@ -106,24 +106,23 @@ mods:
     cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/flutflutlegacy.png"
     thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/flutflutlegacy.png"
 
-  # TODO: migrate to modern mod base
-  # zoomer-legacy:
-  #   repo_owner: "dallmeyer"
-  #   repo_name: "The-Zoomer-Legacy"
-  #   url: "https://github.com/dallmeyer/The-Zoomer-Legacy"
-  #   # NOTE - only '<' is supported and explicit versions.  The assumption is that '<' is only needed to skip
-  #   # past releases that don't conform to the new format, then beyond that hopefully every release is valid
-  #   # with the potential to maybe skip a bad one here and there.
-  #   ignore_versions:
-  #     - "<1.0.5"
-  #   display_name: "The Zoomer Legacy"
-  #   description: "Play the whole game on the Zoomer, with various changes to better explore the entire game."
-  #   authors: ["zed", "barg"]
-  #   tags: ["speedrunning", "challenge", "gameplay-mod"]
-  #   website_url: "https://github.com/OpenGOAL-Mods/OG-RCO/blob/main/README.md"
-  #   supported_games: ["jak1"]
-  #   cover_art_url: "https://raw.githubusercontent.com/dallmeyer/The-Zoomer-Legacy/main/ModImage.png"
-  #   thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/The-Zoomer-Legacy/main/ModImage.png"
+  zoomer-legacy:
+    repo_owner: "OpenGOAL-Mods"
+    repo_name: "OG-Zoomer-Legacy"
+    url: "https://github.com/OpenGOAL-Mods/OG-Zoomer-Legacy"
+    # NOTE - only '<' is supported and explicit versions.  The assumption is that '<' is only needed to skip
+    # past releases that don't conform to the new format, then beyond that hopefully every release is valid
+    # with the potential to maybe skip a bad one here and there.
+    ignore_versions:
+      - "<0.0.1"
+    display_name: "The Zoomer Legacy"
+    description: "Play the whole game on the Zoomer, with various changes to better explore the entire game."
+    authors: ["zed", "barg"]
+    tags: ["speedrunning", "challenge", "gameplay-mod"]
+    website_url: "https://github.com/OpenGOAL-Mods/OG-Zoomer-Legacy/blob/main/README.md"
+    supported_games: ["jak1"]
+    cover_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Zoomer-Legacy/main/ModImage.png"
+    thumbnail_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Zoomer-Legacy/main/ModImage.png"
 
   # TODO: migrate to modern mod base
   # super-mario-64:
@@ -203,7 +202,7 @@ mods:
         thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/OG-OrbHunt/main/ModImage.png"
       jak2:
         cover_art_url: "https://raw.githubusercontent.com/dallmeyer/OG-OrbHunt/main/ModImage2.png"
-        thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/OG-OrbHunt/main/ModImage2.png"
+        thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/OG-OrbHunt/main/orbhunt2-thumbnail.png"
 
   bugged:
     repo_owner: "OpenGOAL-Mods"
@@ -422,7 +421,7 @@ mods:
   #   # website_url: "https://github.com/Kuitar5/the-forgotten-lands/blob/main/README.md#the-forgotten-lands"
   #   supported_games: ["jak1"]
   #   cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/jakup.jpeg"
-  #   thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/jakup.jpeg"
+  #   thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/jak-up/main/jakup-thumbnail.png"
 
   river-to-water:
     repo_owner: "Cuttlefishthesage"

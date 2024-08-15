@@ -223,6 +223,19 @@
       "websiteUrl": "https://www.github.com/OpenGOAL-Mods/OG-FlutFlut-Legacy",
       "versions": [
         {
+          "version": "0.1.1",
+          "publishedDate": "2024-08-15T10:18:22Z",
+          "settings": {
+            "decompConfigOverride": "",
+            "shareVanillaSaves": false
+          },
+          "assets": {
+            "windows": "https://github.com/OpenGOAL-Mods/OG-FlutFlut-Legacy/releases/download/v0.1.1/windows-v0.1.1.zip",
+            "linux": null,
+            "macos": null
+          }
+        },
+        {
           "version": "0.1.0",
           "publishedDate": "2024-08-15T10:08:34Z",
           "settings": {
@@ -689,5 +702,5 @@
       "perGameConfig": null
     }
   },
-  "lastUpdated": "2024-08-15T10:10:58.380Z"
+  "lastUpdated": "2024-08-15T16:09:48.026Z"
 }

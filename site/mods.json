@@ -103,6 +103,44 @@
       },
       "externalLink": null
     },
+    "checkpoint-randomizer": {
+      "displayName": "Checkpoint Randomizer",
+      "description": "Warp to a random checkpoint on various triggers (cells, flies, orbs, eco, death).",
+      "authors": [
+        "zed",
+        "MikeGamePro",
+        "barg"
+      ],
+      "tags": [
+        "speedrunning",
+        "challenge",
+        "gameplay-mod",
+        "rng"
+      ],
+      "supportedGames": [
+        "jak1"
+      ],
+      "websiteUrl": "https://www.github.com/OpenGOAL-Mods/OG-Randomizer",
+      "versions": [
+        {
+          "version": "0.2.0",
+          "publishedDate": "2024-08-15T02:41:31Z",
+          "settings": {
+            "decompConfigOverride": "",
+            "shareVanillaSaves": false
+          },
+          "assets": {
+            "windows": "https://github.com/OpenGOAL-Mods/OG-Randomizer/releases/download/v0.2.0/windows-v0.2.0.zip",
+            "linux": null,
+            "macos": null
+          }
+        }
+      ],
+      "coverArtUrl": "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Randomizer/main/ModImage.png",
+      "thumbnailArtUrl": "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Randomizer/main/ModImage.png",
+      "perGameConfig": null,
+      "externalLink": null
+    },
     "orb-hunt": {
       "displayName": "Orb Hunt",
       "description": "Precursor Orb Scavenger Hunt",
@@ -528,7 +566,7 @@
         "jak1"
       ],
       "versions": [],
-      "coverArtUrl": null,
+      "coverArtUrl": "https://teamruns.web.app/assets/teamruns-full-logo.png",
       "thumbnailArtUrl": "https://teamruns.web.app/assets/teamruns-full-logo.png",
       "perGameConfig": null,
       "externalLink": "https://teamruns.web.app/"
@@ -551,5 +589,5 @@
       "perGameConfig": null
     }
   },
-  "lastUpdated": "2024-08-11T22:08:08.473Z"
+  "lastUpdated": "2024-08-15T02:43:05.636Z"
 }

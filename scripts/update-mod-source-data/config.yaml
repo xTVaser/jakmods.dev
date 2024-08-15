@@ -52,24 +52,23 @@ mods:
         cover_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage3.jpg"
         thumbnail_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage3.jpg"
   
-  # TODO: modern mod base
-  # checkpoint-randomizer:
-  #   repo_owner: "OpenGOAL-Mods"
-  #   repo_name: "OG-Randomizer"
-  #   url: "https://github.com/OpenGOAL-Mods/OG-Randomizer"
-  #   # NOTE - only '<' is supported and explicit versions.  The assumption is that '<' is only needed to skip
-  #   # past releases that don't conform to the new format, then beyond that hopefully every release is valid
-  #   # with the potential to maybe skip a bad one here and there.
-  #   ignore_versions:
-  #     - "<0.1.5"
-  #   display_name: "Checkpoint Randomizer"
-  #   description: "Warp to a random checkpoint on various triggers (cells, flies, orbs, eco, death)."
-  #   authors: ["zed", "MikeGamePro", "barg"]
-  #   tags: ["speedrunning", "challenge", "gameplay-mod", "rng"]
-  #   # website_url: "https://github.com/dallmeyer/OG-OrbHunt/blob/main/README.md"
-  #   supported_games: ["jak1"]
-  #   cover_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Randomizer/main/ModImage.png"
-  #   thumbnail_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Randomizer/main/ModImage.png"
+  checkpoint-randomizer:
+    repo_owner: "OpenGOAL-Mods"
+    repo_name: "OG-Randomizer"
+    url: "https://github.com/OpenGOAL-Mods/OG-Randomizer"
+    # NOTE - only '<' is supported and explicit versions.  The assumption is that '<' is only needed to skip
+    # past releases that don't conform to the new format, then beyond that hopefully every release is valid
+    # with the potential to maybe skip a bad one here and there.
+    ignore_versions:
+      - "<0.2.0"
+    display_name: "Checkpoint Randomizer"
+    description: "Warp to a random checkpoint on various triggers (cells, flies, orbs, eco, death)."
+    authors: ["zed", "MikeGamePro", "barg"]
+    tags: ["speedrunning", "challenge", "gameplay-mod", "rng"]
+    # website_url: "https://github.com/dallmeyer/OG-OrbHunt/blob/main/README.md"
+    supported_games: ["jak1"]
+    cover_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Randomizer/main/ModImage.png"
+    thumbnail_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Randomizer/main/ModImage.png"
 
   # TODO: modern mod base
   # random-cell-order:
@@ -521,7 +520,7 @@ mods:
     tags: ["multiplayer", "speedrunning"]
     supported_games: ["jak1"]
     thumbnail_art_url: "https://teamruns.web.app/assets/teamruns-full-logo.png"
-    cover_art_url: null
+    cover_art_url: "https://teamruns.web.app/assets/teamruns-full-logo.png"
 
 texture_packs:
   # TODO - this one actually isn't supported end-to-end yet (no releases)

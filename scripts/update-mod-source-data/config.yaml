@@ -424,21 +424,20 @@ mods:
   #   cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/jakup.jpeg"
   #   thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/jakup.jpeg"
 
-  # TODO: releases for this are built from a branch so don't follow version bumping convention (might also be oudated?)
-  # river-to-water:
-  #   repo_owner: "Cuttlefishthesage"
-  #   repo_name: "Og-ModBase-Rockpool"
-  #   url: "https://github.com/Cuttlefishthesage/OG-Mod-Base"
-  #   ignore_versions:
-  #     - "<1.0.2"
-  #   display_name: "River to Water"
-  #   description: "Custom level River to Water (Afon i ddwr) of a winding mountain path with powercells, scoutflies and orbs guarded by lurkers! Visit via the warpgate once you complete the game or just use debug mode to visit early!"
-  #   authors: ["Cuttlefish"]
-  #   tags: ["custom-level"]
-  #   # website_url: "https://github.com/OpenGOAL-Mods/OG-Patched/blob/main/README.md"
-  #   supported_games: ["jak1"]
-  #   cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/rockpool.png"
-  #   thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/rockpool.png"
+  river-to-water:
+    repo_owner: "Cuttlefishthesage"
+    repo_name: "OG-Mod-Base"
+    url: "https://github.com/Cuttlefishthesage/OG-Mod-Base"
+    ignore_versions:
+      - "<0.0.1"
+    display_name: "River to Water"
+    description: "Custom level River to Water (Afon i ddwr) of a winding mountain path with powercells, scoutflies and orbs guarded by lurkers! Visit via the warpgate once you complete the game or just use debug mode to visit early!"
+    authors: ["Cuttlefish"]
+    tags: ["custom-level"]
+    # website_url: "https://github.com/OpenGOAL-Mods/OG-Patched/blob/main/README.md"
+    supported_games: ["jak1"]
+    cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/cuttlefish-river-to-water.png"
+    thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/cuttlefish-river-to-water.png"
 
   rockpool:
     repo_owner: "Cuttlefishthesage"

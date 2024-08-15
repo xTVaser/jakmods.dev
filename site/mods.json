@@ -223,6 +223,19 @@
       "websiteUrl": "https://www.github.com/OpenGOAL-Mods/OG-FlutFlut-Legacy",
       "versions": [
         {
+          "version": "0.1.1",
+          "publishedDate": "2024-08-15T10:18:22Z",
+          "settings": {
+            "decompConfigOverride": "",
+            "shareVanillaSaves": false
+          },
+          "assets": {
+            "windows": "https://github.com/OpenGOAL-Mods/OG-FlutFlut-Legacy/releases/download/v0.1.1/windows-v0.1.1.zip",
+            "linux": null,
+            "macos": null
+          }
+        },
+        {
           "version": "0.1.0",
           "publishedDate": "2024-08-15T10:08:34Z",
           "settings": {
@@ -553,6 +566,39 @@
       "perGameConfig": null,
       "externalLink": null
     },
+    "river-to-water": {
+      "displayName": "River to Water",
+      "description": "Custom level River to Water (Afon i ddwr) of a winding mountain path with powercells, scoutflies and orbs guarded by lurkers! Visit via the warpgate once you complete the game or just use debug mode to visit early!",
+      "authors": [
+        "Cuttlefish"
+      ],
+      "tags": [
+        "custom-level"
+      ],
+      "supportedGames": [
+        "jak1"
+      ],
+      "websiteUrl": "https://www.github.com/Cuttlefishthesage/OG-Mod-Base",
+      "versions": [
+        {
+          "version": "0.0.1",
+          "publishedDate": "2024-08-15T17:00:35Z",
+          "settings": {
+            "decompConfigOverride": "",
+            "shareVanillaSaves": false
+          },
+          "assets": {
+            "windows": "https://github.com/Cuttlefishthesage/OG-Mod-Base/releases/download/v0.0.1/windows-v0.0.1.zip",
+            "linux": null,
+            "macos": null
+          }
+        }
+      ],
+      "coverArtUrl": "https://raw.githubusercontent.com/dallmeyer/modimages/main/cuttlefish-river-to-water.png",
+      "thumbnailArtUrl": "https://raw.githubusercontent.com/dallmeyer/modimages/main/cuttlefish-river-to-water.png",
+      "perGameConfig": null,
+      "externalLink": null
+    },
     "rockpool": {
       "displayName": "Rockpool",
       "description": "A sunny beach side trip with cliffs to scale, powercells to find and lurkers to fight! Be careful not to swim out too far...  Access via the warpgate in debug or a full save game!",
@@ -689,5 +735,5 @@
       "perGameConfig": null
     }
   },
-  "lastUpdated": "2024-08-15T10:10:58.380Z"
+  "lastUpdated": "2024-08-15T17:05:33.288Z"
 }

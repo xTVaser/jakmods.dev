@@ -70,24 +70,23 @@ mods:
     cover_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Randomizer/main/ModImage.png"
     thumbnail_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Randomizer/main/ModImage.png"
 
-  # TODO: modern mod base
-  # random-cell-order:
-  #   repo_owner: "OpenGOAL-Mods"
-  #   repo_name: "OG-RCO"
-  #   url: "https://github.com/OpenGOAL-Mods/OG-RCO"
-  #   # NOTE - only '<' is supported and explicit versions.  The assumption is that '<' is only needed to skip
-  #   # past releases that don't conform to the new format, then beyond that hopefully every release is valid
-  #   # with the potential to maybe skip a bad one here and there.
-  #   ignore_versions:
-  #     - "<1.0.5"
-  #   display_name: "Random Cell Order"
-  #   description: "Warp to a random checkpoint on various triggers (cells, flies, orbs, eco, death)."
-  #   authors: ["barg", "SixRock", "Dexz"]
-  #   tags: ["speedrunning", "challenge", "gameplay-mod", "rng"]
-  #   website_url: "https://github.com/OpenGOAL-Mods/OG-RCO/blob/main/README.md"
-  #   supported_games: ["jak1"]
-  #   cover_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-RCO/main/ModImage.png"
-  #   thumbnail_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-RCO/main/ModImage.png"
+  random-cell-order:
+    repo_owner: "OpenGOAL-Mods"
+    repo_name: "OG-RCO"
+    url: "https://github.com/OpenGOAL-Mods/OG-RCO"
+    # NOTE - only '<' is supported and explicit versions.  The assumption is that '<' is only needed to skip
+    # past releases that don't conform to the new format, then beyond that hopefully every release is valid
+    # with the potential to maybe skip a bad one here and there.
+    ignore_versions:
+      - "<0.0.1"
+    display_name: "Random Cell Order"
+    description: "Warp to a random checkpoint on various triggers (cells, flies, orbs, eco, death)."
+    authors: ["barg", "SixRock", "Dexz"]
+    tags: ["speedrunning", "challenge", "gameplay-mod", "rng"]
+    website_url: "https://github.com/OpenGOAL-Mods/OG-RCO/blob/main/README.md"
+    supported_games: ["jak1"]
+    cover_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-RCO/main/ModImage.png"
+    thumbnail_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-RCO/main/ModImage.png"
 
   # TODO: modern mod base
   # flutflut-legacy:

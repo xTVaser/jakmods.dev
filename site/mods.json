@@ -141,6 +141,30 @@
       "perGameConfig": null,
       "externalLink": null
     },
+    "random-cell-order": {
+      "displayName": "Random Cell Order",
+      "description": "Warp to a random checkpoint on various triggers (cells, flies, orbs, eco, death).",
+      "authors": [
+        "barg",
+        "SixRock",
+        "Dexz"
+      ],
+      "tags": [
+        "speedrunning",
+        "challenge",
+        "gameplay-mod",
+        "rng"
+      ],
+      "supportedGames": [
+        "jak1"
+      ],
+      "websiteUrl": "https://github.com/OpenGOAL-Mods/OG-RCO/blob/main/README.md",
+      "versions": [],
+      "coverArtUrl": "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-RCO/main/ModImage.png",
+      "thumbnailArtUrl": "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-RCO/main/ModImage.png",
+      "perGameConfig": null,
+      "externalLink": null
+    },
     "orb-hunt": {
       "displayName": "Orb Hunt",
       "description": "Precursor Orb Scavenger Hunt",
@@ -589,5 +613,5 @@
       "perGameConfig": null
     }
   },
-  "lastUpdated": "2024-08-15T02:43:05.636Z"
+  "lastUpdated": "2024-08-15T06:34:53.793Z"
 }

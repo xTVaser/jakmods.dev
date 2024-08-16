@@ -773,14 +773,14 @@
       "websiteUrl": "https://www.github.com/dallmeyer/jak-up",
       "versions": [
         {
-          "version": "0.2.0",
-          "publishedDate": "2024-08-16T18:04:41Z",
+          "version": "0.2.1",
+          "publishedDate": "2024-08-16T18:23:25Z",
           "settings": {
             "decompConfigOverride": "",
             "shareVanillaSaves": false
           },
           "assets": {
-            "windows": "https://github.com/dallmeyer/jak-up/releases/download/v0.2.0/windows-v0.2.0.zip",
+            "windows": "https://github.com/dallmeyer/jak-up/releases/download/v0.2.1/windows-v0.2.1.zip",
             "linux": null,
             "macos": null
           }
@@ -1014,5 +1014,5 @@
       "perGameConfig": null
     }
   },
-  "lastUpdated": "2024-08-16T18:06:13.918Z"
+  "lastUpdated": "2024-08-16T18:25:22.143Z"
 }

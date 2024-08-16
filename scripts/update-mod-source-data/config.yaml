@@ -408,7 +408,7 @@ mods:
     repo_name: "jak-up"
     url: "https://github.com/dallmeyer/jak-up"
     ignore_versions:
-      - "<0.2.0"
+      - "<0.2.1"
     display_name: "Jak Up"
     description: "Only Up in Jak 1. Hub 1+2 so far. WARNING: the custom levels take up ~700MB, and will take a couple minutes to install."
     authors: ["barg"]

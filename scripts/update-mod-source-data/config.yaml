@@ -207,7 +207,7 @@ mods:
     website_url: "https://jakmods.dev/bugged/buglist.html"
     cover_art_url: "https://jakmods.dev/bugged/bugged_logo.png"
     thumbnail_art_url: "https://jakmods.dev/bugged/bugged_logo.png"
-    
+
   patched:
     repo_owner: "OpenGOAL-Mods"
     repo_name: "OG-Patched"
@@ -221,7 +221,7 @@ mods:
     website_url: "https://github.com/OpenGOAL-Mods/OG-Patched/blob/main/README.md"
     cover_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Patched/main/ModImage.png"
     thumbnail_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Patched/main/ModImage.png"
-  
+
   orange-demon:
     repo_owner: "Hat-Kid"
     repo_name: "og-orange-demon"

@@ -65,7 +65,7 @@ mods:
     description: "Warp to a random checkpoint on various triggers (cells, flies, orbs, eco, death)."
     authors: ["zed", "MikeGamePro", "barg"]
     tags: ["speedrunning", "challenge", "gameplay-mod", "rng"]
-    # website_url: "https://github.com/dallmeyer/OG-OrbHunt/blob/main/README.md"
+    # website_url: "https://github.com/dallmeyer/OG-Randomizer/blob/main/README.md"
     supported_games: ["jak1"]
     cover_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Randomizer/main/ModImage.png"
     thumbnail_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Randomizer/main/ModImage.png"
@@ -101,10 +101,10 @@ mods:
     description: "Play the whole game on FlutFlut."
     authors: ["zed", "barg"]
     tags: ["speedrunning", "challenge", "gameplay-mod"]
-    # website_url: "https://github.com/OpenGOAL-Mods/OG-RCO/blob/main/README.md"
+    # website_url: "https://github.com/OpenGOAL-Mods/OG-FlutFlut-Legacy/blob/main/README.md"
     supported_games: ["jak1"]
     cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/flutflutlegacy.png"
-    thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/flutflutlegacy.png"
+    thumbnail_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-FlutFlut-Legacy/main/flutflut-thumbnail.png"
 
   zoomer-legacy:
     repo_owner: "OpenGOAL-Mods"
@@ -233,21 +233,20 @@ mods:
     cover_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Patched/main/ModImage.png"
     thumbnail_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Patched/main/ModImage.png"
   
-  # TODO: releases for this are built from a branch so don't follow version bumping convention (might also just be outdated)
-  # orange-demon:
-  #   repo_owner: "Hat-Kid"
-  #   repo_name: "jak-project"
-  #   url: "https://github.com/Hat-Kid/jak-project"
-  #   ignore_versions:
-  #     - "<1.0.5"
-  #   display_name: "Orange Demon Challenge"
-  #   description: "Play through the entire game while being chased by Daxter!"
-  #   authors: ["Hat-Kid"]
-  #   tags: ["speedrunning", "challenge", "gameplay-mod"]
-  #   website_url: "https://github.com/OpenGOAL-Mods/OG-Patched/blob/main/README.md"
-  #   supported_games: ["jak1"]
-  #   cover_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Patched/main/ModImage.png"
-  #   thumbnail_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Patched/main/ModImage.png"
+  orange-demon:
+    repo_owner: "Hat-Kid"
+    repo_name: "og-orange-demon"
+    url: "https://github.com/Hat-Kid/og-orange-demon"
+    ignore_versions:
+      - "<0.0.1"
+    display_name: "Orange Demon Challenge"
+    description: "Play through the entire game while being chased by Daxter!"
+    authors: ["Hat-Kid"]
+    tags: ["speedrunning", "challenge", "gameplay-mod"]
+    website_url: "https://github.com/Hat-Kid/og-orange-demon/blob/main/README.md"
+    supported_games: ["jak1"]
+    cover_art_url: "https://raw.githubusercontent.com/Hat-Kid/og-orange-demon/main/ModImage.png"
+    thumbnail_art_url: "https://raw.githubusercontent.com/Hat-Kid/og-orange-demon/main/ModImage.png"
 
   # TODO: modern mod-base
   # ruh-hot-rod:
@@ -260,7 +259,7 @@ mods:
   #   description: "Changes one of the overworld zoomers to always spawn as a hot rod variant. Max speed has been increased from 40 to 200."
   #   authors: ["Ruh"]
   #   tags: ["texture-mod", "gameplay-mod"]
-  #   # website_url: "https://github.com/OpenGOAL-Mods/OG-Patched/blob/main/README.md"
+  #   # website_url: "https://github.com/rileyfort/jak-2-hot-rod/blob/main/README.md"
   #   supported_games: ["jak2"]
   #   cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/hotrod.png"
   #   thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/hotrod.png"
@@ -275,7 +274,7 @@ mods:
     description: "Immediately after being rescued by Daxter, Jak is fitted with an all black Spec Ops outfit and a new weapon. The Blaster Mod has been replaced with a fully automatic suppressed XM Nova assault rifle that fires depleted light eco rounds. These light eco rounds will easily take down anything in your way."
     authors: ["Ruh"]
     tags: ["texture-mod", "gameplay-mod"]
-    # website_url: "https://github.com/OpenGOAL-Mods/OG-Patched/blob/main/README.md"
+    # website_url: "https://github.com/ruhphorte/spec-ops-jak/blob/main/README.md"
     supported_games: ["jak2"]
     cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/spec-ops.JPG"
     thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/spec-ops.JPG"
@@ -366,26 +365,25 @@ mods:
     description: "The Jak Time Loop is broken! To restore it, Jak must fight through random missions that grow more unstable the further you venture. As the enemies get stronger, so can you! With Vin's help, Jak must blast his way back into the metalhead nest, and restore his destiny."
     authors: ["Kraken"]
     tags: ["rng", "challenge", "gameplay-mod"]
-    # website_url: "https://github.com/OpenGOAL-Mods/OG-Jak2-AugustBuild/blob/main/README.md"
+    # website_url: "https://github.com/RealOfficialKraken/roguelikejakii/blob/main/README.md"
     supported_games: ["jak2"]
     cover_art_url: "https://raw.githubusercontent.com/RealOfficialKraken/roguelikejakii/main/ModImage.png"
     thumbnail_art_url: "https://raw.githubusercontent.com/RealOfficialKraken/roguelikejakii/main/ModImage.png"
 
-  # TODO: update to modern mod base
-  # dark-jak-renegade:
-  #   repo_owner: "OpenGOAL-Mods"
-  #   repo_name: "OG-Dark-Jak"
-  #   url: "https://github.com/OpenGOAL-Mods/OG-Dark-Jak"
-  #   ignore_versions:
-  #     - "<0.3.6"
-  #   display_name: "Dark Jak Renegade"
-  #   description: "Infinite Dark Jak, plus you can rolljump, use guns, vehicles, jetboard, etc. Hold L2 to use Dark Bomb/Dark Blast, or to undo Dark Giant. Reboot in debug mode to unlock everything at the start."
-  #   authors: ["barg"]
-  #   tags: ["gameplay-mod"]
-  #   # website_url: "https://github.com/OpenGOAL-Mods/OG-Jak2-AugustBuild/blob/main/README.md"
-  #   supported_games: ["jak2"]
-  #   cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/darkjak.webp"
-  #   thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/darkjak.webp"
+  dark-jak-renegade:
+    repo_owner: "OpenGOAL-Mods"
+    repo_name: "OG-Dark-Jak"
+    url: "https://github.com/OpenGOAL-Mods/OG-Dark-Jak"
+    ignore_versions:
+      - "<0.4.0"
+    display_name: "Dark Jak Renegade"
+    description: "Infinite Dark Jak, plus you can rolljump, use guns, vehicles, jetboard, etc. Hold L2 to use Dark Bomb/Dark Blast, or to undo Dark Giant. Reboot in debug mode to unlock everything at the start."
+    authors: ["barg"]
+    tags: ["gameplay-mod"]
+    # website_url: "https://github.com/OpenGOAL-Mods/OG-Dark-Jak/blob/main/README.md"
+    supported_games: ["jak2"]
+    cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/darkjak.webp"
+    thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/darkjak.webp"
 
   #### CUSTOM LEVEL MODS ####
 
@@ -431,7 +429,7 @@ mods:
     description: "Custom level River to Water (Afon i ddwr) of a winding mountain path with powercells, scoutflies and orbs guarded by lurkers! Visit via the warpgate once you complete the game or just use debug mode to visit early!"
     authors: ["Cuttlefish"]
     tags: ["custom-level"]
-    # website_url: "https://github.com/OpenGOAL-Mods/OG-Patched/blob/main/README.md"
+    # website_url: "https://github.com/Cuttlefishthesage/OG-Mod-Base/blob/main/README.md"
     supported_games: ["jak1"]
     cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/cuttlefish-river-to-water.png"
     thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/cuttlefish-river-to-water.png"
@@ -446,7 +444,7 @@ mods:
     description: "A sunny beach side trip with cliffs to scale, powercells to find and lurkers to fight! Be careful not to swim out too far...  Access via the warpgate in debug or a full save game!"
     authors: ["Cuttlefish"]
     tags: ["custom-level"]
-    # website_url: "https://github.com/OpenGOAL-Mods/OG-Patched/blob/main/README.md"
+    # website_url: "https://github.com/Cuttlefishthesage/Og-ModBase-Rockpool/blob/main/README.md"
     supported_games: ["jak1"]
     cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/rockpool.png"
     thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/rockpool.png"
@@ -462,7 +460,7 @@ mods:
   #   description: "There are several maps. Parkour, Minecraft, Keira land, etc... Plenty of fun in the magnificent world of Jak and Daxter! Recommended to change Time of Day to Palette 7 from the debug menu to see the maps clearly (Jak II)."
   #   authors: ["FUNKI DELIRE (LEON GAGIN)"]
   #   tags: ["custom-level"]
-  #   # website_url: "https://github.com/OpenGOAL-Mods/OG-Patched/blob/main/README.md"
+  #   # website_url: "https://github.com/OpenGOAL-Mods/OG-Funki-Showcase/blob/main/README.md"
   #   supported_games: ["jak1", "jak2"]
   #   per_game_config:
   #     jak1:
@@ -484,7 +482,7 @@ mods:
     description: "Shrek is life."
     authors: ["zed"]
     tags: ["model-replacement"]
-    # website_url: "https://github.com/OpenGOAL-Mods/OG-Patched/blob/main/README.md"
+    # website_url: "https://github.com/OpenGOAL-Mods/OG-Shrek-Adventures/blob/main/README.md"
     supported_games: ["jak1"]
     cover_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Shrek-Adventures/main/shrek.png"
     thumbnail_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Shrek-Adventures/main/shrek.png"
@@ -499,7 +497,7 @@ mods:
     description: "Almost Rayman 4"
     authors: ["Clankape"]
     tags: ["model-replacement"]
-    # website_url: "https://github.com/OpenGOAL-Mods/OG-Patched/blob/main/README.md"
+    # website_url: "https://github.com/dallmeyer/OG-rayman/blob/main/README.md"
     supported_games: ["jak1"]
     cover_art_url: "https://i.ytimg.com/vi/iVhPEnZxric/hqdefault.jpg"
     thumbnail_art_url: "https://i.ytimg.com/vi/iVhPEnZxric/hqdefault.jpg"

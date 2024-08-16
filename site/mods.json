@@ -250,7 +250,7 @@
         }
       ],
       "coverArtUrl": "https://raw.githubusercontent.com/dallmeyer/modimages/main/flutflutlegacy.png",
-      "thumbnailArtUrl": "https://raw.githubusercontent.com/dallmeyer/modimages/main/flutflutlegacy.png",
+      "thumbnailArtUrl": "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-FlutFlut-Legacy/main/flutflut-thumbnail.png",
       "perGameConfig": null,
       "externalLink": null
     },
@@ -464,6 +464,41 @@
       ],
       "coverArtUrl": "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Patched/main/ModImage.png",
       "thumbnailArtUrl": "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Patched/main/ModImage.png",
+      "perGameConfig": null,
+      "externalLink": null
+    },
+    "orange-demon": {
+      "displayName": "Orange Demon Challenge",
+      "description": "Play through the entire game while being chased by Daxter!",
+      "authors": [
+        "Hat-Kid"
+      ],
+      "tags": [
+        "speedrunning",
+        "challenge",
+        "gameplay-mod"
+      ],
+      "supportedGames": [
+        "jak1"
+      ],
+      "websiteUrl": "https://github.com/Hat-Kid/og-orange-demon/blob/main/README.md",
+      "versions": [
+        {
+          "version": "0.0.1",
+          "publishedDate": "2024-08-16T06:44:59Z",
+          "settings": {
+            "decompConfigOverride": "",
+            "shareVanillaSaves": false
+          },
+          "assets": {
+            "windows": "https://github.com/Hat-Kid/og-orange-demon/releases/download/v0.0.1/windows-v0.0.1.zip",
+            "linux": null,
+            "macos": null
+          }
+        }
+      ],
+      "coverArtUrl": "https://raw.githubusercontent.com/Hat-Kid/og-orange-demon/main/ModImage.png",
+      "thumbnailArtUrl": "https://raw.githubusercontent.com/Hat-Kid/og-orange-demon/main/ModImage.png",
       "perGameConfig": null,
       "externalLink": null
     },
@@ -687,6 +722,39 @@
       "perGameConfig": null,
       "externalLink": null
     },
+    "dark-jak-renegade": {
+      "displayName": "Dark Jak Renegade",
+      "description": "Infinite Dark Jak, plus you can rolljump, use guns, vehicles, jetboard, etc. Hold L2 to use Dark Bomb/Dark Blast, or to undo Dark Giant. Reboot in debug mode to unlock everything at the start.",
+      "authors": [
+        "barg"
+      ],
+      "tags": [
+        "gameplay-mod"
+      ],
+      "supportedGames": [
+        "jak2"
+      ],
+      "websiteUrl": "https://www.github.com/OpenGOAL-Mods/OG-Dark-Jak",
+      "versions": [
+        {
+          "version": "0.4.0",
+          "publishedDate": "2024-08-16T06:54:48Z",
+          "settings": {
+            "decompConfigOverride": "",
+            "shareVanillaSaves": false
+          },
+          "assets": {
+            "windows": "https://github.com/OpenGOAL-Mods/OG-Dark-Jak/releases/download/v0.4.0/windows-v0.4.0.zip",
+            "linux": null,
+            "macos": null
+          }
+        }
+      ],
+      "coverArtUrl": "https://raw.githubusercontent.com/dallmeyer/modimages/main/darkjak.webp",
+      "thumbnailArtUrl": "https://raw.githubusercontent.com/dallmeyer/modimages/main/darkjak.webp",
+      "perGameConfig": null,
+      "externalLink": null
+    },
     "river-to-water": {
       "displayName": "River to Water",
       "description": "Custom level River to Water (Afon i ddwr) of a winding mountain path with powercells, scoutflies and orbs guarded by lurkers! Visit via the warpgate once you complete the game or just use debug mode to visit early!",
@@ -869,5 +937,5 @@
       "perGameConfig": null
     }
   },
-  "lastUpdated": "2024-08-16T06:12:11.337Z"
+  "lastUpdated": "2024-08-16T06:56:44.140Z"
 }

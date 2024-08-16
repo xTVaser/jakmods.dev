@@ -272,6 +272,19 @@
       "websiteUrl": "https://github.com/OpenGOAL-Mods/OG-Zoomer-Legacy/blob/main/README.md",
       "versions": [
         {
+          "version": "0.0.2",
+          "publishedDate": "2024-08-15T21:43:34Z",
+          "settings": {
+            "decompConfigOverride": "",
+            "shareVanillaSaves": false
+          },
+          "assets": {
+            "windows": "https://github.com/OpenGOAL-Mods/OG-Zoomer-Legacy/releases/download/v0.0.2/windows-v0.0.2.zip",
+            "linux": null,
+            "macos": null
+          }
+        },
+        {
           "version": "0.0.1",
           "publishedDate": "2024-08-15T21:22:56Z",
           "settings": {
@@ -287,6 +300,42 @@
       ],
       "coverArtUrl": "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Zoomer-Legacy/main/ModImage.png",
       "thumbnailArtUrl": "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Zoomer-Legacy/main/ModImage.png",
+      "perGameConfig": null,
+      "externalLink": null
+    },
+    "super-mario-64": {
+      "displayName": "The SM64 Legacy",
+      "description": "Plays similar to Super Mario 64 (stars->cells, red coins->scout flies, coins->orbs)",
+      "authors": [
+        "barg",
+        "OutrageousJosh"
+      ],
+      "tags": [
+        "speedrunning",
+        "challenge",
+        "gameplay-mod"
+      ],
+      "supportedGames": [
+        "jak1"
+      ],
+      "websiteUrl": "https://github.com/OpenGOAL-Mods/OG-SM64/blob/main/README.md",
+      "versions": [
+        {
+          "version": "0.0.1",
+          "publishedDate": "2024-08-16T02:37:58Z",
+          "settings": {
+            "decompConfigOverride": "",
+            "shareVanillaSaves": false
+          },
+          "assets": {
+            "windows": "https://github.com/OpenGOAL-Mods/OG-SM64/releases/download/v0.0.1/windows-v0.0.1.zip",
+            "linux": null,
+            "macos": null
+          }
+        }
+      ],
+      "coverArtUrl": "https://raw.githubusercontent.com/dallmeyer/opengoal-sm64/main/ModImage.png",
+      "thumbnailArtUrl": "https://raw.githubusercontent.com/dallmeyer/opengoal-sm64/main/ModImage.png",
       "perGameConfig": null,
       "externalLink": null
     },
@@ -784,5 +833,5 @@
       "perGameConfig": null
     }
   },
-  "lastUpdated": "2024-08-15T21:25:19.486Z"
+  "lastUpdated": "2024-08-16T02:40:13.487Z"
 }

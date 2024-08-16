@@ -124,24 +124,23 @@ mods:
     cover_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Zoomer-Legacy/main/ModImage.png"
     thumbnail_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Zoomer-Legacy/main/ModImage.png"
 
-  # TODO: migrate to modern mod base
-  # super-mario-64:
-  #   repo_owner: "dallmeyer"
-  #   repo_name: "opengoal-sm64"
-  #   url: "https://github.com/dallmeyer/opengoal-sm64"
-  #   # NOTE - only '<' is supported and explicit versions.  The assumption is that '<' is only needed to skip
-  #   # past releases that don't conform to the new format, then beyond that hopefully every release is valid
-  #   # with the potential to maybe skip a bad one here and there.
-  #   ignore_versions:
-  #     - "<1.0.5"
-  #   display_name: "The SM64 Legacy"
-  #   description: "Plays similar to Super Mario 64 (stars->cells, red coins->scout flies, coins->orbs)"
-  #   authors: ["barg", "OutrageousJosh"]
-  #   tags: ["speedrunning", "challenge", "gameplay-mod"]
-  #   website_url: "https://github.com/dallmeyer/opengoal-sm64/blob/main/README.md"
-  #   supported_games: ["jak1"]
-  #   cover_art_url: "https://raw.githubusercontent.com/dallmeyer/opengoal-sm64/main/ModImage.png"
-  #   thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/opengoal-sm64/main/ModImage.png"
+  super-mario-64:
+    repo_owner: "OpenGOAL-Mods"
+    repo_name: "OG-SM64"
+    url: "https://github.com/OpenGOAL-Mods/OG-SM64"
+    # NOTE - only '<' is supported and explicit versions.  The assumption is that '<' is only needed to skip
+    # past releases that don't conform to the new format, then beyond that hopefully every release is valid
+    # with the potential to maybe skip a bad one here and there.
+    ignore_versions:
+      - "<0.0.1"
+    display_name: "The SM64 Legacy"
+    description: "Plays similar to Super Mario 64 (stars->cells, red coins->scout flies, coins->orbs)"
+    authors: ["barg", "OutrageousJosh"]
+    tags: ["speedrunning", "challenge", "gameplay-mod"]
+    website_url: "https://github.com/OpenGOAL-Mods/OG-SM64/blob/main/README.md"
+    supported_games: ["jak1"]
+    cover_art_url: "https://raw.githubusercontent.com/dallmeyer/opengoal-sm64/main/ModImage.png"
+    thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/opengoal-sm64/main/ModImage.png"
 
   # TODO: migrate to modern mod base
   # snowy-legacy:

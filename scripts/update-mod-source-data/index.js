@@ -264,6 +264,8 @@ for (const [modName, modInfo] of Object.entries(configFile["mods"])) {
                     } else {
                         exitWithError(`Hit non-200 status code when fetching metadata file for mod release version ${modName}:${cleaned_release_tag}`);
                     }
+                } else {
+                    exitWithError(`Could not find 'metadata.json' asset in ${modName}:${cleaned_release_tag}`);
                 }
 
                 // If there are no assets, skip it -- there's nothing to download!

@@ -834,6 +834,47 @@
       "perGameConfig": null,
       "externalLink": null
     },
+    "funki-showcase": {
+      "displayName": "FUNKI DELIRE Custom Levels",
+      "description": "There are several maps. Parkour, Minecraft, Keira land, etc... Plenty of fun in the magnificent world of Jak and Daxter! Recommended to change Time of Day to Palette 7 from the debug menu to see the maps clearly (Jak II).",
+      "authors": [
+        "FUNKI DELIRE (LEON GAGIN)"
+      ],
+      "tags": [
+        "custom-level"
+      ],
+      "supportedGames": [
+        "jak1",
+        "jak2"
+      ],
+      "websiteUrl": "https://www.github.com/OpenGOAL-Mods/OG-Funki-Showcase",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishedDate": "2024-08-16T08:04:04Z",
+          "settings": {
+            "decompConfigOverride": "",
+            "shareVanillaSaves": false
+          },
+          "assets": {
+            "windows": "https://github.com/OpenGOAL-Mods/OG-Funki-Showcase/releases/download/v0.1.0/windows-v0.1.0.zip",
+            "linux": null,
+            "macos": null
+          }
+        }
+      ],
+      "perGameConfig": {
+        "jak1": {
+          "coverArtUrl": "https://raw.githubusercontent.com/dallmeyer/modimages/main/funkiparkour.png",
+          "thumbnailArtUrl": "https://raw.githubusercontent.com/dallmeyer/modimages/main/funkiparkour.png"
+        },
+        "jak2": {
+          "coverArtUrl": "https://raw.githubusercontent.com/dallmeyer/modimages/main/funkiparkour2.png",
+          "thumbnailArtUrl": "https://raw.githubusercontent.com/dallmeyer/modimages/main/funkiparkour2.png"
+        }
+      },
+      "externalLink": null
+    },
     "its-ogre-now": {
       "displayName": "Shrek Adventures",
       "description": "Shrek is life.",
@@ -937,5 +978,5 @@
       "perGameConfig": null
     }
   },
-  "lastUpdated": "2024-08-16T06:56:44.140Z"
+  "lastUpdated": "2024-08-16T08:05:40.957Z"
 }

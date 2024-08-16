@@ -107,6 +107,7 @@ for (const [modName, modInfo] of Object.entries(configFile["mods"])) {
         versions: [],
         coverArtUrl: undefined,
         thumbnailArtUrl: undefined,
+        releaseDate: undefined,
         perGameConfig: null,
         externalLink: null
     };
@@ -205,6 +206,7 @@ for (const [modName, modInfo] of Object.entries(configFile["mods"])) {
                 let newVersion = {
                     version: cleaned_release_tag,
                     publishedDate: release.published_at,
+                    supportedGames: [],
                     settings: {
                         decompConfigOverride: "",
                         shareVanillaSaves: false,
@@ -235,6 +237,11 @@ for (const [modName, modInfo] of Object.entries(configFile["mods"])) {
                             const data = JSON.parse(await metadataResp.text());
                             if (Object.keys(data).includes("settings")) {
                                 newVersion.settings = data.settings;
+                            }
+                            if (!Object.keys(data).includes("supportedGames")) {
+                                exitWithError(`metadata.json, for version: ${modName}:${cleaned_release_tag} does not include 'supportedGames'`)
+                            } else {
+                                newVersion.supportedGames = data.supportedGames;
                             }
                         } catch (e) {
                             exitWithError(`Bad metadata.json, not valid JSON: ${e} -- ${modName}:${cleaned_release_tag}`)

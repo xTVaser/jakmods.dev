@@ -24,34 +24,33 @@ mods:
   # texture packs left out of migration:
   # candy_pop_keira
 
-  speedrun-practice:
-    repo_owner: "OpenGOAL-Mods"
-    repo_name: "OG-Speedrun-Practice"
-    url: "https://github.com/OpenGOAL-Mods/OG-Speedrun-Practice"
-    # NOTE - only '<' is supported and explicit versions.  The assumption is that '<' is only needed to skip
-    # past releases that don't conform to the new format, then beyond that hopefully every release is valid
-    # with the potential to maybe skip a bad one here and there.
-    ignore_versions:
-      - "<0.1.13"
-    display_name: "Speedrun Practice"
-    description: "A mod that helps you practice speedrunning. See website for more info"
-    authors: ["barg", "zed", "yopie"]
-    tags: ["speedrunning", "practice"]
-    website_url: "https://github.com/OpenGOAL-Mods/OG-Speedrun-Practice/blob/main/README.md"
-    supported_games: ["jak1", "jak2", "jak3"]
-    # NOTE - right now only really supporting the art assets
-    # i honestly don't think you'd need it for anything else, maybe ignore_versions? Extend when necessary!
-    per_game_config:
-      jak1:
-        cover_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage.png"
-        thumbnail_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage.png"
-      jak2:
-        cover_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage2.jpeg"
-        thumbnail_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage2.jpeg"
-      jak3:
-        cover_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage3.jpg"
-        thumbnail_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage3.jpg"
-  
+  # speedrun-practice:
+  #   repo_owner: "OpenGOAL-Mods"
+  #   repo_name: "OG-Speedrun-Practice"
+  #   url: "https://github.com/OpenGOAL-Mods/OG-Speedrun-Practice"
+  #   # NOTE - only '<' is supported and explicit versions.  The assumption is that '<' is only needed to skip
+  #   # past releases that don't conform to the new format, then beyond that hopefully every release is valid
+  #   # with the potential to maybe skip a bad one here and there.
+  #   ignore_versions:
+  #     - "<0.1.13"
+  #   display_name: "Speedrun Practice"
+  #   description: "A mod that helps you practice speedrunning. See website for more info"
+  #   authors: ["barg", "zed", "yopie"]
+  #   tags: ["speedrunning", "practice"]
+  #   website_url: "https://github.com/OpenGOAL-Mods/OG-Speedrun-Practice/blob/main/README.md"
+  #   # NOTE - right now only really supporting the art assets
+  #   # i honestly don't think you'd need it for anything else, maybe ignore_versions? Extend when necessary!
+  #   per_game_config:
+  #     jak1:
+  #       cover_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage.png"
+  #       thumbnail_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage.png"
+  #     jak2:
+  #       cover_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage2.jpeg"
+  #       thumbnail_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage2.jpeg"
+  #     jak3:
+  #       cover_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage3.jpg"
+  #       thumbnail_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage3.jpg"
+
   checkpoint-randomizer:
     repo_owner: "OpenGOAL-Mods"
     repo_name: "OG-Randomizer"
@@ -179,29 +178,28 @@ mods:
   #   supported_games: ["jak1"]
   #   cover_art_url: "https://raw.githubusercontent.com/himham-jak/Jak1-but-Microtransactions/microtransactions/ModImage.png"
   #   thumbnail_art_url: "https://raw.githubusercontent.com/himham-jak/Jak1-but-Microtransactions/microtransactions/ModImage.png"
-  
-  orb-hunt:
-    repo_owner: "dallmeyer"
-    repo_name: "OG-OrbHunt"
-    url: "https://github.com/dallmeyer/OG-OrbHunt"
-    # NOTE - only '<' is supported and explicit versions.  The assumption is that '<' is only needed to skip
-    # past releases that don't conform to the new format, then beyond that hopefully every release is valid
-    # with the potential to maybe skip a bad one here and there.
-    ignore_versions:
-      - "<1.7.3"
-    display_name: "Orb Hunt"
-    description: "Precursor Orb Scavenger Hunt"
-    authors: ["barg"]
-    tags: ["speedrunning", "challenge", "gameplay-mod"]
-    website_url: "https://github.com/dallmeyer/OG-OrbHunt/blob/main/README.md"
-    supported_games: ["jak1", "jak2"]
-    per_game_config:
-      jak1:
-        cover_art_url: "https://raw.githubusercontent.com/dallmeyer/OG-OrbHunt/main/ModImage.png"
-        thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/OG-OrbHunt/main/ModImage.png"
-      jak2:
-        cover_art_url: "https://raw.githubusercontent.com/dallmeyer/OG-OrbHunt/main/ModImage2.png"
-        thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/OG-OrbHunt/main/orbhunt2-thumbnail.png"
+
+  # orb-hunt:
+  #   repo_owner: "dallmeyer"
+  #   repo_name: "OG-OrbHunt"
+  #   url: "https://github.com/dallmeyer/OG-OrbHunt"
+  #   # NOTE - only '<' is supported and explicit versions.  The assumption is that '<' is only needed to skip
+  #   # past releases that don't conform to the new format, then beyond that hopefully every release is valid
+  #   # with the potential to maybe skip a bad one here and there.
+  #   ignore_versions:
+  #     - "<1.7.3"
+  #   display_name: "Orb Hunt"
+  #   description: "Precursor Orb Scavenger Hunt"
+  #   authors: ["barg"]
+  #   tags: ["speedrunning", "challenge", "gameplay-mod"]
+  #   website_url: "https://github.com/dallmeyer/OG-OrbHunt/blob/main/README.md"
+  #   per_game_config:
+  #     jak1:
+  #       cover_art_url: "https://raw.githubusercontent.com/dallmeyer/OG-OrbHunt/main/ModImage.png"
+  #       thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/OG-OrbHunt/main/ModImage.png"
+  #     jak2:
+  #       cover_art_url: "https://raw.githubusercontent.com/dallmeyer/OG-OrbHunt/main/ModImage2.png"
+  #       thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/OG-OrbHunt/main/orbhunt2-thumbnail.png"
 
   bugged:
     repo_owner: "OpenGOAL-Mods"
@@ -448,25 +446,24 @@ mods:
     cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/rockpool.png"
     thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/rockpool.png"
 
-  funki-showcase:
-    repo_owner: "OpenGOAL-Mods"
-    repo_name: "OG-Funki-Showcase"
-    url: "https://github.com/OpenGOAL-Mods/OG-Funki-Showcase"
-    ignore_versions:
-      - "<0.1.0"
-    display_name: "FUNKI DELIRE Custom Levels"
-    description: "There are several maps. Parkour, Minecraft, Keira land, etc... Plenty of fun in the magnificent world of Jak and Daxter! Recommended to change Time of Day to Palette 7 from the debug menu to see the maps clearly (Jak II)."
-    authors: ["FUNKI DELIRE (LEON GAGIN)"]
-    tags: ["custom-level"]
-    # website_url: "https://github.com/OpenGOAL-Mods/OG-Funki-Showcase/blob/main/README.md"
-    supported_games: ["jak1", "jak2"]
-    per_game_config:
-      jak1:
-        cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/funkiparkour.png"
-        thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/funkiparkour.png"
-      jak2:
-        cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/funkiparkour2.png"
-        thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/funkiparkour2.png"
+  # funki-showcase:
+  #   repo_owner: "OpenGOAL-Mods"
+  #   repo_name: "OG-Funki-Showcase"
+  #   url: "https://github.com/OpenGOAL-Mods/OG-Funki-Showcase"
+  #   ignore_versions:
+  #     - "<0.1.0"
+  #   display_name: "FUNKI DELIRE Custom Levels"
+  #   description: "There are several maps. Parkour, Minecraft, Keira land, etc... Plenty of fun in the magnificent world of Jak and Daxter! Recommended to change Time of Day to Palette 7 from the debug menu to see the maps clearly (Jak II)."
+  #   authors: ["FUNKI DELIRE (LEON GAGIN)"]
+  #   tags: ["custom-level"]
+  #   # website_url: "https://github.com/OpenGOAL-Mods/OG-Funki-Showcase/blob/main/README.md"
+  #   per_game_config:
+  #     jak1:
+  #       cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/funkiparkour.png"
+  #       thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/funkiparkour.png"
+  #     jak2:
+  #       cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/funkiparkour2.png"
+  #       thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/funkiparkour2.png"
 
   #### MODEL REPLACEMENT MODS ####
 

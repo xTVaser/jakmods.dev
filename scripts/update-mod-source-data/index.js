@@ -414,11 +414,11 @@ if (!lintMode) {
         } else { // if not, do nothing!
             modSourceData.lastUpdated = (new Date()).toISOString();
             // Save the json file out
-            fs.writeFileSync("../../site/mods.json", JSON.stringify(modSourceData, undefined, 2));
+            fs.writeFileSync("../../site/mods.json", JSON.stringify(modSourceData));
         }
     } else {
         modSourceData.lastUpdated = (new Date()).toISOString();
         // Save the json file out
-        fs.writeFileSync("../../site/mods.json", JSON.stringify(modSourceData, undefined, 2));
+        fs.writeFileSync("../../site/mods.json", JSON.stringify(modSourceData));
     }
 }

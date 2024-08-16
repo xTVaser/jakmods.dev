@@ -431,6 +431,42 @@
       "perGameConfig": null,
       "externalLink": null
     },
+    "patched": {
+      "displayName": "Patched",
+      "description": "Jak and Daxter: The Precursor Legacy v1.1 ;)",
+      "authors": [
+        "bintendo42",
+        "barg"
+      ],
+      "tags": [
+        "speedrunning",
+        "challenge",
+        "gameplay-mod"
+      ],
+      "supportedGames": [
+        "jak1"
+      ],
+      "websiteUrl": "https://github.com/OpenGOAL-Mods/OG-Patched/blob/main/README.md",
+      "versions": [
+        {
+          "version": "1.1.0",
+          "publishedDate": "2024-08-16T06:10:16Z",
+          "settings": {
+            "decompConfigOverride": "",
+            "shareVanillaSaves": false
+          },
+          "assets": {
+            "windows": "https://github.com/OpenGOAL-Mods/OG-Patched/releases/download/v1.1.0/windows-v1.1.0.zip",
+            "linux": null,
+            "macos": null
+          }
+        }
+      ],
+      "coverArtUrl": "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Patched/main/ModImage.png",
+      "thumbnailArtUrl": "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Patched/main/ModImage.png",
+      "perGameConfig": null,
+      "externalLink": null
+    },
     "spec-ops": {
       "displayName": "Spec Ops Jak",
       "description": "Immediately after being rescued by Daxter, Jak is fitted with an all black Spec Ops outfit and a new weapon. The Blaster Mod has been replaced with a fully automatic suppressed XM Nova assault rifle that fires depleted light eco rounds. These light eco rounds will easily take down anything in your way.",
@@ -833,5 +869,5 @@
       "perGameConfig": null
     }
   },
-  "lastUpdated": "2024-08-16T02:40:13.487Z"
+  "lastUpdated": "2024-08-16T06:12:11.337Z"
 }

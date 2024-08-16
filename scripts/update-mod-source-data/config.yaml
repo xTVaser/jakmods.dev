@@ -218,21 +218,20 @@ mods:
     cover_art_url: "https://jakmods.dev/bugged/bugged_logo.png"
     thumbnail_art_url: "https://jakmods.dev/bugged/bugged_logo.png"
     
-  # TODO: modern mod base
-  # patched:
-  #   repo_owner: "OpenGOAL-Mods"
-  #   repo_name: "OG-Patched"
-  #   url: "https://github.com/OpenGOAL-Mods/OG-Patched"
-  #   ignore_versions:
-  #     - "<1.0.5"
-  #   display_name: "Patched"
-  #   description: "Jak and Daxter: The Precursor Legacy v1.1 ;)"
-  #   authors: ["bintendo42", "barg"]
-  #   tags: ["speedrunning", "challenge", "gameplay-mod"]
-  #   website_url: "https://github.com/OpenGOAL-Mods/OG-Patched/blob/main/README.md"
-  #   supported_games: ["jak1"]
-  #   cover_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Patched/main/ModImage.png"
-  #   thumbnail_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Patched/main/ModImage.png"
+  patched:
+    repo_owner: "OpenGOAL-Mods"
+    repo_name: "OG-Patched"
+    url: "https://github.com/OpenGOAL-Mods/OG-Patched"
+    ignore_versions:
+      - "<1.1.0"
+    display_name: "Patched"
+    description: "Jak and Daxter: The Precursor Legacy v1.1 ;)"
+    authors: ["bintendo42", "barg"]
+    tags: ["speedrunning", "challenge", "gameplay-mod"]
+    website_url: "https://github.com/OpenGOAL-Mods/OG-Patched/blob/main/README.md"
+    supported_games: ["jak1"]
+    cover_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Patched/main/ModImage.png"
+    thumbnail_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Patched/main/ModImage.png"
   
   # TODO: releases for this are built from a branch so don't follow version bumping convention (might also just be outdated)
   # orange-demon:

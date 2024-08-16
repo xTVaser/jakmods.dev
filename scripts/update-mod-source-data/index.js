@@ -124,17 +124,20 @@ for (const [modName, modInfo] of Object.entries(configFile["mods"])) {
     if (Object.keys(modInfo).includes("thumbnail_art_url")) {
         modSourceInfo.thumbnailArtUrl = modInfo["thumbnail_art_url"];
     }
+    if (Object.keys(modInfo).includes("release_date_override")) {
+        modSourceInfo.releaseDate = modInfo["release_date_override"];
+    }
     if (Object.keys(modInfo).includes("per_game_config")) {
         modSourceInfo.perGameConfig = {};
         // iterate per-game configs
         for (const [game, perGameConfig] of Object.entries(modInfo["per_game_config"])) {
-          modSourceInfo.perGameConfig[game] = {};
-          if (Object.keys(perGameConfig).includes("cover_art_url")) {
-            modSourceInfo.perGameConfig[game].coverArtUrl = perGameConfig["cover_art_url"];
-          }
-          if (Object.keys(perGameConfig).includes("thumbnail_art_url")) {
-            modSourceInfo.perGameConfig[game].thumbnailArtUrl = perGameConfig["thumbnail_art_url"];
-          }
+            modSourceInfo.perGameConfig[game] = {};
+            if (Object.keys(perGameConfig).includes("cover_art_url")) {
+                modSourceInfo.perGameConfig[game].coverArtUrl = perGameConfig["cover_art_url"];
+            }
+            if (Object.keys(perGameConfig).includes("thumbnail_art_url")) {
+                modSourceInfo.perGameConfig[game].thumbnailArtUrl = perGameConfig["thumbnail_art_url"];
+            }
         }
     }
     // lint the per-game-config
@@ -173,6 +176,11 @@ for (const [modName, modInfo] of Object.entries(configFile["mods"])) {
     }
     if (!lintMode) {
         const modReleases = await octokit.paginate(octokit.rest.repos.listReleases, { owner: modInfo["repo_owner"], repo: modInfo["repo_name"] });
+
+        if (modSourceInfo.release === undefined && modReleases.length > 0) {
+            modSourceInfo.release = modReleases[0].published_at;
+        }
+
         for (const release of modReleases) {
             let cleaned_release_tag = release.tag_name;
             if (cleaned_release_tag.startsWith("v")) {
@@ -215,6 +223,11 @@ for (const [modName, modInfo] of Object.entries(configFile["mods"])) {
                         windows: null,
                         linux: null,
                         macos: null
+                    },
+                    assetDownloadCounts: {
+                        windows: 0,
+                        linux: 0,
+                        macos: 0
                     }
                 }
                 // get the assets
@@ -222,10 +235,13 @@ for (const [modName, modInfo] of Object.entries(configFile["mods"])) {
                 for (const asset of release.assets) {
                     if (asset.name.toLowerCase().startsWith("windows-")) {
                         newVersion.assets.windows = asset.browser_download_url;
+                        newVersion.assetDownloadCounts.windows = asset.download_count;
                     } else if (asset.name.toLowerCase().startsWith("linux-")) {
                         newVersion.assets.linux = asset.browser_download_url;
+                        newVersion.assetDownloadCounts.linux = asset.download_count;
                     } else if (asset.name.toLowerCase().startsWith("macos-")) {
                         newVersion.assets.macos = asset.browser_download_url;
+                        newVersion.assetDownloadCounts.macos = asset.download_count;
                     } else if (asset.name.toLowerCase() === "metadata.json") {
                         metadataFileUrl = asset.browser_download_url;
                     }
@@ -289,6 +305,7 @@ for (const [modName, modInfo] of Object.entries(configFile["texture_packs"])) {
         websiteUrl: modInfo["website_url"],
         versions: [],
         thumbnailArtUrl: undefined,
+        releaseDate: undefined,
         perGameConfig: null,
     };
     if (!Object.keys(modInfo).includes("website_url")) {
@@ -300,6 +317,9 @@ for (const [modName, modInfo] of Object.entries(configFile["texture_packs"])) {
     }
     if (Object.keys(modInfo).includes("thumbnail_art_url")) {
         modSourceInfo.thumbnailArtUrl = modInfo["thumbnail_art_url"];
+    }
+    if (Object.keys(modInfo).includes("release_date_override")) {
+        modSourceInfo.releaseDate = modInfo["release_date_override"];
     }
     if (Object.keys(modInfo).includes("per_game_config")) {
         modSourceInfo.perGameConfig = modInfo["per_game_config"];
@@ -322,6 +342,11 @@ for (const [modName, modInfo] of Object.entries(configFile["texture_packs"])) {
     }
     if (!lintMode) {
         const modReleases = await octokit.paginate(octokit.rest.repos.listReleases, { owner: modInfo["repo_owner"], repo: modInfo["repo_name"] });
+
+        if (modSourceInfo.release === undefined && modReleases.length > 0) {
+            modSourceInfo.release = modReleases[0].published_at;
+        }
+
         for (const release of modReleases) {
             let cleaned_release_tag = release.tag_name;
             if (cleaned_release_tag.startsWith("v")) {
@@ -355,12 +380,14 @@ for (const [modName, modInfo] of Object.entries(configFile["texture_packs"])) {
                 let newVersion = {
                     version: cleaned_release_tag,
                     publishedDate: release.published_at,
-                    downloadUrl: null
+                    downloadUrl: null,
+                    downloadCount: 0
                 }
                 // get the assets
                 for (const asset of release.assets) {
                     if (asset.name.toLowerCase() === "assets.zip") {
                         newVersion.downloadUrl = asset.browser_download_url;
+                        newVersion.downloadCount = asset.download_count;
                     }
                 }
                 // If there are no assets, skip it -- there's nothing to download!

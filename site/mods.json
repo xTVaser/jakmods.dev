@@ -755,6 +755,42 @@
       "perGameConfig": null,
       "externalLink": null
     },
+    "up": {
+      "displayName": "Jak Up",
+      "description": "Only Up in Jak 1. Hub 1+2 so far. WARNING: the custom levels take up ~700MB, and will take a couple minutes to install.",
+      "authors": [
+        "barg"
+      ],
+      "tags": [
+        "custom-level",
+        "gameplay-mod",
+        "challenge",
+        "speedrunning"
+      ],
+      "supportedGames": [
+        "jak1"
+      ],
+      "websiteUrl": "https://www.github.com/dallmeyer/jak-up",
+      "versions": [
+        {
+          "version": "0.2.0",
+          "publishedDate": "2024-08-16T18:04:41Z",
+          "settings": {
+            "decompConfigOverride": "",
+            "shareVanillaSaves": false
+          },
+          "assets": {
+            "windows": "https://github.com/dallmeyer/jak-up/releases/download/v0.2.0/windows-v0.2.0.zip",
+            "linux": null,
+            "macos": null
+          }
+        }
+      ],
+      "coverArtUrl": "https://raw.githubusercontent.com/dallmeyer/modimages/main/jakup.jpeg",
+      "thumbnailArtUrl": "https://raw.githubusercontent.com/dallmeyer/jak-up/main/jakup-thumbnail.png",
+      "perGameConfig": null,
+      "externalLink": null
+    },
     "river-to-water": {
       "displayName": "River to Water",
       "description": "Custom level River to Water (Afon i ddwr) of a winding mountain path with powercells, scoutflies and orbs guarded by lurkers! Visit via the warpgate once you complete the game or just use debug mode to visit early!",
@@ -978,5 +1014,5 @@
       "perGameConfig": null
     }
   },
-  "lastUpdated": "2024-08-16T08:05:40.957Z"
+  "lastUpdated": "2024-08-16T18:06:13.918Z"
 }

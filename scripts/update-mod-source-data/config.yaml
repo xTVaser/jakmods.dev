@@ -403,21 +403,20 @@ mods:
   #   cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/tfl.webp"
   #   thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/tfl.webp"
 
-  # TODO: modern mod base
-  # up:
-  #   repo_owner: "dallmeyer"
-  #   repo_name: "jak-up"
-  #   url: "https://github.com/dallmeyer/jak-up"
-  #   ignore_versions:
-  #     - "<0.1.2"
-  #   display_name: "Jak Up"
-  #   description: "Only Up in Jak 1. Hub 1+2 so far. WARNING: the custom levels take up ~700MB, and will take a couple minutes to install."
-  #   authors: ["barg"]
-  #   tags: ["custom-level", "gameplay-mod", "challenge", "speedrunning"]
-  #   # website_url: "https://github.com/Kuitar5/the-forgotten-lands/blob/main/README.md#the-forgotten-lands"
-  #   supported_games: ["jak1"]
-  #   cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/jakup.jpeg"
-  #   thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/jak-up/main/jakup-thumbnail.png"
+  up:
+    repo_owner: "dallmeyer"
+    repo_name: "jak-up"
+    url: "https://github.com/dallmeyer/jak-up"
+    ignore_versions:
+      - "<0.2.0"
+    display_name: "Jak Up"
+    description: "Only Up in Jak 1. Hub 1+2 so far. WARNING: the custom levels take up ~700MB, and will take a couple minutes to install."
+    authors: ["barg"]
+    tags: ["custom-level", "gameplay-mod", "challenge", "speedrunning"]
+    # website_url: "https://github.com/Kuitar5/the-forgotten-lands/blob/main/README.md#the-forgotten-lands"
+    supported_games: ["jak1"]
+    cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/jakup.jpeg"
+    thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/jak-up/main/jakup-thumbnail.png"
 
   river-to-water:
     repo_owner: "Cuttlefishthesage"

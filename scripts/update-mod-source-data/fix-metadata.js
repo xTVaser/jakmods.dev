@@ -4,7 +4,7 @@ import { retry } from "@octokit/plugin-retry";
 import YAML from 'yaml'
 import * as fs from "fs";
 import { exit } from "process";
-import semver from 'semver';
+import semver, { clean } from 'semver';
 
 function exitWithError(errorMessage) {
     console.error(errorMessage);
@@ -245,19 +245,42 @@ for (const [modName, modInfo] of Object.entries(configFile["mods"])) {
                             octokit.rest.repos.uploadReleaseAsset({
                                 owner: modInfo["repo_owner"],
                                 repo: modInfo["repo_name"],
-                                release: release.id,
+                                release_id: release.id,
                                 name: "metadata.json",
-                                data: jsonBuffer,
-                                headers: {
-                                    'content-type': 'application/json',
-                                    'content-length': jsonBuffer.length
-                                }
+                                data: jsonBuffer
                             });
                         } catch (e) {
                             exitWithError(`Bad metadata.json, not valid JSON: ${e} -- ${modName}:${cleaned_release_tag}`)
                         }
                     } else {
                         exitWithError(`Hit non-200 status code when fetching metadata file for mod release version ${modName}:${cleaned_release_tag}`);
+                    }
+                } else {
+                    try {
+                        const data = {
+                            schemaVersion: "0.1.0",
+                            version: cleaned_release_tag,
+                            name: modSourceInfo.displayName,
+                            description: modSourceInfo.description,
+                            supportedGames: modSourceInfo.supportedGames,
+                            authors: modSourceInfo.authors,
+                            tags: modSourceInfo.tags,
+                            websiteUrl: modSourceInfo.websiteUrl,
+                            publishedDate: release.published_at,
+                            websiteUrl: `https://www.github.com/${modInfo["repo_owner"]}/${modInfo["repo_name"]}`
+                        };
+                        // - upload the modified data
+                        const jsonString = JSON.stringify(data);
+                        const jsonBuffer = Buffer.from(jsonString);
+                        octokit.rest.repos.uploadReleaseAsset({
+                            owner: modInfo["repo_owner"],
+                            repo: modInfo["repo_name"],
+                            release_id: release.id,
+                            name: "metadata.json",
+                            data: jsonBuffer
+                        });
+                    } catch (e) {
+                        exitWithError(`couldn't upload new metadata.json, wtf: ${e} -- ${modName}:${cleaned_release_tag}`)
                     }
                 }
 

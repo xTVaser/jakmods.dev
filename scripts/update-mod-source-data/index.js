@@ -94,7 +94,7 @@ for (const [modName, modInfo] of Object.entries(configFile["mods"])) {
     // Iterate through the releases
     // - check that we shouldn't ignore it
     // - if the assets have a `metadata.json` file, we download and inspect it for a handful of settings (potentially used more in the future)
-    if (!validateJsonKeys(["display_name", "description", "authors", "tags", "supported_games"], Object.keys(modInfo), `${modName}`)) {
+    if (!validateJsonKeys(["display_name", "description", "authors", "tags"], Object.keys(modInfo), `${modName}`)) {
         exitWithError("aborting");
     }
     let modSourceInfo = {
@@ -102,7 +102,6 @@ for (const [modName, modInfo] of Object.entries(configFile["mods"])) {
         description: modInfo["description"],
         authors: modInfo["authors"],
         tags: modInfo["tags"],
-        supportedGames: modInfo["supported_games"],
         websiteUrl: modInfo["website_url"],
         versions: [],
         coverArtUrl: undefined,

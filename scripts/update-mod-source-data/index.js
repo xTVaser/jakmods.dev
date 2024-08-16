@@ -145,20 +145,25 @@ for (const [modName, modInfo] of Object.entries(configFile["mods"])) {
             exitWithError(`${modName} does not define 'cover_art_url' but lacks 'per_game_config'`)
         }
         // Check per game config
-        for (const supportedGame of modSourceInfo.supportedGames) {
-            if (!Object.keys(modSourceInfo.perGameConfig).includes(supportedGame) || !Object.keys(modSourceInfo.perGameConfig[supportedGame]).includes("coverArtUrl")) {
-                exitWithError(`${modName} does not define 'cover_art_url' and it's missing in 'per_game_config.${supportedGame}'`);
+        if (!lintMode) {
+            for (const supportedGame of modSourceInfo.supportedGames) {
+                if (!Object.keys(modSourceInfo.perGameConfig).includes(supportedGame) || !Object.keys(modSourceInfo.perGameConfig[supportedGame]).includes("coverArtUrl")) {
+                    exitWithError(`${modName} does not define 'cover_art_url' and it's missing in 'per_game_config.${supportedGame}'`);
+                }
             }
         }
+
     }
     if (modSourceInfo.thumbnailArtUrl === undefined) {
         if (!Object.keys(modInfo).includes("per_game_config")) {
             exitWithError(`${modName} does not define 'thumbnail_art_url' but lacks 'per_game_config'`)
         }
         // Check per game config
-        for (const supportedGame of modSourceInfo.supportedGames) {
-            if (!Object.keys(modSourceInfo.perGameConfig).includes(supportedGame) || !Object.keys(modSourceInfo.perGameConfig[supportedGame]).includes("thumbnailArtUrl")) {
-                exitWithError(`${modName} does not define 'thumbnail_art_url' and it's missing in 'per_game_config.${supportedGame}'`);
+        if (!lintMode) {
+            for (const supportedGame of modSourceInfo.supportedGames) {
+                if (!Object.keys(modSourceInfo.perGameConfig).includes(supportedGame) || !Object.keys(modSourceInfo.perGameConfig[supportedGame]).includes("thumbnailArtUrl")) {
+                    exitWithError(`${modName} does not define 'thumbnail_art_url' and it's missing in 'per_game_config.${supportedGame}'`);
+                }
             }
         }
     }

@@ -103,6 +103,7 @@ for (const [modName, modInfo] of Object.entries(configFile["mods"])) {
         authors: modInfo["authors"],
         tags: modInfo["tags"],
         websiteUrl: modInfo["website_url"],
+        supportedGames: [],
         versions: [],
         coverArtUrl: undefined,
         thumbnailArtUrl: undefined,
@@ -138,6 +139,8 @@ for (const [modName, modInfo] of Object.entries(configFile["mods"])) {
     // if the mod is external only, we don't check releases
     if (Object.keys(modInfo).includes("external_link")) {
         modSourceInfo.externalLink = modInfo["external_link"];
+        // hack, default to just jak1 for external
+        modSourceInfo.supportedGames.push("jak1");
         modSourceData.mods[modName] = modSourceInfo;
         continue;
     }
@@ -226,6 +229,13 @@ for (const [modName, modInfo] of Object.entries(configFile["mods"])) {
                             } else {
                                 newVersion.supportedGames = data.supportedGames;
 
+                                // temporary for backwards compatibility
+                                for (const supportedGame of newVersion.supportedGames) {
+                                    if (!Object.keys(modSourceInfo.supportedGames).includes(supportedGame)) {
+                                        modSourceInfo.supportedGames.push(supportedGame);
+                                    }
+                                }
+
                                 // now we know what games are supported, we can check if we need to update per-game release date info
                                 for (const supportedGame of newVersion.supportedGames) {
                                     if (!Object.keys(modSourceInfo.perGameConfig).includes(supportedGame)) {
@@ -293,6 +303,11 @@ for (const [modName, modInfo] of Object.entries(configFile["mods"])) {
                 modSourceInfo.versions.push(newVersion);
             }
         }
+    }
+
+    // safety hack, default to just jak1 if no supportedGames provided
+    if (modSourceInfo.supportedGames.length == 0) {
+        modSourceInfo.supportedGames.push("jak1");
     }
 
     // add to source json

@@ -24,7 +24,7 @@ mods:
   # texture packs left out of migration:
   # candy_pop_keira
 
-  # speedrun-practice:
+  speedrun-practice:
     repo_owner: "OpenGOAL-Mods"
     repo_name: "OG-Speedrun-Practice"
     url: "https://github.com/OpenGOAL-Mods/OG-Speedrun-Practice"
@@ -42,12 +42,15 @@ mods:
     # i honestly don't think you'd need it for anything else, maybe ignore_versions? Extend when necessary!
     per_game_config:
       jak1:
+        release_date_override: "2022-10-23"
         cover_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage.png"
         thumbnail_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage.png"
       jak2:
+        release_date_override: "2023-12-11"
         cover_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage2.jpeg"
         thumbnail_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage2.jpeg"
       jak3:
+        release_date_override: "2024-06-28"
         cover_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage3.jpg"
         thumbnail_art_url: "https://raw.githubusercontent.com/OpenGOAL-Mods/OG-Speedrun-Practice/main/ModImage3.jpg"
 
@@ -55,9 +58,7 @@ mods:
     repo_owner: "OpenGOAL-Mods"
     repo_name: "OG-Randomizer"
     url: "https://github.com/OpenGOAL-Mods/OG-Randomizer"
-    # NOTE - only '<' is supported and explicit versions.  The assumption is that '<' is only needed to skip
-    # past releases that don't conform to the new format, then beyond that hopefully every release is valid
-    # with the potential to maybe skip a bad one here and there.
+    release_date_override: "2022-08-28"
     ignore_versions:
       - "<0.2.2"
     display_name: "Checkpoint Randomizer"
@@ -72,9 +73,7 @@ mods:
     repo_owner: "OpenGOAL-Mods"
     repo_name: "OG-RCO"
     url: "https://github.com/OpenGOAL-Mods/OG-RCO"
-    # NOTE - only '<' is supported and explicit versions.  The assumption is that '<' is only needed to skip
-    # past releases that don't conform to the new format, then beyond that hopefully every release is valid
-    # with the potential to maybe skip a bad one here and there.
+    release_date_override: "2023-02-02"
     ignore_versions:
       - "<0.0.3"
     display_name: "Random Cell Order"
@@ -89,9 +88,7 @@ mods:
     repo_owner: "OpenGOAL-Mods"
     repo_name: "OG-FlutFlut-Legacy"
     url: "https://github.com/OpenGOAL-Mods/OG-FlutFlut-Legacy"
-    # NOTE - only '<' is supported and explicit versions.  The assumption is that '<' is only needed to skip
-    # past releases that don't conform to the new format, then beyond that hopefully every release is valid
-    # with the potential to maybe skip a bad one here and there.
+    release_date_override: "2022-09-10"
     ignore_versions:
       - "<0.1.2"
     display_name: "The FlutFlut Legacy"
@@ -106,9 +103,7 @@ mods:
     repo_owner: "OpenGOAL-Mods"
     repo_name: "OG-Zoomer-Legacy"
     url: "https://github.com/OpenGOAL-Mods/OG-Zoomer-Legacy"
-    # NOTE - only '<' is supported and explicit versions.  The assumption is that '<' is only needed to skip
-    # past releases that don't conform to the new format, then beyond that hopefully every release is valid
-    # with the potential to maybe skip a bad one here and there.
+    release_date_override: "2022-09-20"
     ignore_versions:
       - "<0.0.1"
     display_name: "The Zoomer Legacy"
@@ -123,9 +118,7 @@ mods:
     repo_owner: "OpenGOAL-Mods"
     repo_name: "OG-SM64"
     url: "https://github.com/OpenGOAL-Mods/OG-SM64"
-    # NOTE - only '<' is supported and explicit versions.  The assumption is that '<' is only needed to skip
-    # past releases that don't conform to the new format, then beyond that hopefully every release is valid
-    # with the potential to maybe skip a bad one here and there.
+    release_date_override: "2022-10-28"
     ignore_versions:
       - "<0.0.2"
     display_name: "The SM64 Legacy"
@@ -141,9 +134,7 @@ mods:
   #   repo_owner: "kekdeveloper"
   #   repo_name: "opengoal-mod-snowy-legacy"
   #   url: "https://github.com/kekdeveloper/opengoal-mod-snowy-legacy"
-  #   # NOTE - only '<' is supported and explicit versions.  The assumption is that '<' is only needed to skip
-  #   # past releases that don't conform to the new format, then beyond that hopefully every release is valid
-  #   # with the potential to maybe skip a bad one here and there.
+  #   release_date_override: "2022-09-08"
   #   ignore_versions:
   #     - "<1.0.5"
   #   display_name: "Snowy Legacy"
@@ -159,9 +150,7 @@ mods:
   #   repo_owner: "himham-jak"
   #   repo_name: "Jak1-but-Microtransactions"
   #   url: "https://github.com/himham-jak/Jak1-but-Microtransactions"
-  #   # NOTE - only '<' is supported and explicit versions.  The assumption is that '<' is only needed to skip
-  #   # past releases that don't conform to the new format, then beyond that hopefully every release is valid
-  #   # with the potential to maybe skip a bad one here and there.
+  #   release_date_override: "2022-08-28"
   #   ignore_versions:
   #     - "<1.0.5"
   #   display_name: "MicroTransactions"
@@ -176,9 +165,6 @@ mods:
     repo_owner: "dallmeyer"
     repo_name: "OG-OrbHunt"
     url: "https://github.com/dallmeyer/OG-OrbHunt"
-    # NOTE - only '<' is supported and explicit versions.  The assumption is that '<' is only needed to skip
-    # past releases that don't conform to the new format, then beyond that hopefully every release is valid
-    # with the potential to maybe skip a bad one here and there.
     ignore_versions:
       - "<1.7.4"
     display_name: "Orb Hunt"
@@ -188,9 +174,11 @@ mods:
     website_url: "https://github.com/dallmeyer/OG-OrbHunt/blob/main/README.md"
     per_game_config:
       jak1:
+        release_date_override: "2023-01-05"
         cover_art_url: "https://raw.githubusercontent.com/dallmeyer/OG-OrbHunt/main/ModImage.png"
         thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/OG-OrbHunt/main/ModImage.png"
       jak2:
+        release_date_override: "2024-07-01"
         cover_art_url: "https://raw.githubusercontent.com/dallmeyer/OG-OrbHunt/main/ModImage2.png"
         thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/OG-OrbHunt/main/orbhunt2-thumbnail.png"
 
@@ -198,6 +186,7 @@ mods:
     repo_owner: "OpenGOAL-Mods"
     repo_name: "OG-Bugged"
     url: "https://github.com/OpenGOAL-Mods/OG-Bugged"
+    release_date_override: "2023-10-23"
     ignore_versions:
       - "<0.1.22"
     display_name: "Bugged"
@@ -212,6 +201,7 @@ mods:
     repo_owner: "OpenGOAL-Mods"
     repo_name: "OG-Patched"
     url: "https://github.com/OpenGOAL-Mods/OG-Patched"
+    release_date_override: "2024-04-01"
     ignore_versions:
       - "<1.1.1"
     display_name: "Patched"
@@ -225,6 +215,7 @@ mods:
   orange-demon:
     repo_owner: "Hat-Kid"
     repo_name: "og-orange-demon"
+    release_date_override: "2023-07-09"
     url: "https://github.com/Hat-Kid/og-orange-demon"
     ignore_versions:
       - "<0.0.1"
@@ -236,13 +227,14 @@ mods:
     cover_art_url: "https://raw.githubusercontent.com/Hat-Kid/og-orange-demon/main/ModImage.png"
     thumbnail_art_url: "https://raw.githubusercontent.com/Hat-Kid/og-orange-demon/main/ModImage.png"
 
-  # TODO: modern mod-base
+  # TODO: needs new release w/ updated schema
   # ruh-hot-rod:
   #   repo_owner: "rileyfort"
   #   repo_name: "jak-2-hot-rod"
   #   url: "https://github.com/rileyfort/jak-2-hot-rod"
+  #   release_date_override: "2023-11-09"
   #   ignore_versions:
-  #     - "<0.0.2"
+  #     - "<0.0.3"
   #   display_name: "Jak II Hot Rod"
   #   description: "Changes one of the overworld zoomers to always spawn as a hot rod variant. Max speed has been increased from 40 to 200."
   #   authors: ["Ruh"]
@@ -251,26 +243,27 @@ mods:
   #   cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/hotrod.png"
   #   thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/hotrod.png"
 
-  # TODO: needs new release w/ updated schema
-  # spec-ops:
-  #   repo_owner: "ruhphorte"
-  #   repo_name: "spec-ops-jak"
-  #   url: "https://github.com/ruhphorte/spec-ops-jak"
-  #   ignore_versions:
-  #     - "<0.0.2"
-  #   display_name: "Spec Ops Jak"
-  #   description: "Immediately after being rescued by Daxter, Jak is fitted with an all black Spec Ops outfit and a new weapon. The Blaster Mod has been replaced with a fully automatic suppressed XM Nova assault rifle that fires depleted light eco rounds. These light eco rounds will easily take down anything in your way."
-  #   authors: ["Ruh"]
-  #   tags: ["texture-mod", "gameplay-mod"]
-  #   website_url: "https://github.com/ruhphorte/spec-ops-jak/blob/main/README.md"
-  #   cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/spec-ops.JPG"
-  #   thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/spec-ops.JPG"
+  spec-ops:
+    repo_owner: "ruhphorte"
+    repo_name: "spec-ops-jak"
+    url: "https://github.com/ruhphorte/spec-ops-jak"
+    release_date_override: "2024-07-23"
+    ignore_versions:
+      - "<0.0.3"
+    display_name: "Spec Ops Jak"
+    description: "Immediately after being rescued by Daxter, Jak is fitted with an all black Spec Ops outfit and a new weapon. The Blaster Mod has been replaced with a fully automatic suppressed XM Nova assault rifle that fires depleted light eco rounds. These light eco rounds will easily take down anything in your way."
+    authors: ["Ruh"]
+    tags: ["texture-mod", "gameplay-mod"]
+    website_url: "https://github.com/ruhphorte/spec-ops-jak/blob/main/README.md"
+    cover_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/spec-ops.JPG"
+    thumbnail_art_url: "https://raw.githubusercontent.com/dallmeyer/modimages/main/spec-ops.JPG"
 
   # TODO: needs new release w/ updated schema
   # archipelagoal:
   #   repo_owner: "ArchipelaGOAL"
   #   repo_name: "ArchipelaGOAL"
   #   url: "https://github.com/ArchipelaGOAL/ArchipelaGOAL"
+  #   release_date_override: "2024-05-22"
   #   ignore_versions:
   #     - "<0.0.11"
   #   display_name: "ArchipelaGOAL"
@@ -285,6 +278,7 @@ mods:
     repo_owner: "my-opengoal-mods"
     repo_name: "OG-Jak-The-Chicken-Reborn"
     url: "https://github.com/my-opengoal-mods/OG-Jak-The-Chicken-Reborn"
+    release_date_override: "2023-10-21"
     ignore_versions:
       - "<1.13.1"
     display_name: "Jak the CHICKEN"
@@ -299,6 +293,7 @@ mods:
     repo_owner: "OpenGOAL-Mods"
     repo_name: "OG-Daxter2"
     url: "https://github.com/OpenGOAL-Mods/OG-Daxter2"
+    release_date_override: "2023-11-04"
     ignore_versions:
       - "<0.3.4"
     display_name: "Daxter II"
@@ -313,6 +308,7 @@ mods:
     repo_owner: "OpenGOAL-Mods"
     repo_name: "OG-Jak2-AugustBuild"
     url: "https://github.com/OpenGOAL-Mods/OG-Jak2-AugustBuild"
+    release_date_override: "2024-05-16"
     ignore_versions:
       - "<0.0.3"
     display_name: "Jak II - August Build"
@@ -328,6 +324,7 @@ mods:
   #   repo_owner: "RealOfficialKraken"
   #   repo_name: "OG-HeroMode-Plus"
   #   url: "https://github.com/RealOfficialKraken/OG-HeroMode-Plus"
+  #   release_date_override: "2023-11-07"
   #   ignore_versions:
   #     - "<0.0.75"
   #   display_name: "HeroMode+ | A Jak II Overhaul"
@@ -342,6 +339,7 @@ mods:
     repo_owner: "RealOfficialKraken"
     repo_name: "roguelikejakii"
     url: "https://github.com/RealOfficialKraken/roguelikejakii"
+    release_date_override: "2024-05-03"
     ignore_versions:
       - "<0.0.23"
     display_name: "Roguelike Jak 2"
@@ -356,6 +354,7 @@ mods:
     repo_owner: "OpenGOAL-Mods"
     repo_name: "OG-Dark-Jak"
     url: "https://github.com/OpenGOAL-Mods/OG-Dark-Jak"
+    release_date_override: "2023-11-11"
     ignore_versions:
       - "<0.4.1"
     display_name: "Dark Jak Renegade"
@@ -373,6 +372,7 @@ mods:
   #   repo_owner: "Kuitar5"
   #   repo_name: "the-forgotten-lands"
   #   url: "https://github.com/Kuitar5/the-forgotten-lands"
+  #   release_date_override: "2023-01-08"
   #   ignore_versions:
   #     - "<0.2.1"
   #   display_name: "The Forgotten Lands"
@@ -387,6 +387,7 @@ mods:
     repo_owner: "dallmeyer"
     repo_name: "jak-up"
     url: "https://github.com/dallmeyer/jak-up"
+    release_date_override: "2023-08-10"
     ignore_versions:
       - "<0.2.1"
     display_name: "Jak Up"
@@ -401,6 +402,7 @@ mods:
     repo_owner: "Cuttlefishthesage"
     repo_name: "OG-Mod-Base"
     url: "https://github.com/Cuttlefishthesage/OG-Mod-Base"
+    release_date_override: "2024-06-04"
     ignore_versions:
       - "<0.0.3"
     display_name: "River to Water"
@@ -415,6 +417,7 @@ mods:
     repo_owner: "Cuttlefishthesage"
     repo_name: "Og-ModBase-Rockpool"
     url: "https://github.com/Cuttlefishthesage/Og-ModBase-Rockpool"
+    release_date_override: "2024-07-23"
     ignore_versions:
       - "<1.0.3"
     display_name: "Rockpool"
@@ -429,6 +432,7 @@ mods:
     repo_owner: "OpenGOAL-Mods"
     repo_name: "OG-Funki-Showcase"
     url: "https://github.com/OpenGOAL-Mods/OG-Funki-Showcase"
+    release_date_override: "2023-11-08"
     ignore_versions:
       - "<0.1.1"
     display_name: "FUNKI DELIRE Custom Levels"
@@ -450,6 +454,7 @@ mods:
     repo_owner: "OpenGOAL-Mods"
     repo_name: "OG-Shrek-Adventures"
     url: "https://github.com/OpenGOAL-Mods/OG-Shrek-Adventures"
+    release_date_override: "2023-04-05"
     ignore_versions:
       - "<1.0.57"
     display_name: "Shrek Adventures"
@@ -464,6 +469,7 @@ mods:
     repo_owner: "dallmeyer"
     repo_name: "OG-rayman"
     url: "https://github.com/dallmeyer/OG-rayman"
+    release_date_override: "2024-08-03"
     ignore_versions:
       - "<0.0.2"
     display_name: "Rayman - The Precursor Legacy"
@@ -478,6 +484,7 @@ mods:
   # the standard mod installation experience
   teamruns:
     external_link: "https://teamruns.web.app/"
+    release_date_override: "2024-06-05"
     display_name: "TeamRuns"
     description: "Online and couch co-op multiplayer mod"
     authors: ["dexz"]

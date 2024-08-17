@@ -494,11 +494,11 @@ mods:
 
 texture_packs:
   # TODO - this one actually isn't supported end-to-end yet (no releases)
-  snowy-legacy:
-    repo_owner: "kekdeveloper"
-    repo_name: "opengoal-mod-snowy-legacy"
-    display_name: "Snowy Legacy"
-    description: "Snowy texture pack and snowy weather everywhere."
-    authors: ["InnocentMiau"]
-    tags: []
-    thumbnail_art_url: "https://github.com/kekdeveloper/opengoal-mod-snowy-legacy/blob/main/ModImage.png?raw=true"
+  # snowy-legacy:
+  #   repo_owner: "kekdeveloper"
+  #   repo_name: "opengoal-mod-snowy-legacy"
+  #   display_name: "Snowy Legacy"
+  #   description: "Snowy texture pack and snowy weather everywhere."
+  #   authors: ["InnocentMiau"]
+  #   tags: []
+  #   thumbnail_art_url: "https://github.com/kekdeveloper/opengoal-mod-snowy-legacy/blob/main/ModImage.png?raw=true"

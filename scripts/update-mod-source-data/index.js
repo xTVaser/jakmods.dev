@@ -299,120 +299,118 @@ for (const [modName, modInfo] of Object.entries(configFile["mods"])) {
     modSourceData.mods[modName] = modSourceInfo;
 }
 
-if (!configFile["texture_packs"]) {
-    exitWithError(`'texture_packs' section missing`);
-}
-
-// Do the same with texture packs
-// TODO - lots of duplication, de-duplicate it if you care
-// iterate through all listed repos and build up the file
-for (const [modName, modInfo] of Object.entries(configFile["texture_packs"])) {
-    // Iterate through the releases
-    // - check that we shouldn't ignore it
-    // - if the assets have a `metadata.json` file, we download and inspect it for a handful of settings (potentially used more in the future)
-    if (!validateJsonKeys(["display_name", "description", "authors", "tags"], Object.keys(modInfo), `${modName}`)) {
-        exitWithError("aborting");
-    }
-    let modSourceInfo = {
-        displayName: modInfo["display_name"],
-        description: modInfo["description"],
-        authors: modInfo["authors"],
-        tags: modInfo["tags"],
-        websiteUrl: modInfo["website_url"],
-        versions: [],
-        thumbnailArtUrl: undefined,
-        perGameConfig: undefined,
-    };
-    if (!Object.keys(modInfo).includes("website_url")) {
-        // either its an external link and we can ignore it
-        // or we infer it from the repo_owner_name
-        if (!Object.keys(modInfo).includes("external_link")) {
-            modSourceInfo.websiteUrl = `https://www.github.com/${modInfo["repo_owner"]}/${modInfo["repo_name"]}`;
+if (configFile["texture_packs"]) {   
+    // Do the same with texture packs
+    // TODO - lots of duplication, de-duplicate it if you care
+    // iterate through all listed repos and build up the file
+    for (const [modName, modInfo] of Object.entries(configFile["texture_packs"])) {
+        // Iterate through the releases
+        // - check that we shouldn't ignore it
+        // - if the assets have a `metadata.json` file, we download and inspect it for a handful of settings (potentially used more in the future)
+        if (!validateJsonKeys(["display_name", "description", "authors", "tags"], Object.keys(modInfo), `${modName}`)) {
+            exitWithError("aborting");
         }
-    }
-    if (Object.keys(modInfo).includes("thumbnail_art_url")) {
-        modSourceInfo.thumbnailArtUrl = modInfo["thumbnail_art_url"];
-    }
-    // if (Object.keys(modInfo).includes("release_date_override")) {
-    //     modSourceInfo.releaseDates = modInfo["release_date_override"];
-    // }
-    if (Object.keys(modInfo).includes("per_game_config")) {
-        modSourceInfo.perGameConfig = modInfo["per_game_config"];
-    }
-    // lint the per-game-config
-    if (modSourceInfo.thumbnailArtUrl === undefined) {
-        if (!Object.keys(modInfo).includes("per_game_config")) {
-            exitWithError(`${modName} does not define 'thumbnail_art_url' but lacks 'per_game_config'`)
+        let modSourceInfo = {
+            displayName: modInfo["display_name"],
+            description: modInfo["description"],
+            authors: modInfo["authors"],
+            tags: modInfo["tags"],
+            websiteUrl: modInfo["website_url"],
+            versions: [],
+            thumbnailArtUrl: undefined,
+            perGameConfig: undefined,
+        };
+        if (!Object.keys(modInfo).includes("website_url")) {
+            // either its an external link and we can ignore it
+            // or we infer it from the repo_owner_name
+            if (!Object.keys(modInfo).includes("external_link")) {
+                modSourceInfo.websiteUrl = `https://www.github.com/${modInfo["repo_owner"]}/${modInfo["repo_name"]}`;
+            }
         }
-        // Check per game config
-        // for (const supportedGame of modSourceInfo.supportedGames) {
-        //     if (!Object.keys(modSourceInfo.perGameConfig).includes(supportedGame) || !Object.keys(modSourceInfo.perGameConfig[supportedGame]).includes("thumbnailArtUrl")) {
-        //         exitWithError(`${modName} does not define 'thumbnail_art_url' and it's missing in 'per_game_config.${supportedGame}'`);
-        //     }
+        if (Object.keys(modInfo).includes("thumbnail_art_url")) {
+            modSourceInfo.thumbnailArtUrl = modInfo["thumbnail_art_url"];
+        }
+        // if (Object.keys(modInfo).includes("release_date_override")) {
+        //     modSourceInfo.releaseDates = modInfo["release_date_override"];
         // }
-    }
-    // otherwise, we poll github
-    if (!modInfo["repo_owner"] || !modInfo["repo_name"]) {
-        exitWithError(`'repo_owner' or 'repo_name' missing in: ${modName}`);
-    }
-    if (!lintMode) {
-        const modReleases = await octokit.paginate(octokit.rest.repos.listReleases, { owner: modInfo["repo_owner"], repo: modInfo["repo_name"] });
+        if (Object.keys(modInfo).includes("per_game_config")) {
+            modSourceInfo.perGameConfig = modInfo["per_game_config"];
+        }
+        // lint the per-game-config
+        if (modSourceInfo.thumbnailArtUrl === undefined) {
+            if (!Object.keys(modInfo).includes("per_game_config")) {
+                exitWithError(`${modName} does not define 'thumbnail_art_url' but lacks 'per_game_config'`)
+            }
+            // Check per game config
+            // for (const supportedGame of modSourceInfo.supportedGames) {
+            //     if (!Object.keys(modSourceInfo.perGameConfig).includes(supportedGame) || !Object.keys(modSourceInfo.perGameConfig[supportedGame]).includes("thumbnailArtUrl")) {
+            //         exitWithError(`${modName} does not define 'thumbnail_art_url' and it's missing in 'per_game_config.${supportedGame}'`);
+            //     }
+            // }
+        }
+        // otherwise, we poll github
+        if (!modInfo["repo_owner"] || !modInfo["repo_name"]) {
+            exitWithError(`'repo_owner' or 'repo_name' missing in: ${modName}`);
+        }
+        if (!lintMode) {
+            const modReleases = await octokit.paginate(octokit.rest.repos.listReleases, { owner: modInfo["repo_owner"], repo: modInfo["repo_name"] });
 
-        for (const release of modReleases) {
-            let cleaned_release_tag = release.tag_name;
-            if (cleaned_release_tag.startsWith("v")) {
-                cleaned_release_tag = cleaned_release_tag.substring(1);
-            }
-            if (!semver.valid(cleaned_release_tag)) {
-                console.error(`${modName}:${cleaned_release_tag} is not a valid semantic version, skipping`);
-                continue;
-            }
-            // Check that we shouldn't ignore it
-            if (Object.keys(modInfo).includes("ignore_versions")) {
-                let skipIt = false;
-                for (const ignore_version of modInfo["ignore_versions"]) {
-                    if (ignore_version.startsWith("<")) {
-                        let cleaned_ignore_version = ignore_version.substring(1);
-                        if (semver.lt(cleaned_release_tag, cleaned_ignore_version)) {
-                            console.log(`ignoring release - ${modName}:${cleaned_release_tag}`);
+            for (const release of modReleases) {
+                let cleaned_release_tag = release.tag_name;
+                if (cleaned_release_tag.startsWith("v")) {
+                    cleaned_release_tag = cleaned_release_tag.substring(1);
+                }
+                if (!semver.valid(cleaned_release_tag)) {
+                    console.error(`${modName}:${cleaned_release_tag} is not a valid semantic version, skipping`);
+                    continue;
+                }
+                // Check that we shouldn't ignore it
+                if (Object.keys(modInfo).includes("ignore_versions")) {
+                    let skipIt = false;
+                    for (const ignore_version of modInfo["ignore_versions"]) {
+                        if (ignore_version.startsWith("<")) {
+                            let cleaned_ignore_version = ignore_version.substring(1);
+                            if (semver.lt(cleaned_release_tag, cleaned_ignore_version)) {
+                                console.log(`ignoring release - ${modName}:${cleaned_release_tag}`);
+                                skipIt = true;
+                                break;
+                            }
+                        } else if (semver.eq(ignore_version, cleaned_release_tag)) {
+                            console.log(`ignoring release - ${modName}:${ignore_version}`);
                             skipIt = true;
                             break;
                         }
-                    } else if (semver.eq(ignore_version, cleaned_release_tag)) {
-                        console.log(`ignoring release - ${modName}:${ignore_version}`);
-                        skipIt = true;
-                        break;
                     }
-                }
-                if (skipIt) {
-                    continue;
-                }
-                // otherwise, we ain't skipping it...yet
-                let newVersion = {
-                    version: cleaned_release_tag,
-                    publishedDate: release.published_at,
-                    downloadUrl: null,
-                    downloadCount: 0
-                }
-                // get the assets
-                for (const asset of release.assets) {
-                    if (asset.name.toLowerCase() === "assets.zip") {
-                        newVersion.downloadUrl = asset.browser_download_url;
-                        newVersion.downloadCount = asset.download_count;
+                    if (skipIt) {
+                        continue;
                     }
+                    // otherwise, we ain't skipping it...yet
+                    let newVersion = {
+                        version: cleaned_release_tag,
+                        publishedDate: release.published_at,
+                        downloadUrl: null,
+                        downloadCount: 0
+                    }
+                    // get the assets
+                    for (const asset of release.assets) {
+                        if (asset.name.toLowerCase() === "assets.zip") {
+                            newVersion.downloadUrl = asset.browser_download_url;
+                            newVersion.downloadCount = asset.download_count;
+                        }
+                    }
+                    // If there are no assets, skip it -- there's nothing to download!
+                    if (newVersion.assets.downloadUrl === null) {
+                        console.log(`ignoring version, no assets.zip found - ${modName}:${cleaned_release_tag}`);
+                        continue;
+                    }
+                    // otherwise, add it to the list
+                    modSourceInfo.versions.push(newVersion);
                 }
-                // If there are no assets, skip it -- there's nothing to download!
-                if (newVersion.assets.downloadUrl === null) {
-                    console.log(`ignoring version, no assets.zip found - ${modName}:${cleaned_release_tag}`);
-                    continue;
-                }
-                // otherwise, add it to the list
-                modSourceInfo.versions.push(newVersion);
             }
         }
+        // add to source json
+        modSourceData.texturePacks[modName] = modSourceInfo;
     }
-    // add to source json
-    modSourceData.texturePacks[modName] = modSourceInfo;
 }
 
 if (!lintMode) {

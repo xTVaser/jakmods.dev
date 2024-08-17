@@ -139,8 +139,10 @@ for (const [modName, modInfo] of Object.entries(configFile["mods"])) {
     // if the mod is external only, we don't check releases
     if (Object.keys(modInfo).includes("external_link")) {
         modSourceInfo.externalLink = modInfo["external_link"];
-        // hack, default to just jak1 for external
-        modSourceInfo.supportedGames.push("jak1");
+        if (!Object.keys(modInfo).includes("supported_games")) {
+            exitWithError(`${modName} is external but lacks 'supported_games'`)
+        }
+        modSourceInfo.supportedGames = modInfo["supported_games"];
         modSourceData.mods[modName] = modSourceInfo;
         continue;
     }
@@ -305,16 +307,20 @@ for (const [modName, modInfo] of Object.entries(configFile["mods"])) {
         }
     }
 
+    // TODO - this should only be required on external mods which are already verified before
+    // can probably be removed "soon"
+    //
     // safety hack, default to just jak1 if no supportedGames provided
     if (modSourceInfo.supportedGames.length == 0) {
         modSourceInfo.supportedGames.push("jak1");
+        console.log(`had no supported games at the top level, this is optional, defaulted to 'jak1': ${modName}`)
     }
 
     // add to source json
     modSourceData.mods[modName] = modSourceInfo;
 }
 
-if (configFile["texture_packs"]) {   
+if (configFile["texture_packs"]) {
     // Do the same with texture packs
     // TODO - lots of duplication, de-duplicate it if you care
     // iterate through all listed repos and build up the file

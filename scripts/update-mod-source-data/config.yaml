@@ -488,6 +488,7 @@ mods:
     display_name: "TeamRuns"
     description: "Online and couch co-op multiplayer mod"
     authors: ["dexz"]
+    supported_games: ["jak1"]
     tags: ["multiplayer", "speedrunning"]
     thumbnail_art_url: "https://teamruns.web.app/assets/teamruns-full-logo.png"
     cover_art_url: "https://teamruns.web.app/assets/teamruns-full-logo.png"
@@ -500,5 +501,6 @@ texture_packs:
   #   display_name: "Snowy Legacy"
   #   description: "Snowy texture pack and snowy weather everywhere."
   #   authors: ["InnocentMiau"]
+  #   supported_games: ["jak1"]
   #   tags: []
   #   thumbnail_art_url: "https://github.com/kekdeveloper/opengoal-mod-snowy-legacy/blob/main/ModImage.png?raw=true"
